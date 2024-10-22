@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaUtopia - Rejestracja</title>
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Logo and Title -->
+        <div class="logo-container">
+            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo">
+            <h1>PizzaUtopia</h1>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="form-container">
+            <h2>Rejestracja</h2>
+            <form id="registerForm">
+                <input type="email" id="email" placeholder="Email" required>
+                
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Hasło" required>
+                    <button type="button" class="show-password" onclick="togglePassword('password')">
+                        <img src="eye-icon.png" alt="Show/Hide Password">
+                    </button>
+                </div>
+
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" placeholder="Powtórz hasło" required>
+                    <button type="button" class="show-password" onclick="togglePassword('confirmPassword')">
+                        <img src="eye-icon.png" alt="Show/Hide Password">
+                    </button>
+                </div>
+
+                <button type="submit" class="register-btn">Zarejestruj się</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId) {
+            const passwordInput = document.getElementById(inputId);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PizzaUtopia</title>
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- Logo and Title -->
+        <div class="logo-container">
+            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo">
+            <h1>PizzaUtopia</h1>
+        </div>
+
+    <button type="submit" class="login-btn" onclick="redirectToLogin()">Zaloguj się</button>
+
+    <button type="submit" class="register-btn" onclick="redirectToRegister()">Zarejestruj się</button>
+    <script>
+    function redirectToLogin() {
+        window.location.href = "Login.html";
+    }
+    function redirectToRegister() {
+        window.location.href = "Register.html";
+    }
+    </script>
+</body>
+</html>

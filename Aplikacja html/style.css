@@ -1,0 +1,167 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Jua';
+}
+
+body {
+    font-family: 'Jua';
+    background-color: #FF8C00; /* Orange background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Logo and Title */
+.logo-container {
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Login Form */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #FF8C00; /* Matching the orange theme */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Password visibility button */
+.password-container {
+    position: relative;
+}
+
+.show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.show-password img {
+    width: 25px;
+    height: auto;
+    align-items: center;
+}
+
+.twopassword-container {
+    position: relative;
+}
+
+.show-twopassword {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.show-twopassword img {
+    width: 24px;
+    height: auto;
+}
+button.login-btn {
+    width: 100%;
+    background-color: #FF8C00;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.login-btn:hover {
+    background-color: #e57a00;
+}
+
+button.register-btn {
+    width: 100%;
+    background-color: #FF8C00;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.register-btn:hover {
+    background-color: #e57a00;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        max-width: 320px;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        font-size: 14px;
+    }
+
+    button.login-btn {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
