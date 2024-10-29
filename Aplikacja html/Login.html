@@ -27,7 +27,7 @@
                         <img src="eye-icon.png" alt="Show/Hide Password">
                     </button>
                 </div>
-                <button type="submit" class="login-btn">Zaloguj się</button>
+                <button type="submit" class="login-btn" onclick="redirectToMenu()">Zaloguj się</button>
             </form>
         </div>
     </div>
@@ -40,6 +40,9 @@
             } else {
                 passwordInput.type = "password";
             }
+        }
+        function redirectToMenu() {
+            window.location.href = "Menu.html";
         }
     </script>
 </body>

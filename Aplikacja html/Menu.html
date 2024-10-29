@@ -53,9 +53,21 @@
     </div>
 
     <footer class="footer-nav">
-        <button class="home-btn">Home</button>
-        <button class="cart-btn">Koszyk</button>
-        <button class="profile-btn">Profil</button>
+        <button class="home-btn" onclick="redirectToMenu()">Home</button>
+        <button class="cart-btn" onclick="redirectToCart()">Koszyk</button>
+        <button class="profile-btn" onclick="redirectToProfil()">Profil</button>
     </footer>
+    <script>
+    
+        function redirectToMenu() {
+            window.location.href = "Menu.html";
+        }
+        function redirectToCart() {
+            window.location.href = "Cart.html";
+        }
+        function redirectToProfil() {
+            window.location.href = "Profil.html";
+        }
+        </script>
 </body>
 </html>
