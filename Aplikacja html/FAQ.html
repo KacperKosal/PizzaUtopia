@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zmień Hasło</title>
+    <style>
+        /* Resetowanie marginesów i paddingu */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        /* Górny pasek z tytułem */
+        .header {
+            background-color: #FFA500;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .back-button {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Kontener główny */
+        .container {
+            padding: 20px;
+        }
+
+        /* Pola haseł */
+        .password-field {
+            display: flex;
+            align-items: center;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .password-field input {
+            border: none;
+            outline: none;
+            background: none;
+            width: 100%;
+            font-size: 16px;
+            color: #000;
+        }
+
+        .password-field img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* Przycisk "Zapisz zmiany" */
+        .save-button {
+            background-color: #FFA500;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Stopka nawigacyjna */
+        .footer {
+            background-color: #FFA500;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Górna część strony -->
+    <div class="header">
+        <div class="back-button">←</div>
+        <h1>Zmień hasło</h1>
+    </div>
+
+    <!-- Zawartość strony -->
+    <div class="container">
+        <div class="password-field">
+            <input type="password" placeholder="Obecne hasło" id="current-password">
+            <img src="eye-icon.png" alt="Show Password" onclick="togglePassword('current-password', this)">
+        </div>
+        <div class="password-field">
+            <input type="password" placeholder="Nowe hasło" id="new-password">
+            <img src="eye-icon.png" alt="Show Password" onclick="togglePassword('new-password', this)">
+        </div>
+        <div class="password-field">
+            <input type="password" placeholder="Potwierdź hasło" id="confirm-password">
+            <img src="eye-icon.png" alt="Show Password" onclick="togglePassword('confirm-password', this)">
+        </div>
+
+        <!-- Przycisk "Zapisz zmiany" -->
+        <button class="save-button">Zapisz zmiany</button>
+    </div>
+
+    <!-- Stopka nawigacyjna -->
+    <div class="footer">
+        <img src="home-icon.png" alt="Home">
+        <img src="cart-icon.png" alt="Cart">
+        <img src="profile-icon.png" alt="Profile">
+    </div>
+
+    <!-- Skrypt do pokazywania/ukrywania hasła -->
+    <script>
+        function togglePassword(fieldId, icon) {
+            const field = document.getElementById(fieldId);
+            if (field.type === "password") {
+                field.type = "text";
+                icon.src = "eye-closed-icon.png";  // Ikona zamkniętego oka (do zamiany)
+            } else {
+                field.type = "password";
+                icon.src = "eye-icon.png";  // Ikona otwartego oka
+            }
+        }
+    </script>
+
+</body>
+</html>

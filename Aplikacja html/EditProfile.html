@@ -104,23 +104,22 @@
             width: 80%;
         }
 
-.footer-nav {
-    display: flex;
-    justify-content: space-around;
-    background-color: #FFA500;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+        .footer {
+            background-color: #FFA500;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
 
-.footer-nav button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
-}
+        .footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -152,11 +151,11 @@
     </div>
 
     <!-- Stopka z nawigacją -->
-    <footer class="footer-nav">
-        <button class="home-btn" onclick="redirectToMenu()">Home</button>
-        <button class="cart-btn" onclick="redirectToCart()">Koszyk</button>
-        <button class="profile-btn" onclick="redirectToProfil()">Profil</button>
-    </footer>
+    <div class="footer">
+        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+    </div>
     <script>
 
         function redirectToMenu() {

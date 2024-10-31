@@ -68,22 +68,21 @@ header .welcome {
     font-size: 1em;
 }
 
-.footer-nav {
-    display: flex;
-    justify-content: space-around;
+.footer {
     background-color: #FFA500;
-    padding: 10px 0;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-.footer-nav button {
-    background: none;
-    border: none;
-    color: #fff;
-    font-size: 18px;
-    cursor: pointer;
+.footer img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 
 /* Responsive for smaller screens */

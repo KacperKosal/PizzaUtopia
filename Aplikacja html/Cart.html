@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <title>Koszyk</title>
+    <style>
+        /* Resetowanie marginesów i paddingu */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Jua';
+        }
+
+        body {
+            background-color: #ffffff;
+        }
+
+        /* Górny pasek z logiem i tytułem */
+        .header {
+            background-color: #FFA500;
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Kontener koszyka */
+        .cart-container {
+            padding: 20px;
+        }
+
+        /* Stylizacja elementów w koszyku */
+        .cart-item {
+            display: flex;
+            align-items: center;
+            background-color: #FFD580;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .cart-item-content {
+            flex-grow: 1;
+        }
+
+        .cart-item-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .cart-item-quantity {
+            font-size: 16px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* Przycisk "Dokoncz zamówienie" */
+        .checkout-button {
+            background-color: #FFA500;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Stopka nawigacyjna */
+        .footer {
+            background-color: #FFA500;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        /* Ikona liczby produktów w koszyku */
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-icon span {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #ff0000;
+            color: #fff;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Górna część strony -->
+    <div class="header">
+        <img src="logopizzy.png" alt="Pizza Icon">
+        <h1>Mój koszyk</h1>
+    </div>
+
+    <!-- Zawartość koszyka -->
+    <div class="cart-container">
+        <div class="cart-item">
+            <img src="pepperoni-pizza.png" alt="Pepperoni Pizza">
+            <div class="cart-item-content">
+                <div class="cart-item-title">Pepperoni pizza</div>
+                <div class="cart-item-quantity">Ilość: 2</div>
+            </div>
+        </div>
+        <div class="cart-item">
+            <img src="margarita-pizza.png" alt="Margarita Pizza">
+            <div class="cart-item-content">
+                <div class="cart-item-title">Margarita</div>
+                <div class="cart-item-quantity">Ilość: 1</div>
+            </div>
+        </div>
+
+        <!-- Przycisk "Dokoncz zamówienie" -->
+        <button class="checkout-button">Dokończ zamówienie</button>
+    </div>
+
+    <!-- Stopka nawigacyjna -->
+    <div class="footer">
+        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+    </div>
+    <script>
+    
+        function redirectToMenu() {
+            window.location.href = "Menu.html";
+        }
+        function redirectToCart() {
+            window.location.href = "Cart.html";
+        }
+        function redirectToProfil() {
+            window.location.href = "Profil.html";
+        }
+        </script>
+</body>
+</html>

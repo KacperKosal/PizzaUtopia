@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
     <title>Przełącznik</title>
     <style>
         /* Kontener przełącznika */
@@ -54,6 +55,23 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+        
+        .footer-nav {
+            background-color: #FFA500;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer-nav img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
@@ -64,6 +82,13 @@
     <input type="checkbox">
     <span class="slider"></span>
 </label>
-
+<div class="footer">
+    <img src="home-icon.png" alt="Home">
+    <div class="cart-icon">
+        <img src="cart-icon.png" alt="Cart">
+        <span>3</span>
+    </div>
+    <img src="profile-icon.png" alt="Profile">
+</div>
 </body>
 </html>
