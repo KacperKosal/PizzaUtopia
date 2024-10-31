@@ -3,84 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moje Zamówienie</title>
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <title>Finalizacja Zamówienia</title>
     <style>
         /* Resetowanie marginesów i paddingu */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Jua';
         }
 
         body {
             background-color: #ffffff;
         }
 
-        /* Górny pasek z tytułem */
+        /* Stylizacja nagłówka */
         .header {
             background-color: #FFA500;
             padding: 20px;
             text-align: left;
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .header img {
-            width: 25px;
-            height: 25px;
-            margin-right: 10px;
         }
 
         .header h1 {
             font-size: 24px;
             color: #000;
             font-weight: bold;
-            margin-left: 10px;
         }
 
         /* Kontener zamówienia */
         .order-container {
             padding: 20px;
-            text-align: center;
         }
 
-        .order-summary {
-            background-color: #FFDD87;
+        .order-item {
+            background-color: #FFD580;
             border-radius: 10px;
             padding: 15px;
-            margin-bottom: 20px;
-            font-size: 18px;
-            color: #000;
-            font-weight: bold;
-        }
-
-        /* Przycisk powrotu do koszyka */
-        .button-back {
-            background-color: transparent;
-            border: 2px solid #FFA500;
-            color: #FFA500;
-            font-size: 16px;
-            font-weight: bold;
-            padding: 10px;
-            border-radius: 10px;
-            width: 100%;
-            cursor: pointer;
             margin-bottom: 10px;
         }
 
-        /* Przycisk "Dokończ zamówienie" */
-        .button-finish {
+        /* Przycisk "Zamów" */
+        .checkout-button {
             background-color: #FFA500;
             color: #fff;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
-            padding: 10px;
+            padding: 15px;
             border: none;
             border-radius: 10px;
             width: 100%;
             cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Przycisk "Wróć do koszyka" */
+        .back-button {
+            background-color: transparent;
+            color: #FFA500;
+            border: 2px solid #FFA500;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 10px;
         }
 
         /* Stopka nawigacyjna */
@@ -100,58 +89,29 @@
             height: 30px;
             border-radius: 50%;
         }
-
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background-color: #ff0000;
-            color: #fff;
-            font-size: 12px;
-            font-weight: bold;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
     </style>
 </head>
 <body>
 
-    <!-- Górna część strony -->
     <div class="header">
-        <img src="logopizzy.png" alt="Pizza Icon">
-        <h1>Moje zamówienie</h1>
+        <h1>Finalizacja Zamówienia</h1>
     </div>
 
-    <!-- Zawartość strony -->
-    <div class="order-container">
-        <div class="order-summary">
-            2 x Pepperoni pizza <br>
-            1 x Margarita
-        </div>
-
-        <button class="button-back" onclick="redirectToCart()">Wróć do koszyka</button>
-        <button class="button-finish">Zamów</button>
+    <div class="order-container" id="order-container">
+        <!-- Produkty zostaną wczytane dynamicznie przez JavaScript -->
     </div>
 
-    <!-- Stopka nawigacyjna -->
+    <button class="back-button" onclick="redirectToCart()">Wróć do koszyka</button>
+    <button class="checkout-button" onclick="confirmOrder()">Zamów</button>
+    
+
     <div class="footer">
         <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
-        <div class="cart-icon" >
-            <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-            <div class="cart-badge">3</div>
-        </div>
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
         <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
     </div>
+
     <script>
-    
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
@@ -161,6 +121,36 @@
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
-        </script>
+
+        function loadCart() {
+            const orderContainer = document.getElementById('order-container');
+            orderContainer.innerHTML = ''; // Czyścimy zawartość
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            if (cart.length === 0) {
+                orderContainer.innerHTML = '<p>Twój koszyk jest pusty.</p>';
+                return;
+            }
+
+            cart.forEach(item => {
+                const orderItem = document.createElement('div');
+                orderItem.classList.add('order-item');
+                orderItem.innerHTML = `
+                    <div>${item.name}</div>
+                    <div>Ilość: ${item.quantity}</div>
+                `;
+                orderContainer.appendChild(orderItem);
+            });
+        }
+
+        function confirmOrder() {
+            alert('Zamówienie złożone!');
+            localStorage.removeItem('cart'); // Opróżniamy koszyk po złożeniu zamówienia
+            redirectToMenu(); // Przekierowujemy do menu
+        }
+
+        // Wczytujemy koszyk przy ładowaniu strony
+        window.onload = loadCart;
+    </script>
 </body>
 </html>

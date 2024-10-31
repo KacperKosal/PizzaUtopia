@@ -72,9 +72,22 @@
         }
 
         .cart-item-quantity {
+            display: flex;
+            align-items: center;
             font-size: 16px;
             color: #555;
             margin-top: 5px;
+        }
+
+        .quantity-button {
+            background-color: #FFA500;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
         }
 
         /* Przycisk "Dokoncz zamówienie" */
@@ -110,21 +123,6 @@
             border-radius: 50%;
         }
 
-        /* Ikona liczby produktów w koszyku */
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-icon span {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background-color: #ff0000;
-            color: #fff;
-            font-size: 12px;
-            padding: 2px 6px;
-            border-radius: 50%;
-        }
     </style>
 </head>
 <body>
@@ -136,32 +134,20 @@
     </div>
 
     <!-- Zawartość koszyka -->
-    <div class="cart-container">
-        <div class="cart-item">
-            <img src="pepperoni-pizza.png" alt="Pepperoni Pizza">
-            <div class="cart-item-content">
-                <div class="cart-item-title">Pepperoni pizza</div>
-                <div class="cart-item-quantity">Ilość: 2</div>
-            </div>
-        </div>
-        <div class="cart-item">
-            <img src="margarita-pizza.png" alt="Margarita Pizza">
-            <div class="cart-item-content">
-                <div class="cart-item-title">Margarita</div>
-                <div class="cart-item-quantity">Ilość: 1</div>
-            </div>
-        </div>
-
-        <!-- Przycisk "Dokoncz zamówienie" -->
-        <button class="checkout-button" onclick="redirectToFinalizacja()" >Dokończ zamówienie</button>
+    <div class="cart-container" id="cart-container">
+        <!-- Produkty zostaną wczytane dynamicznie przez JavaScript -->
     </div>
+
+    <!-- Przycisk "Dokończ zamówienie" -->
+    <button class="checkout-button" onclick="redirectToFinalizacja()">Dokończ zamówienie</button>
 
     <!-- Stopka nawigacyjna -->
     <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
         <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
         <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
     </div>
+
     <script>
         function redirectToFinalizacja() {
             window.location.href = "Finalizacja.html";
@@ -175,6 +161,62 @@
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
-        </script>
+
+        // Funkcja do wczytania koszyka z localStorage
+        function loadCart() {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = ''; // Czyścimy zawartość
+
+            // Pobieramy koszyk z localStorage
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Sprawdzamy, czy koszyk jest pusty
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p>Twój koszyk jest pusty.</p>';
+                return;
+            }
+
+            // Generujemy HTML dla każdego produktu w koszyku
+            cart.forEach((item, index) => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <img src="${item.name.toLowerCase().replace(' ', '-')}-pizza.png" alt="${item.name}">
+                    <div class="cart-item-content">
+                        <div class="cart-item-title">${item.name}</div>
+                        <div class="cart-item-quantity">
+                            <button class="quantity-button" onclick="updateQuantity(${index}, -1)">-</button>
+                            Ilość: ${item.quantity}
+                            <button class="quantity-button" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                    </div>
+                `;
+                cartContainer.appendChild(cartItem);
+            });
+        }
+
+        // Funkcja do aktualizacji ilości produktu
+        function updateQuantity(index, change) {
+            // Pobieramy koszyk z localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Aktualizujemy ilość produktu
+            cart[index].quantity += change;
+
+            // Jeśli ilość jest 0, usuwamy produkt z koszyka
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);
+            }
+
+            // Zapisujemy zaktualizowany koszyk do localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Odświeżamy wyświetlany koszyk
+            loadCart();
+        }
+
+        // Wczytujemy koszyk przy ładowaniu strony
+        window.onload = loadCart;
+    </script>
 </body>
 </html>
