@@ -3,93 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
-    <title>Koszyk</title>
+    <title>Moje Zamówienie</title>
     <style>
         /* Resetowanie marginesów i paddingu */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Jua';
+            font-family: Arial, sans-serif;
         }
 
         body {
             background-color: #ffffff;
         }
 
-        /* Górny pasek z logiem i tytułem */
+        /* Górny pasek z tytułem */
         .header {
             background-color: #FFA500;
             padding: 20px;
             text-align: left;
+            position: relative;
             display: flex;
             align-items: center;
-            gap: 10px;
         }
 
         .header img {
-            width: 30px;
-            height: 30px;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
         }
 
         .header h1 {
             font-size: 24px;
             color: #000;
             font-weight: bold;
+            margin-left: 10px;
         }
 
-        /* Kontener koszyka */
-        .cart-container {
+        /* Kontener zamówienia */
+        .order-container {
             padding: 20px;
+            text-align: center;
         }
 
-        /* Stylizacja elementów w koszyku */
-        .cart-item {
-            display: flex;
-            align-items: center;
-            background-color: #FFD580;
+        .order-summary {
+            background-color: #FFDD87;
             border-radius: 10px;
             padding: 15px;
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+        }
+
+        /* Przycisk powrotu do koszyka */
+        .button-back {
+            background-color: transparent;
+            border: 2px solid #FFA500;
+            color: #FFA500;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 10px;
+            width: 100%;
+            cursor: pointer;
             margin-bottom: 10px;
         }
 
-        .cart-item img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
-        }
-
-        .cart-item-content {
-            flex-grow: 1;
-        }
-
-        .cart-item-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #000;
-        }
-
-        .cart-item-quantity {
-            font-size: 16px;
-            color: #555;
-            margin-top: 5px;
-        }
-
-        /* Przycisk "Dokoncz zamówienie" */
-        .checkout-button {
+        /* Przycisk "Dokończ zamówienie" */
+        .button-finish {
             background-color: #FFA500;
             color: #fff;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
-            padding: 15px;
+            padding: 10px;
             border: none;
             border-radius: 10px;
             width: 100%;
             cursor: pointer;
-            text-align: center;
-            margin-top: 20px;
         }
 
         /* Stopka nawigacyjna */
@@ -110,20 +101,24 @@
             border-radius: 50%;
         }
 
-        /* Ikona liczby produktów w koszyku */
         .cart-icon {
             position: relative;
         }
 
-        .cart-icon span {
+        .cart-badge {
             position: absolute;
-            top: -10px;
-            right: -10px;
+            top: -5px;
+            right: -5px;
             background-color: #ff0000;
             color: #fff;
             font-size: 12px;
-            padding: 2px 6px;
+            font-weight: bold;
             border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -132,40 +127,31 @@
     <!-- Górna część strony -->
     <div class="header">
         <img src="logopizzy.png" alt="Pizza Icon">
-        <h1>Mój koszyk</h1>
+        <h1>Moje zamówienie</h1>
     </div>
 
-    <!-- Zawartość koszyka -->
-    <div class="cart-container">
-        <div class="cart-item">
-            <img src="pepperoni-pizza.png" alt="Pepperoni Pizza">
-            <div class="cart-item-content">
-                <div class="cart-item-title">Pepperoni pizza</div>
-                <div class="cart-item-quantity">Ilość: 2</div>
-            </div>
-        </div>
-        <div class="cart-item">
-            <img src="margarita-pizza.png" alt="Margarita Pizza">
-            <div class="cart-item-content">
-                <div class="cart-item-title">Margarita</div>
-                <div class="cart-item-quantity">Ilość: 1</div>
-            </div>
+    <!-- Zawartość strony -->
+    <div class="order-container">
+        <div class="order-summary">
+            2 x Pepperoni pizza <br>
+            1 x Margarita
         </div>
 
-        <!-- Przycisk "Dokoncz zamówienie" -->
-        <button class="checkout-button" onclick="redirectToFinalizacja()" >Dokończ zamówienie</button>
+        <button class="button-back" onclick="redirectToCart()">Wróć do koszyka</button>
+        <button class="button-finish">Zamów</button>
     </div>
 
     <!-- Stopka nawigacyjna -->
     <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
+        <div class="cart-icon" >
+            <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
+            <div class="cart-badge">3</div>
+        </div>
         <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
     </div>
     <script>
-        function redirectToFinalizacja() {
-            window.location.href = "Finalizacja.html";
-        }
+    
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }

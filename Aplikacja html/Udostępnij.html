@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <title>Udostępnij</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Jua';
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #FFA500;
+            padding: 15px;
+            text-align: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            position: relative;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        header .back-button {
+            position: absolute;
+            left: 10px;
+            top: 15px;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #FFA500;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .edit-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #FFA500;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 18px;
+        }
+
+        .input-group {
+            width: 80%;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .save-button {
+            background-color: #FFA500;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 18px;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+            width: 80%;
+        }
+
+        .footer {
+            background-color: #FFA500;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .menu-item {
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Nagłówek -->
+    <header>
+        <a href="#" class="back-button" onclick="redirectToProfil()">←</a>
+        Udostepnij
+    </header>
+    
+
+    <!-- Stopka z nawigacją -->
+    <div class="footer">
+        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+    </div>
+    <script>
+    
+        function redirectToMenu() {
+            window.location.href = "Menu.html";
+        }
+        function redirectToCart() {
+            window.location.href = "Cart.html";
+        }
+        function redirectToProfil() {
+            window.location.href = "Profil.html";
+        }
+        </script>
+</body>
+</html>
