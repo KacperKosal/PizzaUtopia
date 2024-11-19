@@ -1,3 +1,18 @@
 ﻿@page "/"
 
-<h1>PizzaUtopia</h1>
+@using PizzaUtopia.Components.Elements.Buttons
+
+<Button OnClick="OnLoginClick">
+	Zaloguj się
+</Button>
+
+<Button>
+	Zarejestruj się
+</Button>
+
+@code {
+	private void OnLoginClick(object? sender, EventArgs args)
+	{
+		
+	}
+}
