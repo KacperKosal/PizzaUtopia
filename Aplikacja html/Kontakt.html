@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'> <!-- Załadowanie czcionki 'Jua' -->
     <title>Kontakt</title>
     <style>
+        /* Resetowanie marginesów i paddingu oraz ustawienie domyślnego stylu */
         * {
             margin: 0;
             padding: 0;
@@ -13,26 +14,28 @@
         }
 
         body {
-            font-family: 'Jua';
-            background-color: #f5f5f5;
-            color: #333;
+            font-family: 'Jua'; /* Ustawienie czcionki dla całej strony */
+            background-color: #f5f5f5; /* Kolor tła strony */
+            color: #333; /* Kolor tekstu */
         }
 
+        /* Stylizacja nagłówka strony */
         header {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Pomarańczowe tło nagłówka */
             padding: 15px;
             text-align: center;
-            color: white;
+            color: white; /* Kolor tekstu nagłówka */
             font-weight: bold;
             font-size: 18px;
             position: relative;
-            border-bottom-left-radius: 20px;
+            border-bottom-left-radius: 20px; /* Zaokrąglenie dolnych rogów */
             border-bottom-right-radius: 20px;
         }
 
+        /* Stylizacja przycisku powrotu w nagłówku */
         header .back-button {
             position: absolute;
-            left: 10px;
+            left: 10px; /* Ustawienie przycisku w lewym górnym rogu */
             top: 15px;
             color: white;
             font-size: 20px;
@@ -40,22 +43,25 @@
             text-decoration: none;
         }
 
+        /* Sekcja profilu użytkownika */
         .profile-section {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px;
+            margin-top: 20px; /* Odstęp od góry */
         }
 
+        /* Stylizacja zdjęcia profilowego */
         .profile-pic {
-            width: 100px;
+            width: 100px; /* Rozmiar zdjęcia */
             height: 100px;
-            border-radius: 50%;
-            border: 3px solid #FFA500;
-            margin-bottom: 10px;
+            border-radius: 50%; /* Zaokrąglenie zdjęcia */
+            border: 3px solid #FFA500; /* Pomarańczowa ramka wokół zdjęcia */
+            margin-bottom: 10px; /* Odstęp od innych elementów */
             position: relative;
         }
 
+        /* Ikona edycji w prawym dolnym rogu zdjęcia */
         .edit-icon {
             position: absolute;
             bottom: 0;
@@ -63,7 +69,7 @@
             background-color: #FFA500;
             width: 30px;
             height: 30px;
-            border-radius: 50%;
+            border-radius: 50%; /* Zaokrąglony przycisk edycji */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,29 +77,33 @@
             font-size: 18px;
         }
 
+        /* Stylizacja grupy inputów (formy) */
         .input-group {
-            width: 80%;
+            width: 80%; /* Szerokość pola wejściowego */
             margin: 10px 0;
             text-align: left;
         }
 
+        /* Stylizacja etykiety dla inputa */
         .input-group label {
             font-size: 14px;
             color: #555;
-            margin-bottom: 5px;
+            margin-bottom: 5px; /* Odstęp poniżej etykiety */
             display: block;
         }
 
+        /* Stylizacja samego inputa */
         .input-group input {
-            width: 100%;
+            width: 100%; /* Wypełnia całą dostępną szerokość */
             padding: 10px;
             border-radius: 20px;
-            border: 1px solid #ccc;
+            border: 1px solid #ccc; /* Szara ramka */
             font-size: 16px;
         }
 
+        /* Stylizacja przycisku zapisz */
         .save-button {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Pomarańczowe tło przycisku */
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
@@ -104,8 +114,9 @@
             width: 80%;
         }
 
+        /* Stopka nawigacyjna */
         .footer {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Kolor tła stopki */
             padding: 10px;
             position: fixed;
             bottom: 0;
@@ -115,50 +126,60 @@
             align-items: center;
         }
 
+        /* Stylizacja ikon w stopce */
         .footer img {
             width: 30px;
             height: 30px;
-            border-radius: 50%;
-        }
-        .menu-item {
-            background-color: white;
-            border-radius: 20px;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            text-align: center;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            border-radius: 50%; /* Zaokrąglone ikony */
         }
 
+        /* Stylizacja przycisków w menu */
+        .menu-item {
+            background-color: white; /* Tło przycisków */
+            border-radius: 20px;
+            padding: 10px 20px;
+            margin-bottom: 10px; /* Odstęp między przyciskami */
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Cień przycisków */
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
 
     <!-- Nagłówek -->
     <header>
-        <a href="#" class="back-button" onclick="redirectToProfil()">←</a>
+        <a href="#" class="back-button" onclick="redirectToMenu()">←</a> <!-- Przycisk powrotu do menu -->
         Kontakt
     </header>
-    
 
-    <!-- Stopka z nawigacją -->
-    <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+    <!-- Sekcja profilowa użytkownika -->
+    <div class="profile-section">
+        <img src="profile-pic.png" alt="Profil" class="profile-pic">
+        <div class="edit-icon">✏️</div> <!-- Ikona edycji profilu -->
     </div>
+
+    <!-- Stopka z nawigacją do innych stron -->
+    <div class="footer">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()"> <!-- Ikona strony głównej -->
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()"> <!-- Ikona koszyka -->
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()"> <!-- Ikona profilu -->
+    </div>
+
     <script>
-    
+        // Funkcje do nawigacji między stronami
         function redirectToMenu() {
-            window.location.href = "Menu.html";
+            window.location.href = "Menu.html"; // Przekierowanie do strony menu
         }
+
         function redirectToCart() {
-            window.location.href = "Cart.html";
+            window.location.href = "Cart.html"; // Przekierowanie do strony koszyka
         }
+
         function redirectToProfil() {
-            window.location.href = "Profil.html";
+            window.location.href = "Profil.html"; // Przekierowanie do strony profilu
         }
-        </script>
+    </script>
 </body>
 </html>
