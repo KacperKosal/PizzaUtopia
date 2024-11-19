@@ -36,6 +36,7 @@
             padding: 20px;
         }
 
+        /* Stylizacja każdego elementu w zamówieniu */
         .order-item {
             background-color: #FFD580;
             border-radius: 10px;
@@ -43,7 +44,7 @@
             margin-bottom: 10px;
         }
 
-        /* Przycisk "Zamów" */
+        /* Stylizacja przycisku "Zamów" */
         .checkout-button {
             background-color: #FFA500;
             color: #fff;
@@ -58,7 +59,7 @@
             margin-top: 20px;
         }
 
-        /* Przycisk "Wróć do koszyka" */
+        /* Stylizacja przycisku "Wróć do koszyka" */
         .back-button {
             background-color: transparent;
             color: #FFA500;
@@ -72,7 +73,7 @@
             margin-top: 10px;
         }
 
-        /* Stopka nawigacyjna */
+        /* Stopka z nawigacją */
         .footer {
             background-color: #FFA500;
             padding: 10px;
@@ -84,27 +85,33 @@
             align-items: center;
         }
 
+        /* Stylizacja ikon w stopce */
         .footer img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
         }
+
     </style>
 </head>
 <body>
 
+    <!-- Nagłówek strony -->
     <div class="header">
         <h1>Finalizacja Zamówienia</h1>
     </div>
 
+    <!-- Kontener na produkty w koszyku -->
     <div class="order-container" id="order-container">
         <!-- Produkty zostaną wczytane dynamicznie przez JavaScript -->
     </div>
 
+    <!-- Przycisk powrotu do koszyka -->
     <button class="back-button" onclick="redirectToCart()">Wróć do koszyka</button>
+    <!-- Przycisk do potwierdzenia zamówienia -->
     <button class="checkout-button" onclick="confirmOrder()">Zamów</button>
-    
 
+    <!-- Stopka z nawigacją -->
     <div class="footer">
         <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
         <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
@@ -112,45 +119,64 @@
     </div>
 
     <script>
+        // Funkcje nawigacyjne
+
+        // Przekierowanie do strony Menu
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
+
+        // Przekierowanie do strony Koszyka
         function redirectToCart() {
             window.location.href = "Cart.html";
         }
+
+        // Przekierowanie do strony Profilu
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
 
+        // Funkcja do załadowania produktów z koszyka
         function loadCart() {
             const orderContainer = document.getElementById('order-container');
-            orderContainer.innerHTML = ''; // Czyścimy zawartość
-            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            orderContainer.innerHTML = ''; // Czyścimy zawartość kontenera przed załadowaniem nowych danych
+            const cart = JSON.parse(localStorage.getItem('cart')) || []; // Pobieramy dane koszyka z localStorage
 
+            // Sprawdzamy, czy koszyk jest pusty
             if (cart.length === 0) {
                 orderContainer.innerHTML = '<p>Twój koszyk jest pusty.</p>';
                 return;
             }
 
+            // Tworzymy elementy dla każdego przedmiotu w koszyku (bez ceny)
             cart.forEach(item => {
                 const orderItem = document.createElement('div');
-                orderItem.classList.add('order-item');
+                orderItem.classList.add('order-item'); // Dodajemy odpowiednią klasę CSS
+                // Wyświetlamy nazwę produktu i ilość
                 orderItem.innerHTML = `
                     <div>${item.name}</div>
                     <div>Ilość: ${item.quantity}</div>
                 `;
-                orderContainer.appendChild(orderItem);
+                orderContainer.appendChild(orderItem); // Dodajemy element do kontenera
             });
         }
 
+        // Funkcja do potwierdzenia zamówienia
         function confirmOrder() {
-            alert('Zamówienie złożone!');
-            localStorage.removeItem('cart'); // Opróżniamy koszyk po złożeniu zamówienia
-            redirectToMenu(); // Przekierowujemy do menu
+            const cart = JSON.parse(localStorage.getItem('cart')) || []; // Pobieramy dane koszyka
+            if (cart.length === 0) {
+                alert('Twój koszyk jest pusty!'); // Jeśli koszyk jest pusty, wyświetlamy ostrzeżenie
+                return;
+            }
+
+            // Pokazujemy alert z potwierdzeniem zamówienia
+            alert('Zamówienie złożone! Dziękujemy za zakupy!');
+            localStorage.removeItem('cart'); // Usuwamy dane koszyka z localStorage po złożeniu zamówienia
+            redirectToMenu(); // Przekierowujemy użytkownika do strony menu
         }
 
         // Wczytujemy koszyk przy ładowaniu strony
-        window.onload = loadCart;
+        window.onload = loadCart; // Funkcja loadCart zostanie wywołana przy załadowaniu strony
     </script>
 </body>
 </html>
