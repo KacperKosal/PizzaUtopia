@@ -6,20 +6,23 @@
     <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
     <title>Udostępnij</title>
     <style>
+        /* Resetowanie stylów domyślnych */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Stylizacja ogólna dla ciała strony */
         body {
             font-family: 'Jua';
             background-color: #f5f5f5;
             color: #333;
         }
 
+        /* Nagłówek strony */
         header {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Pomarańczowe tło nagłówka */
             padding: 15px;
             text-align: center;
             color: white;
@@ -30,6 +33,7 @@
             border-bottom-right-radius: 20px;
         }
 
+        /* Przycisk powrotu (strzałka) w nagłówku */
         header .back-button {
             position: absolute;
             left: 10px;
@@ -40,6 +44,7 @@
             text-decoration: none;
         }
 
+        /* Sekcja zdjęcia profilowego i edycji */
         .profile-section {
             display: flex;
             flex-direction: column;
@@ -47,15 +52,17 @@
             margin-top: 20px;
         }
 
+        /* Stylizacja zdjęcia profilowego */
         .profile-pic {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
+            border-radius: 50%; /* Okrągłe zdjęcie */
             border: 3px solid #FFA500;
             margin-bottom: 10px;
             position: relative;
         }
 
+        /* Ikona edycji zdjęcia profilowego */
         .edit-icon {
             position: absolute;
             bottom: 0;
@@ -71,12 +78,14 @@
             font-size: 18px;
         }
 
+        /* Stylizacja dla grupy wejściowej (input) */
         .input-group {
             width: 80%;
             margin: 10px 0;
             text-align: left;
         }
 
+        /* Stylowanie etykiet w formularzach */
         .input-group label {
             font-size: 14px;
             color: #555;
@@ -84,6 +93,7 @@
             display: block;
         }
 
+        /* Stylowanie pól wejściowych (input) */
         .input-group input {
             width: 100%;
             padding: 10px;
@@ -92,6 +102,7 @@
             font-size: 16px;
         }
 
+        /* Przycisk zapisz */
         .save-button {
             background-color: #FFA500;
             color: white;
@@ -104,8 +115,9 @@
             width: 80%;
         }
 
+        /* Stopka z nawigacją */
         .footer {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Pomarańczowe tło stopki */
             padding: 10px;
             position: fixed;
             bottom: 0;
@@ -115,11 +127,14 @@
             align-items: center;
         }
 
+        /* Stylizacja ikon w stopce */
         .footer img {
             width: 30px;
             height: 30px;
             border-radius: 50%;
         }
+
+        /* Stylizacja elementów menu */
         .menu-item {
             background-color: white;
             border-radius: 20px;
@@ -131,34 +146,58 @@
             cursor: pointer;
         }
 
+        /* Responsywność: dostosowanie elementów na mniejszych ekranach */
+        @media (max-width: 768px) {
+            .footer img {
+                width: 25px;
+                height: 25px; /* Mniejsze ikony w stopce */
+            }
+
+            .profile-pic {
+                width: 80px;
+                height: 80px; /* Mniejsze zdjęcie profilowe */
+            }
+
+            .save-button {
+                width: 90%; /* Przycisk zapisz jest szerszy na małych ekranach */
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Nagłówek -->
+    <!-- Nagłówek z przyciskiem powrotu i tytułem strony -->
     <header>
-        <a href="#" class="back-button" onclick="redirectToProfil()">←</a>
-        Udostepnij
+        <a href="Profil.html" class="back-button">←</a> <!-- Przycisk powrotu do strony profilu -->
+        Udostępnij <!-- Tytuł strony -->
     </header>
-    
 
-    <!-- Stopka z nawigacją -->
-    <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+    <!-- Sekcja zdjęcia profilowego (możesz tu dodać więcej szczegółów o użytkowniku) -->
+    <div class="profile-section">
+        <img src="profile-icon.png" alt="Profile" class="profile-pic"> <!-- Zdjęcie profilowe -->
+        <div class="edit-icon">✎</div> <!-- Ikona edycji zdjęcia profilowego -->
     </div>
+
+    <!-- Stopka z ikonami nawigacyjnymi -->
+    <div class="footer">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()"> <!-- Ikona "Home" -->
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()"> <!-- Ikona "Koszyk" -->
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()"> <!-- Ikona "Profil" -->
+    </div>
+
     <script>
-    
+        // Funkcje do przekierowywania użytkownika na odpowiednie strony
         function redirectToMenu() {
-            window.location.href = "Menu.html";
+            window.location.href = "Menu.html"; // Przekierowanie do strony menu
         }
+
         function redirectToCart() {
-            window.location.href = "Cart.html";
+            window.location.href = "Cart.html"; // Przekierowanie do strony koszyka
         }
+
         function redirectToProfil() {
-            window.location.href = "Profil.html";
+            window.location.href = "Profil.html"; // Przekierowanie do strony profilu
         }
-        </script>
+    </script>
 </body>
 </html>
