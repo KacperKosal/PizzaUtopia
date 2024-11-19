@@ -90,7 +90,7 @@
             font-weight: bold;
         }
 
-        /* Przycisk "Dokoncz zamówienie" */
+        /* Przycisk "Dokończ zamówienie" */
         .checkout-button {
             background-color: #FFA500;
             color: #fff;
@@ -122,12 +122,10 @@
             height: 30px;
             border-radius: 50%;
         }
-
     </style>
 </head>
 <body>
-
-    <!-- Górna część strony -->
+    <!-- Górna część strony z logo i tytułem -->
     <div class="header">
         <img src="logopizzy.png" alt="Pizza Icon">
         <h1>Mój koszyk</h1>
@@ -135,7 +133,7 @@
 
     <!-- Zawartość koszyka -->
     <div class="cart-container" id="cart-container">
-        <!-- Produkty zostaną wczytane dynamicznie przez JavaScript -->
+        <!-- Produkty w koszyku zostaną wczytane dynamicznie przez JavaScript -->
     </div>
 
     <!-- Przycisk "Dokończ zamówienie" -->
@@ -149,15 +147,22 @@
     </div>
 
     <script>
+        // Funkcja przekierowująca do strony finalizacji zamówienia
         function redirectToFinalizacja() {
             window.location.href = "Finalizacja.html";
         }
+
+        // Funkcja przekierowująca do menu głównego
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
+
+        // Funkcja przekierowująca do aktualnej strony koszyka
         function redirectToCart() {
             window.location.href = "Cart.html";
         }
+
+        // Funkcja przekierowująca do profilu użytkownika
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
@@ -165,7 +170,7 @@
         // Funkcja do wczytania koszyka z localStorage
         function loadCart() {
             const cartContainer = document.getElementById('cart-container');
-            cartContainer.innerHTML = ''; // Czyścimy zawartość
+            cartContainer.innerHTML = ''; // Czyści zawartość kontenera
 
             // Pobieramy koszyk z localStorage
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -176,8 +181,9 @@
                 return;
             }
 
-            // Generujemy HTML dla każdego produktu w koszyku
+            // Iteracja przez produkty w koszyku
             cart.forEach((item, index) => {
+                // Tworzymy element HTML dla pojedynczego produktu
                 const cartItem = document.createElement('div');
                 cartItem.classList.add('cart-item');
                 cartItem.innerHTML = `
@@ -191,19 +197,20 @@
                         </div>
                     </div>
                 `;
+                // Dodajemy element do kontenera koszyka
                 cartContainer.appendChild(cartItem);
             });
         }
 
-        // Funkcja do aktualizacji ilości produktu
+        // Funkcja do aktualizacji ilości produktu w koszyku
         function updateQuantity(index, change) {
             // Pobieramy koszyk z localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            // Aktualizujemy ilość produktu
+            // Zmiana ilości produktu
             cart[index].quantity += change;
 
-            // Jeśli ilość jest 0, usuwamy produkt z koszyka
+            // Usuwamy produkt, jeśli ilość spadła do 0
             if (cart[index].quantity <= 0) {
                 cart.splice(index, 1);
             }
@@ -211,11 +218,11 @@
             // Zapisujemy zaktualizowany koszyk do localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
 
-            // Odświeżamy wyświetlany koszyk
+            // Odświeżamy widok koszyka
             loadCart();
         }
 
-        // Wczytujemy koszyk przy ładowaniu strony
+        // Wczytujemy koszyk przy załadowaniu strony
         window.onload = loadCart;
     </script>
 </body>
