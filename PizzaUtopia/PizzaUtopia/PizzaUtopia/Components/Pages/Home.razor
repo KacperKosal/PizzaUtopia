@@ -1,18 +1,14 @@
 ﻿@page "/"
 
-@using PizzaUtopia.Components.Elements.Buttons
+@using PizzaUtopia.Components.Elements.StartScreen
 
-<Button OnClick="OnLoginClick">
-	Zaloguj się
-</Button>
 
-<Button>
-	Zarejestruj się
-</Button>
+
+@if (!_isLogedIn)
+{
+	<StartScreen/>
+}
 
 @code {
-	private void OnLoginClick(object? sender, EventArgs args)
-	{
-		
-	}
+	private readonly bool _isLogedIn = false;
 }

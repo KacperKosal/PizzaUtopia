@@ -1,6 +1,6 @@
 ﻿button {
     width: 100%;
-    background-color: #FF8C00;
+    background-color: #e57a00;
     color: white;
     padding: 12px;
     font-size: 18px;
@@ -8,6 +8,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
 }
 button:hover {
     background-color: #e57a00;

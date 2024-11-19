@@ -66,6 +66,7 @@
 
     <ItemGroup>
       <Folder Include="wwwroot\css\" />
+      <Folder Include="wwwroot\Images\" />
     </ItemGroup>
 
 </Project>
