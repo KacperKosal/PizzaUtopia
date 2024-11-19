@@ -6,18 +6,21 @@
     <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
     <title>Edycja profilu</title>
     <style>
+        /* Resetowanie marginesów, paddingu i ustalenie box-sizing */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Stylizacja ciała dokumentu */
         body {
             font-family: 'Jua';
             background-color: #f5f5f5;
             color: #333;
         }
 
+        /* Nagłówek strony */
         header {
             background-color: #FFA500;
             padding: 15px;
@@ -30,6 +33,7 @@
             border-bottom-right-radius: 20px;
         }
 
+        /* Przycisk powrotu w nagłówku */
         header .back-button {
             position: absolute;
             left: 10px;
@@ -40,6 +44,7 @@
             text-decoration: none;
         }
 
+        /* Stylizacja sekcji profilu */
         .profile-section {
             display: flex;
             flex-direction: column;
@@ -47,6 +52,7 @@
             margin-top: 20px;
         }
 
+        /* Stylizacja zdjęcia profilowego */
         .profile-pic {
             width: 100px;
             height: 100px;
@@ -56,6 +62,7 @@
             position: relative;
         }
 
+        /* Ikona edycji na zdjęciu profilowym */
         .edit-icon {
             position: absolute;
             bottom: 0;
@@ -71,6 +78,7 @@
             font-size: 18px;
         }
 
+        /* Stylizacja grupy wejściowej */
         .input-group {
             width: 80%;
             margin: 10px 0;
@@ -92,6 +100,7 @@
             font-size: 16px;
         }
 
+        /* Stylizacja przycisku zapisu */
         .save-button {
             background-color: #FFA500;
             color: white;
@@ -104,6 +113,7 @@
             width: 80%;
         }
 
+        /* Stylizacja stopki z ikonami */
         .footer {
             background-color: #FFA500;
             padding: 10px;
@@ -124,49 +134,58 @@
 </head>
 <body>
 
-    <!-- Nagłówek -->
+    <!-- Nagłówek strony z przyciskiem powrotu -->
     <header>
         <a href="#" class="back-button" onclick="redirectToProfil()">←</a>
         Edycja profilu
     </header>
 
-    <!-- Sekcja profilu -->
+    <!-- Sekcja profilu użytkownika -->
     <div class="profile-section">
+        <!-- Zdjęcie profilowe z możliwością edycji -->
         <div class="profile-pic">
             <img src="profile-icon.png" alt="Profil" class="profile-pic" style="width: 100%; height: 100%; border-radius: 50%;">
             <div class="edit-icon">✎</div>
         </div>
         
+        <!-- Pole edycji imienia i nazwiska -->
         <div class="input-group">
             <label for="name">Imię i nazwisko</label>
             <input type="text" id="name">
         </div>
         
+        <!-- Pole edycji numeru telefonu -->
         <div class="input-group">
             <label for="phone">Numer telefonu</label>
             <input type="tel" id="phone">
         </div>
 
+        <!-- Przycisk do zapisywania zmian -->
         <button class="save-button">Zapisz zmiany</button>
     </div>
 
-    <!-- Stopka z nawigacją -->
+    <!-- Stopka z ikonami nawigacyjnymi -->
     <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
         <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
         <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
     </div>
-    <script>
 
+    <script>
+        // Funkcja przekierowująca do menu głównego
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
+
+        // Funkcja przekierowująca do koszyka
         function redirectToCart() {
             window.location.href = "Cart.html";
         }
+
+        // Funkcja przekierowująca do profilu użytkownika
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
-        </script>
+    </script>
 </body>
 </html>
