@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
-    <title>Profil Użytkownika</title>
+    <meta charset="UTF-8"> <!-- Ustalenie kodowania znaków na UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Ustalenie responsywności strony -->
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'> <!-- Załadowanie czcionki 'Jua' -->
+    <title>Profil Użytkownika</title> <!-- Tytuł strony -->
     <style>
+        /* Resetowanie marginesów i paddingu oraz ustawienie domyślnego stylu */
         * {
             margin: 0;
             padding: 0;
@@ -13,108 +14,118 @@
         }
 
         body {
-            font-family: 'Jua';
-            background-color: #f5f5f5;
-            color: black;
+            font-family: 'Jua'; /* Ustawienie czcionki dla całej strony */
+            background-color: #f5f5f5; /* Kolor tła strony */
+            color: black; /* Kolor tekstu */
         }
 
+        /* Stylizacja nagłówka strony (zawiera nazwisko, numer telefonu i zdjęcie profilowe) */
         header {
             background-color: #FFA500; /* Pomarańczowy nagłówek */
             padding: 20px;
             text-align: center;
-            border-bottom-left-radius: 20px;
+            border-bottom-left-radius: 20px; /* Zaokrąglone rogi */
             border-bottom-right-radius: 20px;
         }
 
+        /* Stylizacja zdjęcia profilowego */
         .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-            border: 3px solid white;
+            width: 100px; /* Szerokość zdjęcia */
+            height: 100px; /* Wysokość zdjęcia */
+            border-radius: 50%; /* Zaokrąglenie zdjęcia */
+            margin-bottom: 10px; /* Odstęp poniżej zdjęcia */
+            border: 3px solid white; /* Biała ramka wokół zdjęcia */
         }
 
+        /* Stylizacja nazwy użytkownika w nagłówku */
         .profile-name {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
+            font-size: 24px; /* Wielkość czcionki */
+            font-weight: bold; /* Wytłuszczenie czcionki */
+            color: white; /* Kolor tekstu */
         }
 
+        /* Stylizacja informacji kontaktowych (numer telefonu) */
         .profile-info {
-            font-size: 14px;
-            color: white;
-            margin-top: 5px;
+            font-size: 14px; /* Wielkość czcionki */
+            color: white; /* Kolor tekstu */
+            margin-top: 5px; /* Odstęp od nazwy użytkownika */
         }
 
+        /* Stylizacja przycisku do edycji profilu */
         .edit-button {
-            background-color: white;
-            color: #FFA500;
+            background-color: white; /* Białe tło */
+            color: #FFA500; /* Pomarańczowy tekst */
             border: none;
-            border-radius: 20px;
-            padding: 5px 15px;
-            margin-top: 10px;
-            font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            border-radius: 20px; /* Zaokrąglone rogi */
+            padding: 5px 15px; /* Wewnętrzny odstęp */
+            margin-top: 10px; /* Odstęp od informacji kontaktowych */
+            font-size: 14px; /* Wielkość czcionki */
+            font-weight: bold; /* Wytłuszczenie czcionki */
+            cursor: pointer; /* Zmiana kursora na wskaźnik */
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Cień przycisku */
         }
 
+        /* Kontener na główną zawartość strony */
         .container {
-            padding: 20px;
+            padding: 20px; /* Wewnętrzny odstęp */
         }
 
+        /* Stylizacja tytułów sekcji */
         .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            font-size: 18px; /* Wielkość czcionki */
+            font-weight: bold; /* Wytłuszczenie czcionki */
+            color: #333; /* Kolor tekstu */
+            margin-top: 20px; /* Odstęp od poprzednich elementów */
+            margin-bottom: 10px; /* Odstęp poniżej tytułu */
         }
 
+        /* Stylizacja elementów menu (przycisków) */
         .menu-item {
-            background-color: white;
-            border-radius: 20px;
-            padding: 10px 20px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            text-align: center;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
+            background-color: white; /* Białe tło */
+            border-radius: 20px; /* Zaokrąglone rogi */
+            padding: 10px 20px; /* Wewnętrzny odstęp */
+            margin-bottom: 10px; /* Odstęp poniżej przycisku */
+            font-size: 16px; /* Wielkość czcionki */
+            text-align: center; /* Wyśrodkowanie tekstu */
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Cień przycisku */
+            cursor: pointer; /* Zmiana kursora na wskaźnik */
         }
 
+        /* Stylizacja stopki nawigacyjnej */
         .footer {
-            background-color: #FFA500;
-            padding: 10px;
-            position: fixed;
+            background-color: #FFA500; /* Pomarańczowe tło */
+            padding: 10px; /* Wewnętrzny odstęp */
+            position: fixed; /* Stała pozycja na dole strony */
             bottom: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            width: 100%; /* Pełna szerokość */
+            display: flex; /* Flexbox do wyrównania ikon */
+            justify-content: space-around; /* Równe rozmieszczenie */
+            align-items: center; /* Wyrównanie w pionie */
         }
 
+        /* Stylizacja ikon w stopce */
         .footer img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            width: 30px; /* Szerokość ikony */
+            height: 30px; /* Wysokość ikony */
+            border-radius: 50%; /* Zaokrąglenie ikony */
         }
 
-        /* Responsywność */
+        /* Responsywność dla urządzeń z szerokością ekranu mniejszą niż 768px */
         @media (max-width: 768px) {
             .profile-name {
-                font-size: 20px;
+                font-size: 20px; /* Mniejsza czcionka dla nazwy użytkownika */
             }
 
             .profile-info {
-                font-size: 12px;
+                font-size: 12px; /* Mniejsza czcionka dla informacji kontaktowych */
             }
 
             .section-title {
-                font-size: 16px;
+                font-size: 16px; /* Mniejsza czcionka dla tytułów sekcji */
             }
 
             .menu-item {
-                font-size: 14px;
+                font-size: 14px; /* Mniejsza czcionka dla przycisków menu */
             }
         }
 
@@ -122,70 +133,75 @@
 </head>
 <body>
 
-    <!-- Nagłówek -->
+    <!-- Nagłówek z informacjami o użytkowniku -->
     <header>
-        <img src="profile-icon.png" alt="Profil" class="profile-pic">
-        <div class="profile-name">Andrzej Kucyk</div>
-        <div class="profile-info">+48 123456789</div>
-        <button class="edit-button" onclick="redirectToEditProfile()">Edytuj profil</button>
+        <img src="profile-icon.png" alt="Profil" class="profile-pic"> <!-- Zdjęcie profilowe -->
+        <div class="profile-name">Andrzej Kucyk</div> <!-- Nazwa użytkownika -->
+        <div class="profile-info">+48 123456789</div> <!-- Numer telefonu użytkownika -->
+        <button class="edit-button" onclick="redirectToEditProfile()">Edytuj profil</button> <!-- Przycisk do edycji profilu -->
     </header>
 
-    <!-- Główna zawartość -->
+    <!-- Główna zawartość strony, zawierająca menu i sekcje -->
     <div class="container">
+        <!-- Sekcja z ustawieniami -->
         <div class="section-title">Ustawienia</div>
-        <div class="menu-item" onclick="redirectToChangepassword()">Zmień hasło</div>
-        <div class="menu-item" onclick="redirectToBiometria()">Biometria</div>
-        <div class="menu-item" onclick="redirectToWyglad()">Wygląd</div>
+        <div class="menu-item" onclick="redirectToChangepassword()">Zmień hasło</div> <!-- Zmiana hasła -->
+        <div class="menu-item" onclick="redirectToBiometria()">Biometria</div> <!-- Biometria -->
+        <div class="menu-item" onclick="redirectToWyglad()">Wygląd</div> <!-- Wygląd -->
 
+        <!-- Sekcja z informacjami o aplikacji -->
         <div class="section-title">O nas</div>
-        <div class="menu-item" onclick="redirectToFAQ()">FAQ</div>
-        <div class="menu-item"  onclick="redirectToPolitykaprywatności()">Polityka prywatności</div>
-        <div class="menu-item" onclick="redirectToKontakt()">Kontakt</div>
+        <div class="menu-item" onclick="redirectToFAQ()">FAQ</div> <!-- FAQ -->
+        <div class="menu-item"  onclick="redirectToPolitykaprywatności()">Polityka prywatności</div> <!-- Polityka prywatności -->
+        <div class="menu-item" onclick="redirectToKontakt()">Kontakt</div> <!-- Kontakt -->
 
+        <!-- Sekcja z dodatkowymi opcjami -->
         <div class="section-title">Inne</div>
-        <div class="menu-item" onclick="redirectToUdostępnij()">Udostępnij</div>
+        <div class="menu-item" onclick="redirectToUdostępnij()">Udostępnij</div> <!-- Udostępnienie aplikacji -->
     </div>
 
     <!-- Stopka z nawigacją -->
     <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()"> <!-- Ikona strony głównej -->
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()"> <!-- Ikona koszyka -->
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()"> <!-- Ikona profilu -->
     </div>
+
     <script>
+        // Funkcje do nawigacji między stronami
         function redirectToEditProfile() {
-            window.location.href = "EditProfile.html";
+            window.location.href = "EditProfile.html"; // Przekierowanie do strony edycji profilu
         }
         function redirectToChangepassword() {
-            window.location.href = "Changepassword.html";
+            window.location.href = "Changepassword.html"; // Przekierowanie do strony zmiany hasła
         }
         function redirectToBiometria() {
-            window.location.href = "Biometria.html";
+            window.location.href = "Biometria.html"; // Przekierowanie do strony biometrii
         }
         function redirectToWyglad() {
-            window.location.href = "Wyglad.html";
+            window.location.href = "Wyglad.html"; // Przekierowanie do strony wyglądu
         }
         function redirectToFAQ() {
-            window.location.href = "FAQ.html";
+            window.location.href = "FAQ.html"; // Przekierowanie do strony FAQ
         }
         function redirectToPolitykaprywatności() {
-            window.location.href = "Politykaprywatności.html";
+            window.location.href = "Politykaprywatności.html"; // Przekierowanie do strony polityki prywatności
         }
         function redirectToKontakt() {
-            window.location.href = "Kontakt.html";
+            window.location.href = "Kontakt.html"; // Przekierowanie do strony kontaktowej
         }
         function redirectToUdostępnij() {
-            window.location.href = "Udostępnij.html";
+            window.location.href = "Udostępnij.html"; // Przekierowanie do strony udostępniania
         }
         function redirectToMenu() {
-            window.location.href = "Menu.html";
+            window.location.href = "Menu.html"; // Przekierowanie do menu głównego
         }
         function redirectToCart() {
-            window.location.href = "Cart.html";
+            window.location.href = "Cart.html"; // Przekierowanie do koszyka
         }
         function redirectToProfil() {
-            window.location.href = "Profil.html";
+            window.location.href = "Profil.html"; // Przekierowanie do profilu użytkownika
         }
-        </script>
+    </script>
 </body>
 </html>
