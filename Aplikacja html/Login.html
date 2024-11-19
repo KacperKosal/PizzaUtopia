@@ -1,46 +1,57 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PizzaUtopia - Logowanie</title>
+    <meta charset="UTF-8"> <!-- Kodowanie znaków -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Skalowanie na urządzeniach mobilnych -->
+    <title>PizzaUtopia - Logowanie</title> <!-- Tytuł strony -->
+    <!-- Czcionka z Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <!-- Zewnętrzny plik stylów -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Główna zawartość strony -->
     <div class="container">
-        <!-- Logo and Title -->
+        <!-- Logo i tytuł aplikacji -->
         <div class="logo-container">
-            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo">
-            <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
-            <h1>PizzaUtopia</h1>
+            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
+            <h1>PizzaUtopia</h1> <!-- Tytuł aplikacji -->
         </div>
 
-        <!-- Login Form -->
+        <!-- Formularz logowania -->
         <div class="form-container">
-            <h2>Logowanie</h2>
-            <form id="loginForm">
+            <h2>Logowanie</h2> <!-- Nagłówek sekcji logowania -->
+            <form id="loginForm"> <!-- Formularz logowania -->
+                <!-- Pole do wpisania emaila -->
                 <input type="email" id="email" placeholder="Email" required>
+                
+                <!-- Pole do wpisania hasła z możliwością pokazania/ukrycia -->
                 <div class="password-container">
-                    <input type="password" id="password" placeholder="Hasło" required>
-                    <button type="button" class="show-password" onclick="togglePassword()">
-                        <img src="eye-icon.png" alt="Show/Hide Password">
+                    <input type="password" id="password" placeholder="Hasło" required> <!-- Pole hasła -->
+                    <button type="button" class="show-password" onclick="togglePassword()"> <!-- Przycisk do pokazywania/ukrywania hasła -->
+                        <img src="eye-icon.png" alt="Show/Hide Password"> <!-- Ikona oka -->
                     </button>
                 </div>
+                
+                <!-- Przycisk logowania -->
                 <button type="submit" class="login-btn" onclick="redirectToMenu()">Zaloguj się</button>
             </form>
         </div>
     </div>
 
+    <!-- Skrypty obsługujące funkcjonalność strony -->
     <script>
+        // Funkcja do pokazywania i ukrywania hasła
         function togglePassword() {
             const passwordInput = document.getElementById("password");
             if (passwordInput.type === "password") {
-                passwordInput.type = "text";
+                passwordInput.type = "text"; // Pokazuje hasło
             } else {
-                passwordInput.type = "password";
+                passwordInput.type = "password"; // Ukrywa hasło
             }
         }
+
+        // Funkcja do przekierowania na stronę Menu
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
