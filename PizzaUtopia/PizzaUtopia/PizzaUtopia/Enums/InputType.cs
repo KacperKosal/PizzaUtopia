@@ -5,5 +5,6 @@ public enum InputType
 {
     Text,
     Password,
-    Email
+    Email,
+    ConfirmPassword
 }
