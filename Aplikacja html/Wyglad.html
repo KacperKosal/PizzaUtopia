@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
-    <title>Wygląd</title>
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'> <!-- Ładowanie niestandardowej czcionki -->
+    <title>Wygląd</title> <!-- Tytuł strony -->
     <style>
+        /* Resetowanie stylów domyślnych */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Stylizacja ogólna dla ciała strony */
         body {
             font-family: 'Jua';
             background-color: #f5f5f5;
             color: #333;
         }
 
+        /* Nagłówek strony */
         header {
-            background-color: #FFA500;
+            background-color: #FFA500; /* Pomarańczowe tło nagłówka */
             padding: 15px;
             text-align: center;
             color: white;
@@ -30,6 +33,7 @@
             border-bottom-right-radius: 20px;
         }
 
+        /* Przycisk powrotu w nagłówku */
         header .back-button {
             position: absolute;
             left: 10px;
@@ -40,87 +44,8 @@
             text-decoration: none;
         }
 
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .profile-pic {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 3px solid #FFA500;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .edit-icon {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            background-color: #FFA500;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 18px;
-        }
-
-        .input-group {
-            width: 80%;
-            margin: 10px 0;
-            text-align: left;
-        }
-
-        .input-group label {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .input-group input {
-            width: 100%;
-            padding: 10px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            font-size: 16px;
-        }
-
-        .save-button {
-            background-color: #FFA500;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 18px;
-            border: none;
-            margin-top: 20px;
-            cursor: pointer;
-            width: 80%;
-        }
-
-        .footer {
-            background-color: #FFA500;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
-
-        .footer img {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-.menu-item {
+        /* Stylizacja elementów menu */
+        .menu-item {
             background-color: white;
             border-radius: 20px;
             padding: 10px 20px;
@@ -130,8 +55,9 @@
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
             cursor: pointer;
         }
-/* Kontener przełącznika */
-.switch {
+
+        /* Kontener przełącznika (przełącznik motywu) */
+        .switch {
             position: relative;
             display: inline-block;
             width: 60px;
@@ -145,7 +71,7 @@
             height: 0;
         }
 
-        /* Stylizacja suwaka */
+        /* Stylizacja suwaka przełącznika */
         .slider {
             position: absolute;
             cursor: pointer;
@@ -179,45 +105,73 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
+
+        /* Stylizacja stopki */
+        .footer {
+            background-color: #FFA500; /* Pomarańczowe tło stopki */
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        /* Stylizacja ikon w stopce */
+        .footer img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Nagłówek -->
+    <!-- Nagłówek z przyciskiem powrotu do strony profilu -->
     <header>
-        <a href="#" class="back-button" onclick="redirectToProfil()">←</a>
-        Wygląd
+        <a href="#" class="back-button" onclick="redirectToProfil()">←</a> <!-- Przycisk powrotu do profilu -->
+        Wygląd <!-- Tytuł strony -->
     </header>
 
-    <!-- Sekcja profilu -->
+    <!-- Sekcja z ustawieniami motywu -->
     <div class="menu-item">Automatyczny motyw
+        <!-- Przełącznik do włączania/wyłączania automatycznego motywu -->
         <label class="switch">
-        <input type="checkbox">
-        <span class="slider"></span>
-    </label></div>
-    <div class="menu-item">Ciemny motyw
-        <label class="switch">
-        <input type="checkbox">
-        <span class="slider"></span>
-    </label></div>    
-
-    <!-- Stopka z nawigacją -->
-    <div class="footer">
-        <img src="home-icon.png" alt="Home"onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+            <input type="checkbox"> <!-- Checkbox do automatycznego motywu -->
+            <span class="slider"></span> <!-- Wizualny suwak -->
+        </label>
     </div>
+
+    <div class="menu-item">Ciemny motyw
+        <!-- Przełącznik do włączania/wyłączania ciemnego motywu -->
+        <label class="switch">
+            <input type="checkbox"> <!-- Checkbox do ciemnego motywu -->
+            <span class="slider"></span> <!-- Wizualny suwak -->
+        </label>
+    </div>
+
+    <!-- Stopka z ikonami nawigacyjnymi -->
+    <div class="footer">
+        <!-- Ikony nawigacyjne -->
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()"> <!-- Ikona "Home" -->
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()"> <!-- Ikona "Koszyk" -->
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()"> <!-- Ikona "Profil" -->
+    </div>
+
     <script>
-    
+        // Funkcje do przekierowywania użytkownika na odpowiednie strony
         function redirectToMenu() {
-            window.location.href = "Menu.html";
+            window.location.href = "Menu.html"; // Przekierowanie do strony menu
         }
+
         function redirectToCart() {
-            window.location.href = "Cart.html";
+            window.location.href = "Cart.html"; // Przekierowanie do strony koszyka
         }
+
         function redirectToProfil() {
-            window.location.href = "Profil.html";
+            window.location.href = "Profil.html"; // Przekierowanie do strony profilu
         }
-        </script>
+    </script>
 </body>
 </html>
