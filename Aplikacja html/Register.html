@@ -1,52 +1,64 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PizzaUtopia - Rejestracja</title>
+    <meta charset="UTF-8"> <!-- Ustawienie kodowania znaków -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsywność na urządzenia mobilne -->
+    <title>PizzaUtopia - Rejestracja</title> <!-- Tytuł strony -->
+    <!-- Czcionka Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
+    <!-- Połączenie z zewnętrznym arkuszem stylów -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Główna zawartość strony -->
     <div class="container">
-        <!-- Logo and Title -->
+        <!-- Logo i tytuł aplikacji -->
         <div class="logo-container">
-            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo">
-            <h1>PizzaUtopia</h1>
+            <img src="logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
+            <h1>PizzaUtopia</h1> <!-- Tytuł aplikacji -->
         </div>
 
-        <!-- Registration Form -->
+        <!-- Formularz rejestracyjny -->
         <div class="form-container">
-            <h2>Rejestracja</h2>
-            <form id="registerForm">
+            <h2>Rejestracja</h2> <!-- Nagłówek sekcji rejestracji -->
+            <form id="registerForm"> <!-- Formularz dla użytkownika -->
+                <!-- Pole wprowadzania adresu e-mail -->
                 <input type="email" id="email" placeholder="Email" required>
                 
+                <!-- Pole wprowadzania hasła z możliwością pokazania/ukrycia -->
                 <div class="password-container">
                     <input type="password" id="password" placeholder="Hasło" required>
-                    <button type="button" class="show-password" onclick="togglePassword('password')">
-                        <img src="eye-icon.png" alt="Show/Hide Password">
+                    <button type="button" class="show-password" onclick="togglePassword('password')"> <!-- Przycisk do pokazywania/ukrywania hasła -->
+                        <img src="eye-icon.png" alt="Show/Hide Password"> <!-- Ikona oka -->
                     </button>
                 </div>
 
+                <!-- Pole potwierdzania hasła z możliwością pokazania/ukrycia -->
                 <div class="password-container">
                     <input type="password" id="confirmPassword" placeholder="Powtórz hasło" required>
-                    <button type="button" class="show-password" onclick="togglePassword('confirmPassword')">
-                        <img src="eye-icon.png" alt="Show/Hide Password">
+                    <button type="button" class="show-password" onclick="togglePassword('confirmPassword')"> <!-- Przycisk do pokazywania/ukrywania hasła -->
+                        <img src="eye-icon.png" alt="Show/Hide Password"> <!-- Ikona oka -->
                     </button>
                 </div>
 
+                <!-- Przycisk rejestracji -->
                 <button type="submit" class="register-btn">Zarejestruj się</button>
             </form>
         </div>
     </div>
 
+    <!-- Skrypt obsługujący funkcjonalność strony -->
     <script>
+        /**
+         * Funkcja do pokazywania i ukrywania hasła.
+         * @param {string} inputId - ID pola hasła.
+         */
         function togglePassword(inputId) {
-            const passwordInput = document.getElementById(inputId);
+            const passwordInput = document.getElementById(inputId); // Pobranie pola hasła na podstawie ID
             if (passwordInput.type === "password") {
-                passwordInput.type = "text";
+                passwordInput.type = "text"; // Ustawienie widoczności hasła
             } else {
-                passwordInput.type = "password";
+                passwordInput.type = "password"; // Ustawienie ukrycia hasła
             }
         }
     </script>
