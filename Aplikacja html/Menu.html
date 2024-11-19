@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'>
-    <title>Pizza Menu</title>
-    <link rel="stylesheet" href="stylemenu.css">
+    <meta charset="UTF-8"> <!-- Ustawienie kodowania znaków -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsywność na urządzenia mobilne -->
+    <link href='https://fonts.googleapis.com/css?family=Jua' rel='stylesheet'> <!-- Czcionka Google Fonts -->
+    <title>Pizza Menu</title> <!-- Tytuł strony -->
+    <link rel="stylesheet" href="stylemenu.css"> <!-- Połączenie z zewnętrznym plikiem CSS -->
 </head>
 <body>
+    <!-- Nagłówek strony -->
     <header>
         <div class="logo">
-            <img src="logopizzy.png" alt="Pizza Logo" style="width:50px;">
+            <img src="logopizzy.png" alt="Pizza Logo" style="width:50px;"> <!-- Logo aplikacji -->
         </div>
-        <h1>Witaj, Andrzej</h1>
+        <h1>Witaj, Andrzej</h1> <!-- Powitanie użytkownika -->
     </header>
 
+    <!-- Główna zawartość menu -->
     <div class="container">
-        <h2>Menu</h2>
+        <h2>Menu</h2> <!-- Nagłówek sekcji menu -->
 
+        <!-- Element menu dla każdej pizzy -->
         <!-- Pizza 1 -->
         <div class="menu-item">
-            <img src="pepperoni-pizza.png" alt="Pepperoni Pizza">
-            <h2>Pepperoni pizza</h2>
-            <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p>
-            <button onclick="addToCart('Pepperoni pizza')">Wybierz</button>
+            <img src="pepperoni-pizza.png" alt="Pepperoni Pizza"> <!-- Zdjęcie pizzy -->
+            <h2>Pepperoni pizza</h2> <!-- Nazwa pizzy -->
+            <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p> <!-- Składniki pizzy -->
+            <button onclick="addToCart('Pepperoni pizza')">Wybierz</button> <!-- Przycisk wyboru pizzy -->
         </div>
 
         <!-- Pizza 2 -->
@@ -51,39 +54,56 @@
         </div>
     </div>
 
+    <!-- Stopka nawigacyjna -->
     <div class="footer">
-        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()">
-        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()">
-        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()">
+        <img src="home-icon.png" alt="Home" onclick="redirectToMenu()"> <!-- Ikona nawigacji do strony głównej -->
+        <img src="cart-icon.png" alt="Cart" onclick="redirectToCart()"> <!-- Ikona nawigacji do koszyka -->
+        <img src="profile-icon.png" alt="Profile" onclick="redirectToProfil()"> <!-- Ikona nawigacji do profilu -->
     </div>
 
+    <!-- Skrypty JavaScript -->
     <script>
+        /**
+         * Funkcja nawigacji do strony głównej
+         */
         function redirectToMenu() {
             window.location.href = "Menu.html";
         }
+
+        /**
+         * Funkcja nawigacji do koszyka
+         */
         function redirectToCart() {
             window.location.href = "Cart.html";
         }
+
+        /**
+         * Funkcja nawigacji do profilu
+         */
         function redirectToProfil() {
             window.location.href = "Profil.html";
         }
 
+        /**
+         * Funkcja dodawania pizzy do koszyka
+         * @param {string} pizzaName - Nazwa wybranej pizzy
+         */
         function addToCart(pizzaName) {
-            // Pobieramy aktualny koszyk z localStorage lub tworzymy pustą tablicę
+            // Pobranie aktualnej zawartości koszyka z localStorage lub inicjalizacja pustej tablicy
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-            // Szukamy czy produkt jest już w koszyku
+            // Sprawdzenie, czy pizza już istnieje w koszyku
             const existingItem = cart.find(item => item.name === pizzaName);
 
             if (existingItem) {
-                // Jeśli produkt istnieje, zwiększamy jego ilość
+                // Zwiększenie ilości, jeśli pizza już istnieje
                 existingItem.quantity += 1;
             } else {
-                // Jeśli produkt nie istnieje, dodajemy go z ilością 1
+                // Dodanie nowej pizzy do koszyka z domyślną ilością 1
                 cart.push({ name: pizzaName, quantity: 1 });
             }
 
-            // Zapisujemy zaktualizowany koszyk do localStorage
+            // Zapisanie zaktualizowanego koszyka do localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
         }
     </script>
