@@ -1,0 +1,18 @@
+.container[b-8a6aeerv94] {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Logo and Title */
+.logo-container[b-8a6aeerv94] {
+    margin-bottom: 50px;
+}
+
+.logo[b-8a6aeerv94] {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
