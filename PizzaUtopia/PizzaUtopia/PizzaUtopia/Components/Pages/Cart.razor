@@ -1,16 +1,25 @@
-﻿@page "/cart"
+@page "/cart"
 @using PizzaUtopia.Components.Models
 @using System.Text.Json
+
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+<link rel="stylesheet" href="css/Cart.css">
+
 
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 
 <link rel="stylesheet" href="css/Cart.css">
 
+
 <div class="header">
     <img src="Images/logopizzy.png" alt="Pizza Icon">
     <h1>Mój koszyk</h1>
 </div>
+
+=======
+
 
 <div class="cart-container">
     @if (!CartItems.Any())
@@ -37,6 +46,10 @@
 </div>
 
 <button class="checkout-button" @onclick="RedirectToFinalization">Dokończ zamówienie</button>
+=======
+
+<button class="checkout-button" @onclick="RedirectToFinalization">Dokończ zamówienie</button>
+
 
 <!-- Dolny pasek nawigacyjny -->
 <div class="bottom-nav">
@@ -53,6 +66,11 @@
 
 @code {
     private List<CartItem> CartItems { get; set; } = new();
+=======
+
+@code {
+    private List<CartItem> CartItems { get; set; } = new();
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -83,3 +101,10 @@
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 }
+
+
+    private void RedirectToFinalization() => Navigation.NavigateTo("/finalization");
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+}
+
