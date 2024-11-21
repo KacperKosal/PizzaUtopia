@@ -1,0 +1,247 @@
+﻿/* Resetowanie marginesów i paddingu oraz ustawienie domyślnego stylu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Jua', sans-serif;
+    background-color: #f5f5f5;
+    color: black;
+}
+
+header {
+    background-color: #FFA500;
+    padding: 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid white;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.profile-info {
+    font-size: 14px;
+    color: white;
+    margin-top: 5px;
+}
+
+.edit-button {
+    background-color: white;
+    color: #FFA500;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Zwiększa szerokość przycisku do 100% */
+    max-width: 200px; /* Ustala maksymalną szerokość, aby nie rozciągał się za bardzo */
+    margin-left: auto;
+    margin-right: auto; /* Wyśrodkowanie przycisku */
+}
+
+/* Kontener, który zawiera wszystkie sekcje */
+.container {
+    padding: 20px 0px 100px 0px;
+    overflow-y: auto; /* Włączenie przewijania w pionie */
+    max-height: calc(100vh - 200px); /* Wysokość dostosowana do nagłówka i stopki */
+    scrollbar-width: none; /* Ukrycie scrolla w Firefox */
+    -ms-overflow-style: none; /* Ukrycie scrolla w IE */
+}
+
+    .container::-webkit-scrollbar {
+        display: none; /* Ukrycie scrolla w Chrome, Safari i Edge */
+    }
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #FFA500;
+    padding: 8px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+    .nav-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+.bottom-nav .nav-button img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Media Queries */
+
+/* Dla ekranów o szerokości 768px i mniejszej (tablety i telefony) */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 20px;
+    }
+
+    .profile-info {
+        font-size: 12px;
+    }
+
+    .edit-button {
+        font-size: 12px;
+        padding: 10px 20px;
+        width: 100%; /* Zwiększenie szerokości przycisku do 100% */
+        max-width: 250px; /* Zwiększenie maksymalnej szerokości */
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .menu-item {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .bottom-nav {
+        padding: 10px 0;
+    }
+
+    .nav-button img {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Dla ekranów o szerokości 480px i mniejszej (smartfony w pionie) */
+@media (max-width: 480px) {
+    .profile-pic {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile-name {
+        font-size: 18px;
+    }
+
+    .profile-info {
+        font-size: 12px;
+    }
+
+    .edit-button {
+        font-size: 12px;
+        padding: 8px 16px;
+        width: 100%; /* Zwiększenie szerokości przycisku do 100% */
+        max-width: 250px; /* Zwiększenie maksymalnej szerokości */
+    }
+
+    .section-title {
+        font-size: 14px;
+    }
+
+    .menu-item {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .bottom-nav {
+        padding: 8px 0;
+    }
+
+    .nav-button img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Dla ekranów o szerokości 1200px i większej (większe ekrany) */
+@media (min-width: 1200px) {
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name {
+        font-size: 28px;
+    }
+
+    .profile-info {
+        font-size: 16px;
+    }
+
+    .edit-button {
+        font-size: 16px;
+        padding: 12px 24px;
+        width: auto; /* Przyciski dostosowują się do treści */
+        max-width: 300px; /* Maksymalna szerokość */
+    }
+
+    .section-title {
+        font-size: 20px;
+    }
+
+    .menu-item {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    .bottom-nav {
+        padding: 12px 0;
+    }
+
+    .nav-button img {
+        width: 32px;
+        height: 32px;
+    }
+}
