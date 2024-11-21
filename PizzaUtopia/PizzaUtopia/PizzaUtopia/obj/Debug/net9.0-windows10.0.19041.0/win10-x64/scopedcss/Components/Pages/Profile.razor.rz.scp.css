@@ -1,0 +1,103 @@
+/* Resetowanie marginesów i paddingu oraz ustawienie domyślnego stylu */
+*[b-6uhw8ph0y0] {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body[b-6uhw8ph0y0] {
+    font-family: 'Jua', sans-serif;
+    background-color: #f5f5f5;
+    color: black;
+}
+
+header[b-6uhw8ph0y0] {
+    background-color: #FFA500;
+    padding: 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.profile-pic[b-6uhw8ph0y0] {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid white;
+}
+
+.profile-name[b-6uhw8ph0y0] {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+.profile-info[b-6uhw8ph0y0] {
+    font-size: 14px;
+    color: white;
+    margin-top: 5px;
+}
+
+.edit-button[b-6uhw8ph0y0] {
+    background-color: white;
+    color: #FFA500;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.container[b-6uhw8ph0y0] {
+    padding: 20px;
+}
+
+.section-title[b-6uhw8ph0y0] {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.menu-item[b-6uhw8ph0y0] {
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.bottom-nav[b-6uhw8ph0y0] {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffa500;
+    padding: 8px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button[b-6uhw8ph0y0] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+    .nav-button img[b-6uhw8ph0y0] {
+        width: 24px; /* Zmniejszenie rozmiaru ikon */
+        height: 24px;
+    }

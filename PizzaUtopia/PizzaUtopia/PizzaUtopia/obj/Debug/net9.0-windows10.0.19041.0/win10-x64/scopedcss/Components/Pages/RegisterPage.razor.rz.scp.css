@@ -1,54 +1,81 @@
-.container[b-736ickn76a] {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
+.back-button[b-736ickn76a] {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
-/* Logo and Title */
+    .back-button img[b-736ickn76a] {
+        width: 24px;
+        height: 24px;
+    }
+/* Kontener główny dla całej strony rejestracji */
+.register-container[b-736ickn76a] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowanie pionowe */
+    align-items: center; /* Wyśrodkowanie poziome */
+    height: 100vh; /* Pełna wysokość widoku */
+    background-color: #ffa500;
+    font-family: 'Jua', sans-serif;
+}
+
+/* Kontener dla logo i tytułu aplikacji */
 .logo-container[b-736ickn76a] {
-    margin-bottom: 50px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .logo[b-736ickn76a] {
-    width: 200px;
-    height: auto;
-    margin-bottom: 10px;
-}
-/* Password visibility button */
-.password-container[b-736ickn76a] {
-    position: relative;
+    width: 250px; /* Możesz dostosować rozmiar logo */
+    height: 250px; /* Możesz dostosować rozmiar logo */
 }
 
-.show-password[b-736ickn76a] {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
+.app-title[b-736ickn76a] {
+    font-size: 36px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Kontener dla formularza rejestracji */
+.form-container[b-736ickn76a] {
+    background-color: rgba(255, 255, 255, 0.9); /* Lekko przezroczysty biały kontener */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-title[b-736ickn76a] {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Stylizacja dla pól formularza */
+.input-field[b-736ickn76a] {
+    width: 100%;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+/* Stylizacja przycisku rejestracji */
+.register-button[b-736ickn76a] {
+    width: 100%;
+    background-color: #e59400;
+    color: #ffffff;
     border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
 }
-.show-password img[b-736ickn76a] {
-    width: 25px;
-    height: auto;
-    align-items: center;
-}
-.twopassword-container[b-736ickn76a] {
-    position: relative;
-}
 
-.show-twopassword[b-736ickn76a] {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-    .show-twopassword img[b-736ickn76a] {
-        width: 24px;
-        height: auto;
+    .register-button:hover[b-736ickn76a] {
+        background-color: #d48600;
+    }
