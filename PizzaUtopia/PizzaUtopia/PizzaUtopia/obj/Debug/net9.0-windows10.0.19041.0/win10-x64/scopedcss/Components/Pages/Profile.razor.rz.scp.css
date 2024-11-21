@@ -44,17 +44,30 @@ header[b-6uhw8ph0y0] {
     color: #FFA500;
     border: none;
     border-radius: 20px;
-    padding: 5px 15px;
+    padding: 10px 20px;
     margin-top: 10px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    width: 100%; /* Zwiększa szerokość przycisku do 100% */
+    max-width: 200px; /* Ustala maksymalną szerokość, aby nie rozciągał się za bardzo */
+    margin-left: auto;
+    margin-right: auto; /* Wyśrodkowanie przycisku */
 }
 
+/* Kontener, który zawiera wszystkie sekcje */
 .container[b-6uhw8ph0y0] {
-    padding: 20px;
+    padding: 20px 0px 100px 0px;
+    overflow-y: auto; /* Włączenie przewijania w pionie */
+    max-height: calc(100vh - 200px); /* Wysokość dostosowana do nagłówka i stopki */
+    scrollbar-width: none; /* Ukrycie scrolla w Firefox */
+    -ms-overflow-style: none; /* Ukrycie scrolla w IE */
 }
+
+    .container[b-6uhw8ph0y0]::-webkit-scrollbar {
+        display: none; /* Ukrycie scrolla w Chrome, Safari i Edge */
+    }
 
 .section-title[b-6uhw8ph0y0] {
     font-size: 18px;
@@ -83,7 +96,7 @@ header[b-6uhw8ph0y0] {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #ffa500;
+    background-color: #FFA500;
     padding: 8px 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -98,6 +111,137 @@ header[b-6uhw8ph0y0] {
 }
 
     .nav-button img[b-6uhw8ph0y0] {
-        width: 24px; /* Zmniejszenie rozmiaru ikon */
+        width: 24px;
         height: 24px;
     }
+
+.bottom-nav .nav-button img[b-6uhw8ph0y0] {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Media Queries */
+
+/* Dla ekranów o szerokości 768px i mniejszej (tablety i telefony) */
+@media (max-width: 768px) {
+    .profile-pic[b-6uhw8ph0y0] {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name[b-6uhw8ph0y0] {
+        font-size: 20px;
+    }
+
+    .profile-info[b-6uhw8ph0y0] {
+        font-size: 12px;
+    }
+
+    .edit-button[b-6uhw8ph0y0] {
+        font-size: 12px;
+        padding: 10px 20px;
+        width: 100%; /* Zwiększenie szerokości przycisku do 100% */
+        max-width: 250px; /* Zwiększenie maksymalnej szerokości */
+    }
+
+    .section-title[b-6uhw8ph0y0] {
+        font-size: 16px;
+    }
+
+    .menu-item[b-6uhw8ph0y0] {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .bottom-nav[b-6uhw8ph0y0] {
+        padding: 10px 0;
+    }
+
+    .nav-button img[b-6uhw8ph0y0] {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Dla ekranów o szerokości 480px i mniejszej (smartfony w pionie) */
+@media (max-width: 480px) {
+    .profile-pic[b-6uhw8ph0y0] {
+        width: 70px;
+        height: 70px;
+    }
+
+    .profile-name[b-6uhw8ph0y0] {
+        font-size: 18px;
+    }
+
+    .profile-info[b-6uhw8ph0y0] {
+        font-size: 12px;
+    }
+
+    .edit-button[b-6uhw8ph0y0] {
+        font-size: 12px;
+        padding: 8px 16px;
+        width: 100%; /* Zwiększenie szerokości przycisku do 100% */
+        max-width: 250px; /* Zwiększenie maksymalnej szerokości */
+    }
+
+    .section-title[b-6uhw8ph0y0] {
+        font-size: 14px;
+    }
+
+    .menu-item[b-6uhw8ph0y0] {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+
+    .bottom-nav[b-6uhw8ph0y0] {
+        padding: 8px 0;
+    }
+
+    .nav-button img[b-6uhw8ph0y0] {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Dla ekranów o szerokości 1200px i większej (większe ekrany) */
+@media (min-width: 1200px) {
+    .profile-pic[b-6uhw8ph0y0] {
+        width: 120px;
+        height: 120px;
+    }
+
+    .profile-name[b-6uhw8ph0y0] {
+        font-size: 28px;
+    }
+
+    .profile-info[b-6uhw8ph0y0] {
+        font-size: 16px;
+    }
+
+    .edit-button[b-6uhw8ph0y0] {
+        font-size: 16px;
+        padding: 12px 24px;
+        width: auto; /* Przyciski dostosowują się do treści */
+        max-width: 300px; /* Maksymalna szerokość */
+    }
+
+    .section-title[b-6uhw8ph0y0] {
+        font-size: 20px;
+    }
+
+    .menu-item[b-6uhw8ph0y0] {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+
+    .bottom-nav[b-6uhw8ph0y0] {
+        padding: 12px 0;
+    }
+
+    .nav-button img[b-6uhw8ph0y0] {
+        width: 32px;
+        height: 32px;
+    }
+}
