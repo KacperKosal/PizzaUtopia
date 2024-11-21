@@ -1,13 +1,26 @@
-﻿@page "/cart"
+@page "/cart"
 @using PizzaUtopia.Components.Models
 @using System.Text.Json
+
 @inject NavigationManager Navigation
 @inject IJSRuntime JSRuntime
 <link rel="stylesheet" href="css/Cart.css">
+
+
+@inject NavigationManager Navigation
+@inject IJSRuntime JSRuntime
+
+<link rel="stylesheet" href="css/Cart.css">
+
+
 <div class="header">
     <img src="Images/logopizzy.png" alt="Pizza Icon">
     <h1>Mój koszyk</h1>
 </div>
+
+=======
+
+
 <div class="cart-container">
     @if (!CartItems.Any())
     {
@@ -31,7 +44,13 @@
         }
     }
 </div>
+
 <button class="checkout-button" @onclick="RedirectToFinalization">Dokończ zamówienie</button>
+=======
+
+<button class="checkout-button" @onclick="RedirectToFinalization">Dokończ zamówienie</button>
+
+
 <!-- Dolny pasek nawigacyjny -->
 <div class="bottom-nav">
     <button class="nav-button">
@@ -44,8 +63,15 @@
         <img src="Images/profile-icon.png" alt="Profile" @onclick="RedirectToProfile">
     </button>
 </div>
+
 @code {
     private List<CartItem> CartItems { get; set; } = new();
+=======
+
+@code {
+    private List<CartItem> CartItems { get; set; } = new();
+
+
     protected override async Task OnInitializedAsync()
     {
         var cartJson = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "cart");
@@ -54,6 +80,7 @@
             CartItems = JsonSerializer.Deserialize<List<CartItem>>(cartJson) ?? new();
         }
     }
+
     private void UpdateQuantity(CartItem item, int change)
     {
         item.Quantity = Math.Max(item.Quantity + change, 0);
@@ -63,12 +90,21 @@
         }
         SaveCart();
     }
+
     private async void SaveCart()
     {
         var cartJson = JsonSerializer.Serialize(CartItems);
         await JSRuntime.InvokeVoidAsync("localStorage.setItem", "cart", cartJson);
     }
+
     private void RedirectToFinalization() => Navigation.NavigateTo("/finalization");
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 }
+
+
+    private void RedirectToFinalization() => Navigation.NavigateTo("/finalization");
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+}
+
