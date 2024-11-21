@@ -1,0 +1,57 @@
+﻿@page "/profile"
+@inject NavigationManager Navigation
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<header>
+    <img src="profile-icon.png" alt="Profil" class="profile-pic">
+    <div class="profile-name">@UserName</div>
+    <div class="profile-info">@PhoneNumber</div>
+    <button class="edit-button" @onclick="RedirectToEditProfile">Edytuj profil</button>
+</header>
+
+<div class="container">
+    <div class="section-title">Ustawienia</div>
+    <div class="menu-item" @onclick="RedirectToChangePassword">Zmień hasło</div>
+    <div class="menu-item" @onclick="RedirectToBiometry">Biometria</div>
+    <div class="menu-item" @onclick="RedirectToAppearance">Wygląd</div>
+
+    <div class="section-title">O nas</div>
+    <div class="menu-item" @onclick="RedirectToFAQ">FAQ</div>
+    <div class="menu-item" @onclick="RedirectToPrivacyPolicy">Polityka prywatności</div>
+    <div class="menu-item" @onclick="RedirectToContact">Kontakt</div>
+
+    <div class="section-title">Inne</div>
+    <div class="menu-item" @onclick="RedirectToShare">Udostępnij</div>
+</div>
+
+<div class="bottom-nav">
+    <button class="nav-button">
+        <img src="Images/home-icon.png" alt="Home" @onclick="RedirectToMenu">
+    </button>
+    <button class="nav-button">
+        <img src="Images/cart-icon.png" alt="Cart" @onclick="RedirectToCart">
+    </button>
+    <button class="nav-button">
+        <img src="Images/profile-icon.png" alt="Profile" @onclick="RedirectToProfile">
+    </button>
+</div>
+
+@code {
+    private string UserName { get; set; } = "Andrzej Kucyk";
+    private string PhoneNumber { get; set; } = "+48 123456789";
+
+    private void RedirectToEditProfile() => Navigation.NavigateTo("/edit-profile");
+    private void RedirectToChangePassword() => Navigation.NavigateTo("/change-password");
+    private void RedirectToBiometry() => Navigation.NavigateTo("/biometry");
+    private void RedirectToAppearance() => Navigation.NavigateTo("/appearance");
+    private void RedirectToFAQ() => Navigation.NavigateTo("/faq");
+    private void RedirectToPrivacyPolicy() => Navigation.NavigateTo("/privacy-policy");
+    private void RedirectToContact() => Navigation.NavigateTo("/contact");
+    private void RedirectToShare() => Navigation.NavigateTo("/share");
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToCart() => Navigation.NavigateTo("/cart");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+}
+
