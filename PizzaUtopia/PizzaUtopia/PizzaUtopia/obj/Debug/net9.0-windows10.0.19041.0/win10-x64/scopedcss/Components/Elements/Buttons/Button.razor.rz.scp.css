@@ -1,0 +1,15 @@
+button[b-c4u4r9ghmr] {
+    width: 100%;
+    background-color: #e57a00;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+button:hover[b-c4u4r9ghmr] {
+    background-color: #e57a00;
+}

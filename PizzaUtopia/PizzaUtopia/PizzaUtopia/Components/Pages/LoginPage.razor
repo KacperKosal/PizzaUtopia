@@ -1,0 +1,35 @@
+﻿@page "/login"
+@using PizzaUtopia.Components.Elements.Input
+@using PizzaUtopia.Components.Elements.Buttons
+ 
+ @inject NavigationManager NavigationManager
+
+<div class="container">
+        <!-- Logo i tytuł aplikacji -->
+        <div class="logo-container">
+            <img src="Images/logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
+            <h1>PizzaUtopia</h1> <!-- Tytuł aplikacji -->
+        </div>
+</div>
+<div class="form-container">
+            <h2>Logowanie</h2> <!-- Nagłówek sekcji logowania -->
+            <form id="loginForm"> <!-- Formularz logowania -->
+                <!-- Pole do wpisania emaila -->
+                <Input InputType="Enums.InputType.Email" placeholder="Wprowadź e-mail" />
+                
+                <!-- Pole do wpisania hasła z możliwością pokazania/ukrycia -->
+                <div class="password-container">
+                    <Input InputType="Enums.InputType.Password" placeholder="Wprowadź hasło" />
+                </div>
+                
+                <!-- Przycisk logowania -->
+                <Button OnClick="OnMenuClick">Zaloguj się</Button>
+            </form>
+</div>
+ 
+@code {
+    private void OnMenuClick(object? sender, EventArgs args)
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+}

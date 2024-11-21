@@ -1,0 +1,102 @@
+﻿@page "/menu"
+
+@using PizzaUtopia.Components.Elements.Buttons
+@inject NavigationManager NavigationManager
+
+<div class="menu-container">
+    <!-- Górna sekcja powitania -->
+    <div class="header">
+        <div class="logo">
+            <img src="Images/logopizzy.png" alt="Logo Pizzy" />
+        </div>
+        <div class="welcome">
+            <h1>Witaj, Andrzej</h1>
+        </div>
+    </div>
+
+    <!-- Tytuł sekcji menu -->
+    <h2 class="menu-title">Menu</h2>
+
+    <!-- Lista pizz -->
+    <div class="pizza-list">
+        <!-- Pizza 1 -->
+        <div class="pizza-card">
+            <img src="Images/pepperoni.png" alt="Pepperoni Pizza" />
+            <div class="pizza-details">
+                <h3>Pepperoni pizza</h3>
+                <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p>
+                <Button>Wybierz</Button>
+            </div>
+        </div>
+
+        <!-- Pizza 2 -->
+        <div class="pizza-card">
+            <img src="Images/margherita.png" alt="Margherita Pizza" />
+            <div class="pizza-details">
+                <h3>Margherita</h3>
+                <p>Sos pomidorowy, ser, pieczarki, bazylia</p>
+                <Button>Wybierz</Button>
+            </div>
+        </div>
+
+        <!-- Pizza 3 -->
+        <div class="pizza-card">
+            <img src="Images/jalapeno.png" alt="Jalapeno Pizza" />
+            <div class="pizza-details">
+                <h3>Jalapeno</h3>
+                <p>Sos pomidorowy, ser, salami, jalapeno</p>
+                <Button>Wybierz</Button>
+            </div>
+        </div>
+
+        <div class="pizza-card">
+            <img src="Images/capriciosa.png" alt="Capriciosa Pizza" />
+            <div class="pizza-details">
+                <h3>Capriciosa</h3>
+                <p>Sos pomidorowy, ser, salami, jalapeno</p>
+                <Button>Wybierz</Button>
+            </div>
+        </div>
+
+        <div class="pizza-card">
+            <img src="Images/Prosciutto.png" alt="Prosciutto Pizza" />
+            <div class="pizza-details">
+                <h3>Prosciutto</h3>
+                <p>Sos pomidorowy, ser, salami, jalapeno</p>
+                <Button>Wybierz</Button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dolny pasek nawigacyjny -->
+    <div class="bottom-nav">
+        <button class="nav-button" @onclick="OnMenuClick">
+            <img src="Images/home-icon.png" alt="Home" />
+        </button>
+        <button class="nav-button" @onclick="OnCartClick">
+            <img src="Images/cart-icon.png" alt="Cart" />
+        </button>
+        <button class="nav-button" @onclick="OnProfileClick">
+            <img src="Images/profile-icon.png" alt="Profile" />
+        </button>
+    </div>
+</div>
+
+@code {
+    void ChoosePizza(string pizzaName)
+    {
+        Console.WriteLine($"Wybrano pizzę: {pizzaName}");
+    }
+    private void OnMenuClick()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+    private void OnCartClick()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+    private void OnProfileClick()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+}

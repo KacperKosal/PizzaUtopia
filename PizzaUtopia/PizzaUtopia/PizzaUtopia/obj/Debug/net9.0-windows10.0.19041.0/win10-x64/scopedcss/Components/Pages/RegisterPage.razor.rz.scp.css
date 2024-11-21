@@ -1,0 +1,54 @@
+.container[b-736ickn76a] {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Logo and Title */
+.logo-container[b-736ickn76a] {
+    margin-bottom: 50px;
+}
+
+.logo[b-736ickn76a] {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+/* Password visibility button */
+.password-container[b-736ickn76a] {
+    position: relative;
+}
+
+.show-password[b-736ickn76a] {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.show-password img[b-736ickn76a] {
+    width: 25px;
+    height: auto;
+    align-items: center;
+}
+.twopassword-container[b-736ickn76a] {
+    position: relative;
+}
+
+.show-twopassword[b-736ickn76a] {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+    .show-twopassword img[b-736ickn76a] {
+        width: 24px;
+        height: auto;

@@ -1,0 +1,18 @@
+﻿.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Logo and Title */
+.logo-container {
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}

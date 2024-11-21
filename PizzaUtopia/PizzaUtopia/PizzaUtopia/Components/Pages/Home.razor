@@ -1,0 +1,14 @@
+﻿@page "/"
+
+@using PizzaUtopia.Components.Elements.StartScreen
+
+
+
+@if (!_isLogedIn)
+{
+	<StartScreen/>
+}
+
+@code {
+	private readonly bool _isLogedIn = false;
+}
