@@ -1,38 +1,81 @@
-.container[b-l1bpe1bgzv] {
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-/* Logo and Title */
-.logo-container[b-l1bpe1bgzv] {
-    margin-bottom: 50px;
-}
-
-.logo[b-l1bpe1bgzv] {
-    width: 200px;
-    height: auto;
-    margin-bottom: 10px;
-}
-/* Password visibility button */
-.password-container[b-l1bpe1bgzv] {
-    position: relative;
-}
-
-.show-password[b-l1bpe1bgzv] {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+.back-button[b-l1bpe1bgzv] {
     background: none;
     border: none;
     cursor: pointer;
+    margin-right: 10px;
 }
 
-.show-password img[b-l1bpe1bgzv] {
-    width: 25px;
-    height: auto;
-    align-items: center;
+    .back-button img[b-l1bpe1bgzv] {
+        width: 24px;
+        height: 24px;
+    }
+/* Kontener główny dla całej strony logowania */
+.login-container[b-l1bpe1bgzv] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowanie pionowe */
+    align-items: center; /* Wyśrodkowanie poziome */
+    height: 100vh; /* Pełna wysokość widoku */
+    background-color: #ffa500;
+    font-family: 'Arial', sans-serif;
 }
+
+/* Kontener dla logo i tytułu aplikacji */
+.logo-container[b-l1bpe1bgzv] {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo[b-l1bpe1bgzv] {
+    width: 250px; /* Możesz dostosować rozmiar logo */
+    height: 250px; /* Możesz dostosować rozmiar logo */
+}
+
+.app-title[b-l1bpe1bgzv] {
+    font-size: 36px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Kontener dla formularza logowania */
+.form-container[b-l1bpe1bgzv] {
+    background-color: rgba(255, 255, 255, 0.9); /* Lekko przezroczysty biały kontener */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-title[b-l1bpe1bgzv] {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Stylizacja dla pól formularza */
+.input-field[b-l1bpe1bgzv] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+/* Stylizacja przycisku logowania */
+.login-button[b-l1bpe1bgzv] {
+    width: 100%;
+    background-color: #e59400;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .login-button:hover[b-l1bpe1bgzv] {
+        background-color: #d48600;
+    }

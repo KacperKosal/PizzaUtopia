@@ -4,7 +4,13 @@
 
 @inject NavigationManager NavigationManager
 
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
 <div class="container">
+    <button class="back-button" @onclick="NavigateBack">
+        <img src="Images/back-arrow.png" alt="Powrót" />
+    </button>
         <!-- Logo i tytuł aplikacji -->
         <div class="logo-container">
             <img src="Images/logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
@@ -37,5 +43,9 @@
     private void OnMenuClick(object? sender, EventArgs args)
     {
         NavigationManager.NavigateTo("/menu");
+    }
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/start");
     }
 }
