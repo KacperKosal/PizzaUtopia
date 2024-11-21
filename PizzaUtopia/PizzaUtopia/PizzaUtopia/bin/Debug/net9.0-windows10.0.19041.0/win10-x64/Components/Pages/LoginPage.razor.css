@@ -1,0 +1,81 @@
+﻿.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .back-button img {
+        width: 24px;
+        height: 24px;
+    }
+/* Kontener główny dla całej strony logowania */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowanie pionowe */
+    align-items: center; /* Wyśrodkowanie poziome */
+    height: 100vh; /* Pełna wysokość widoku */
+    background-color: #ffa500;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Kontener dla logo i tytułu aplikacji */
+.logo-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 250px; /* Możesz dostosować rozmiar logo */
+    height: 250px; /* Możesz dostosować rozmiar logo */
+}
+
+.app-title {
+    font-size: 36px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Kontener dla formularza logowania */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Lekko przezroczysty biały kontener */
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-title {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+/* Stylizacja dla pól formularza */
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+/* Stylizacja przycisku logowania */
+.login-button {
+    width: 100%;
+    background-color: #e59400;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+    .login-button:hover {
+        background-color: #d48600;
+    }

@@ -1,0 +1,38 @@
+﻿.container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Logo and Title */
+.logo-container {
+    margin-bottom: 50px;
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+}
+/* Password visibility button */
+.password-container {
+    position: relative;
+}
+
+.show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.show-password img {
+    width: 25px;
+    height: auto;
+    align-items: center;
+}
