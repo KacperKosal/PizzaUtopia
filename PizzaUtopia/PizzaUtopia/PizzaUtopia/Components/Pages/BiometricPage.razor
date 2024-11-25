@@ -1,0 +1,76 @@
+﻿@page "/biometry"
+@using PizzaUtopia.Components.Elements.ToggleSwitch
+
+@inject NavigationManager Navigation
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="biometry-container">
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">Biometria</h2>
+    </div>
+
+    <!-- Przełącznik biometrii -->
+    <div class="toggle-wrapper">
+        <div class="toggle-container">
+            <label for="biometryToggle" class="toggle-label">Biometria</label>
+            <ToggleSwitch OnToggle="HandleToggle" IsChecked="@isBiometryEnabled"></ToggleSwitch>
+        </div>
+    </div>
+
+    <!-- Przyciski do edycji i dodania odcisku palca -->
+    <div class="button-container">
+        <button class="action-button" @onclick="EditFingerprint">Edytuj odcisk palca</button>
+        <button class="action-button" @onclick="AddFingerprint">Dodaj kolejny odcisk palca</button>
+    </div>
+</div>
+
+<!-- Dolny pasek nawigacyjny -->
+<div class="bottom-nav">
+    <button class="nav-button" @onclick="RedirectToMenu">
+        <img src="Images/home-icon.png" alt="Home" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToCart">
+        <img src="Images/cart-icon.png" alt="Cart" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToProfile">
+        <img src="Images/profile-icon.png" alt="Profile" />
+    </button>
+</div>
+
+@code {
+    // Zmienna do zarządzania stanem przełącznika biometrii
+    private bool isBiometryEnabled = false;
+
+    private void NavigateBack()
+    {
+        Navigation.NavigateTo("/profile");
+    }
+
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToCart() => Navigation.NavigateTo("/cart");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+
+    // Funkcje obsługujące akcje
+    private void EditFingerprint()
+    {
+        Console.WriteLine("Edytuj odcisk palca");
+        // Tu można dodać logikę edycji odcisku palca
+    }
+
+    private void AddFingerprint()
+    {
+        Console.WriteLine("Dodaj kolejny odcisk palca");
+        // Tu można dodać logikę dodania odcisku palca
+    }
+    private void HandleToggle(object sender, EventArgs e)
+    {
+        isBiometryEnabled = !isBiometryEnabled;
+        Console.WriteLine("Biometria: " + (isBiometryEnabled ? "włączona" : "wyłączona"));
+    }
+}
