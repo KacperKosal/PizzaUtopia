@@ -1,5 +1,6 @@
 ﻿@page "/"
 
+@inject NavigationManager NavigationManager
 @using PizzaUtopia.Components.Elements.StartScreen
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
@@ -7,7 +8,7 @@
 
 @if (!_isLogedIn)
 {
-	<StartScreen/>
+    NavigationManager.NavigateTo("/menu");
 }
 
 @code {
