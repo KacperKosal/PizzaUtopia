@@ -1,0 +1,52 @@
+﻿@page "/look"
+@inject NavigationManager Navigation
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="appearance-container">
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">Wygląd</h2>
+    </div>
+
+    <!-- Przełączniki motywów -->
+    <div class="settings-wrapper">
+        <div class="setting-item">
+            <label for="autoThemeToggle" class="setting-label">Automatyczny motyw</label>
+            <input type="checkbox" id="autoThemeToggle" class="toggle-switch" @bind="isAutoThemeEnabled" />
+        </div>
+
+        <div class="setting-item">
+            <label for="darkThemeToggle" class="setting-label">Ciemny motyw</label>
+            <input type="checkbox" id="darkThemeToggle" class="toggle-switch" @bind="isDarkThemeEnabled" />
+        </div>
+    </div>
+</div>
+
+<!-- Dolny pasek nawigacyjny -->
+<div class="bottom-nav">
+    <button class="nav-button" @onclick="RedirectToMenu">
+        <img src="Images/home-icon.png" alt="Home" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToCart">
+        <img src="Images/cart-icon.png" alt="Cart" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToProfile">
+        <img src="Images/profile-icon.png" alt="Profile" />
+    </button>
+</div>
+
+@code {
+    private bool isAutoThemeEnabled = false;
+    private bool isDarkThemeEnabled = false;
+
+    // Funkcje nawigacyjne
+    private void NavigateBack() => Navigation.NavigateTo("/profile");
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToCart() => Navigation.NavigateTo("/cart");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+}
