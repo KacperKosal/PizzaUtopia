@@ -1,0 +1,77 @@
+﻿@page "/cart"
+@using System.Text.Json
+@inject NavigationManager NavigationManager
+
+<div class="header">
+    <img src="Images/logopizzy.png" alt="Pizza Icon" />
+    <h1>Mój koszyk</h1>
+</div>
+
+<div class="cart-container">
+    @if (CartItems.Count == 0)
+    {
+            <p>Twój koszyk jest pusty.</p>
+    }
+    else
+    {
+        @foreach (var item in CartItems)
+        {
+                    <div class="cart-item">
+                        <img src="@item.ImageUrl" alt="@item.Name" />
+                        <div class="cart-item-content">
+                            <div class="cart-item-title">@item.Name</div>
+                            <div class="cart-item-quantity">Ilość: @item.Quantity</div>
+                        </div>
+                    </div>
+        }
+    }
+</div>
+
+<button class="checkout-button" @onclick="OnCheckoutClick">Dokończ zamówienie</button>
+
+<div class="bottom-nav">
+    <button class="nav-button" @onclick="OnMenuClick">
+        <img src="Images/home-icon.png" alt="Home" />
+    </button>
+    <button class="nav-button" @onclick="OnCartClick">
+        <img src="Images/cart-icon.png" alt="Cart" />
+    </button>
+    <button class="nav-button" @onclick="OnProfileClick">
+        <img src="Images/profile-icon.png" alt="Profile" />
+    </button>
+</div>
+
+@code {
+    private List<CartItem> CartItems = new()
+    {
+        new CartItem { Name = "Pepperoni pizza", ImageUrl = "Images/pepperoni.png", Quantity = 2 },
+        new CartItem { Name = "Margarita", ImageUrl = "Images/margherita.png", Quantity = 1 }
+    };
+
+    private void OnMenuClick()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+
+    private void OnCartClick()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+    private void OnProfileClick()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+
+    private void OnCheckoutClick()
+    {
+        NavigationManager.NavigateTo("/checkout");
+    }
+
+    private class CartItem
+    {
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+        public int Quantity { get; set; }
+    }
+}
