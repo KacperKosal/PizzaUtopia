@@ -119,8 +119,52 @@
     cursor: pointer;
     padding: 5px;
 }
+.nav-button img {
+    width: 24px; /* Zmniejszenie rozmiaru ikon */
+    height: 24px;
+}
+/* Tryb Ciemny - Kontener główny */
+body.dark-mode .menu-container {
+    background-color: #333333;
+    color: #ffffff;
+}
 
-    .nav-button img {
-        width: 24px; /* Zmniejszenie rozmiaru ikon */
-        height: 24px;
+/* Tryb Ciemny - Górna sekcja powitania */
+body.dark-mode .header {
+    background-color: #555555;
+}
+
+    body.dark-mode .header .welcome h1 {
+        color: #ffffff;
     }
+
+/* Tryb Ciemny - Tytuł menu */
+body.dark-mode .menu-title {
+    color: #ffffff;
+}
+
+/* Tryb Ciemny - Lista pizz */
+body.dark-mode .pizza-card {
+    background-color: #555555;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .pizza-details h3,
+body.dark-mode .pizza-details p {
+    color: #ffffff;
+}
+
+/* Tryb Ciemny - Przycisk wyboru pizzy */
+body.dark-mode .choose-button {
+    background-color: #333333;
+    color: #ffa500;
+}
+
+/* Tryb Ciemny - Dolny pasek nawigacyjny */
+body.dark-mode .bottom-nav {
+    background-color: #555555;
+}
+
+body.dark-mode .nav-button img {
+    filter: invert(1);
+}
