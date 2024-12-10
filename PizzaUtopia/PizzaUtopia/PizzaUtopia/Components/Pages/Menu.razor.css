@@ -49,6 +49,8 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    scrollbar-width: none; /* Ukrycie scrolla w Firefox */
+    -ms-overflow-style: none; /* Ukrycie scrolla w IE */
 }
 
 .pizza-card {
