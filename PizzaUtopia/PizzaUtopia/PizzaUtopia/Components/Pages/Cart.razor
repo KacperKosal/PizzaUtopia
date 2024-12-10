@@ -13,19 +13,24 @@
 <div class="cart-container">
     @if (CartItems.Count == 0)
     {
-            <p>Twój koszyk jest pusty.</p>
+        <p>Twój koszyk jest pusty.</p>
     }
     else
     {
         @foreach (var item in CartItems)
         {
-                    <div class="cart-item">
-                        <img src="@item.ImageUrl" alt="@item.Name" />
-                        <div class="cart-item-content">
-                            <div class="cart-item-title">@item.Name</div>
-                            <div class="cart-item-quantity">Ilość: @item.Quantity</div>
-                        </div>
+            <div class="cart-item">
+                <img src="@item.ImageUrl" alt="@item.Name" />
+                <div class="cart-item-content">
+                    <div class="cart-item-title">@item.Name</div>
+                    <div class="cart-item-quantity">
+                        Ilość: @item.Quantity
+                        <button @onclick="() => IncreaseQuantity(item)">+</button>
+                        <button @onclick="() => DecreaseQuantity(item)">-</button>
                     </div>
+                    <button @onclick="() => RemoveItem(item)">Usuń</button>
+                </div>
+            </div>
         }
     }
 </div>
@@ -69,6 +74,28 @@
     private void OnCheckoutClick()
     {
         NavigationManager.NavigateTo("/checkout");
+    }
+
+    private void IncreaseQuantity(CartItem item)
+    {
+        item.Quantity++;
+    }
+
+    private void DecreaseQuantity(CartItem item)
+    {
+        if (item.Quantity > 1)
+        {
+            item.Quantity--;
+        }
+        else
+        {
+            CartItems.Remove(item);
+        }
+    }
+
+    private void RemoveItem(CartItem item)
+    {
+        CartItems.Remove(item);
     }
 
     private class CartItem

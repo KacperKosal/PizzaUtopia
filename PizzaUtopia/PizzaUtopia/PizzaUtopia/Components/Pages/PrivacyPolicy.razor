@@ -1,0 +1,92 @@
+﻿@page "/privacy-policy"
+
+@using PizzaUtopia.Components.Elements.Buttons
+@inject NavigationManager NavigationManager
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="privacy-policy-container">
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">Polityka Prywatności</h2>
+    </div>
+    <div class="privacy-content">
+        <h1>Polityka Prywatności</h1>
+        <p>Data wejścia w życie: 1 stycznia 2023</p>
+
+        <h2>1. Wprowadzenie</h2>
+        <p>Twoja prywatność jest dla nas bardzo ważna. Niniejsza polityka prywatności wyjaśnia, jakie dane osobowe zbieramy, jak je wykorzystujemy oraz jakie masz prawa w związku z tymi danymi.</p>
+
+        <h2>2. Jakie dane zbieramy</h2>
+        <p>Możemy zbierać następujące dane osobowe:</p>
+        <ul>
+            <li>Imię i nazwisko</li>
+            <li>Adres e-mail</li>
+            <li>Numer telefonu</li>
+            <li>Adres zamieszkania</li>
+            <li>Informacje o zamówieniach</li>
+        </ul>
+
+        <h2>3. Jak wykorzystujemy dane</h2>
+        <p>Zebrane dane osobowe mogą być wykorzystywane do:</p>
+        <ul>
+            <li>Realizacji zamówień</li>
+            <li>Kontaktowania się z Tobą w sprawie zamówień</li>
+            <li>Wysyłania informacji marketingowych (jeśli wyraziłeś na to zgodę)</li>
+            <li>Poprawy naszych usług</li>
+        </ul>
+
+        <h2>4. Udostępnianie danych</h2>
+        <p>Nie udostępniamy Twoich danych osobowych stronom trzecim, z wyjątkiem sytuacji, gdy jest to konieczne do realizacji zamówienia lub wymagane przez prawo.</p>
+
+        <h2>5. Twoje prawa</h2>
+        <p>Masz prawo do:</p>
+        <ul>
+            <li>Dostępu do swoich danych osobowych</li>
+            <li>Poprawiania swoich danych osobowych</li>
+            <li>Usunięcia swoich danych osobowych</li>
+            <li>Ograniczenia przetwarzania swoich danych osobowych</li>
+            <li>Sprzeciwu wobec przetwarzania swoich danych osobowych</li>
+        </ul>
+
+        <h2>6. Kontakt</h2>
+        <p>Jeśli masz jakiekolwiek pytania dotyczące naszej polityki prywatności, skontaktuj się z nami pod adresem e-mail: privacy@pizzautopia.com.</p>
+    </div>
+    <!-- Dolny pasek nawigacyjny -->
+    <div class="bottom-nav">
+        <button class="nav-button" @onclick="OnMenuClick">
+            <img src="Images/home-icon.png" alt="Home" />
+        </button>
+        <button class="nav-button" @onclick="OnCartClick">
+            <img src="Images/cart-icon.png" alt="Cart" />
+        </button>
+        <button class="nav-button" @onclick="OnProfileClick">
+            <img src="Images/profile-icon.png" alt="Profile" />
+        </button>
+    </div>
+</div>
+
+@code {
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+
+    private void OnMenuClick()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+
+    private void OnCartClick()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+    private void OnProfileClick()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+}
