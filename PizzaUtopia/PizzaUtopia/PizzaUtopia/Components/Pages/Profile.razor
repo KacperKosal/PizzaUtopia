@@ -23,7 +23,7 @@
     <div class="menu-item" @onclick="RedirectToContact">Kontakt</div>
 
     <div class="section-title">Inne</div>
-    <div class="menu-item" @onclick="RedirectToShare">Udostępnij</div>
+    <div class="menu-item" @onclick="ShareApp">Udostępnij</div>
 </div>
 
 <div class="bottom-nav">
@@ -49,9 +49,24 @@
     private void RedirectToFAQ() => Navigation.NavigateTo("/faq");
     private void RedirectToPrivacyPolicy() => Navigation.NavigateTo("/privacy-policy");
     private void RedirectToContact() => Navigation.NavigateTo("/contact");
-    private void RedirectToShare() => Navigation.NavigateTo("/share");
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
-}
 
+    private async Task ShareApp()
+    {
+        try
+        {
+            await Share.RequestAsync(new ShareTextRequest
+                {
+                    Title = "Udostępnij aplikację PizzaUtopia",
+                    Text = "Sprawdź świetną aplikację PizzaUtopia! Zamawiaj pizze i zarządzaj swoim kontem w prosty sposób!",
+                    Uri = "https://pizzautopia.com" // Możesz dodać link do strony aplikacji
+                });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Błąd udostępniania: {ex.Message}");
+        }
+    }
+}
