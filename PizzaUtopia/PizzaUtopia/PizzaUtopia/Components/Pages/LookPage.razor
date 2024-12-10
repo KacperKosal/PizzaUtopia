@@ -17,12 +17,12 @@
     <div class="settings-wrapper">
         <div class="setting-item">
             <label for="autoThemeToggle" class="setting-label">Automatyczny motyw</label>
-            <input type="checkbox" id="autoThemeToggle" class="toggle-switch" @bind="isAutoThemeEnabled" />
+            <input type="checkbox" id="autoThemeToggle" class="toggle-switch" @onchange="OnAutoThemeChange" />
         </div>
 
         <div class="setting-item">
             <label for="darkThemeToggle" class="setting-label">Ciemny motyw</label>
-            <input type="checkbox" id="darkThemeToggle" class="toggle-switch" @bind="isDarkThemeEnabled" />
+            <input type="checkbox" id="darkThemeToggle" class="toggle-switch" @onchange="OnDarkThemeChange" disabled="@isAutoThemeEnabled" />
         </div>
     </div>
 </div>
@@ -49,4 +49,45 @@
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+
+    // Obsługa przełącznika automatycznego motywu
+    private void OnAutoThemeChange(ChangeEventArgs e)
+    {
+        if (isAutoThemeEnabled)
+        {
+            // Ustaw motyw na podstawie czujnika światła lub innego źródła
+            Application.Current.UserAppTheme = AppTheme.Light; // Przyklad dla domyślnego motywu
+        }
+        else
+        {
+            // Zostaw użytkownikowi możliwość ręcznej zmiany motywu
+            ApplyDarkTheme();
+        }
+    }
+
+    // Obsługa przełącznika trybu ciemnego
+    private void OnDarkThemeChange(ChangeEventArgs e)
+    {
+        if (isDarkThemeEnabled)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+        }
+    }
+
+    // Pomocnicza metoda do ustawiania trybu ciemnego
+    private void ApplyDarkTheme()
+    {
+        if (isDarkThemeEnabled)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+        }
+    }
 }

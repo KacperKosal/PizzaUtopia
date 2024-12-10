@@ -1,6 +1,7 @@
 ﻿@page "/editprofile"
 
 @using PizzaUtopia.Components.Elements.Buttons
+@using Microsoft.Maui.ApplicationModel
 @inject NavigationManager NavigationManager
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
@@ -17,8 +18,8 @@
 
     <!-- Zdjęcie profilowe -->
     <div class="profile-picture-container">
-        <img src="Images/profile-icon.png" alt="Zdjęcie profilowe" class="profile-picture" />
-        <button class="edit-picture-button">
+        <img src="@profilePicture" alt="Zdjęcie profilowe" class="profile-picture" />
+        <button class="edit-picture-button" @onclick="TakePhoto">
             <img src="Images/edit-icon.png" alt="Edytuj zdjęcie" />
         </button>
     </div>
@@ -52,6 +53,8 @@
 </div>
 
 @code {
+    private string profilePicture = "Images/profile-icon.png";
+
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
@@ -70,5 +73,33 @@
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
+    }
+
+    private async Task TakePhoto()
+    {
+        try
+        {
+            var photo = await MediaPicker.CapturePhotoAsync();
+            if (photo != null)
+            {
+                var stream = await photo.OpenReadAsync();
+                profilePicture = await SavePhotoAsync(stream);
+                StateHasChanged(); // Odśwież komponent po zapisaniu zdjęcia
+            }
+        }
+        catch (Exception ex)
+        {
+            // Obsługa błędów
+        }
+    }
+
+    private async Task<string> SavePhotoAsync(Stream stream)
+    {
+        var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");
+        using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+        {
+            await stream.CopyToAsync(fileStream);
+        }
+        return filePath;
     }
 }
