@@ -1,0 +1,65 @@
+﻿@page "/contact"
+
+@using PizzaUtopia.Components.Elements.Buttons
+@inject NavigationManager NavigationManager
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="contact-container">
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">Kontakt</h2>
+    </div>
+    <!-- Lista możliwości kontaktu -->
+    <div class="contact-wrapper">
+        <div class="contact-method">
+            <h3>Email</h3>
+            <p>Skontaktuj się z nami poprzez email: <a href="mailto:support@pizzautopia.com">support@pizzautopia.com</a></p>
+        </div>
+        <div class="contact-method">
+            <h3>Telefon</h3>
+            <p>Zadzwoń do nas: <a href="tel:+48123456789">+48 123 456 789</a></p>
+        </div>
+        <div class="contact-method">
+            <h3>Adres</h3>
+            <p>Odwiedź nas: ul. Pizzowa 123, 00-001 Warszawa</p>
+        </div>
+    </div>
+    <!-- Dolny pasek nawigacyjny -->
+    <div class="bottom-nav">
+        <button class="nav-button" @onclick="OnMenuClick">
+            <img src="Images/home-icon.png" alt="Home" />
+        </button>
+        <button class="nav-button" @onclick="OnCartClick">
+            <img src="Images/cart-icon.png" alt="Cart" />
+        </button>
+        <button class="nav-button" @onclick="OnProfileClick">
+            <img src="Images/profile-icon.png" alt="Profile" />
+        </button>
+    </div>
+</div>
+@code {
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+
+    private void OnMenuClick()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+
+    private void OnCartClick()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+    private void OnProfileClick()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+}

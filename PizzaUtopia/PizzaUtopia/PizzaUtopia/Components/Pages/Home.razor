@@ -8,9 +8,13 @@
 
 @if (!_isLogedIn)
 {
+    NavigationManager.NavigateTo("/start");
+}
+else
+{
     NavigationManager.NavigateTo("/menu");
 }
 
 @code {
-	private readonly bool _isLogedIn = false;
+	private readonly bool _isLogedIn = true;
 }

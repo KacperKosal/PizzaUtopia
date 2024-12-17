@@ -1,5 +1,5 @@
-﻿/* Główny kontener zakładki wyglądu */
-.form-container {
+﻿/* Główny kontener zakładki kontaktu */
+.contact-container {
     font-family: 'Jua', sans-serif;
     background-color: #ffa500;
     height: 100vh;
@@ -34,65 +34,42 @@
     color: #ffffff;
     margin: 0;
 }
-
-/* Formularz zmiany hasła */
-.form-container form {
+/* Wrapper dla metod kontaktu */
+.contact-wrapper {
     background-color: #ffffff;
-    padding: 20px;
     border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 400px;
     margin-top: 20px;
     text-align: center;
 }
 
-.form-container h2 {
-    font-size: 20px;
-    color: #333333;
-    margin-bottom: 15px;
+.contact-method {
+    margin-bottom: 20px;
 }
 
-/* Stylizacja dla pól formularza */
-.password-container {
-    margin-bottom: 15px;
-}
+    .contact-method h3 {
+        font-size: 20px;
+        color: #333333;
+        margin-bottom: 10px;
+    }
 
-    .password-container input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 15px;
-        border: 1px solid #ddd;
+    .contact-method p {
         font-size: 16px;
-        background-color: #f9f9f9;
-        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.1);
+        color: #666666;
     }
 
-        .password-container input:focus {
-            outline: none;
-            border-color: #ffa500;
+    .contact-method a {
+        text-decoration: none;
+        color: #ffa500;
+        font-weight: bold;
+    }
+
+        .contact-method a:hover {
+            text-decoration: underline;
         }
-
-/* Przycisk zmiany hasła */
-.change-password-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #ffa500;
-    color: #ffffff;
-    border: none;
-    border-radius: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
-}
-
-    .change-password-btn:hover {
-        background-color: #e59400;
-    }
-
-
 /* Dolny pasek nawigacyjny */
 .bottom-nav {
     display: flex;
@@ -103,10 +80,10 @@
     left: 0;
     right: 0;
     background-color: #ffa500;
-    padding: 10px 0;
+    padding: 8px 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
 
@@ -118,8 +95,8 @@
 }
 
     .nav-button img {
-        width: 30px;
-        height: 30px;
+        width: 24px;
+        height: 24px;
         transition: transform 0.2s ease;
     }
 
