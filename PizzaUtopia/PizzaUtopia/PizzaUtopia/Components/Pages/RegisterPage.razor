@@ -11,39 +11,48 @@
     <button class="back-button" @onclick="NavigateBack">
         <img src="Images/back-arrow.png" alt="Powrót" />
     </button>
-        <!-- Logo i tytuł aplikacji -->
-        <div class="logo-container">
-            <img src="Images/logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
-            <h1>PizzaUtopia</h1> <!-- Tytuł aplikacji -->
-        </div>
+    <!-- Logo i tytuł aplikacji -->
+    <div class="logo-container">
+        <img src="Images/logopizzy.png" alt="PizzaUtopia Logo" class="logo"> <!-- Logo aplikacji -->
+        <h1>PizzaUtopia</h1> <!-- Tytuł aplikacji -->
+    </div>
 </div>
 
- <!-- Formularz rejestracyjny -->
-        <div class="form-container">
-            <h2>Rejestracja</h2> <!-- Nagłówek sekcji rejestracji -->
-            <form id="registerForm"> <!-- Formularz dla użytkownika -->
-                <!-- Pole wprowadzania adresu e-mail -->
-                <Input InputType="Enums.InputType.Email" placeholder="Wprowadź e-mail" />
+<!-- Formularz rejestracyjny -->
+<div class="form-container">
+    <h2>Rejestracja</h2> <!-- Nagłówek sekcji rejestracji -->
+    <form id="registerForm"> <!-- Formularz dla użytkownika -->
+        <!-- Pole wprowadzania adresu e-mail -->
+        <Input InputType="Enums.InputType.Email" placeholder="Wprowadź e-mail" />
 
-                <!-- Pole wprowadzania hasła z możliwością pokazania/ukrycia -->
-                <div class="password-container">
-                    <Input InputType="Enums.InputType.Password" placeholder="Wprowadź hasło" />
-                </div>
-                <!-- Pole potwierdzania hasła z możliwością pokazania/ukrycia -->
-                <div class="password-container">
-                    <Input InputType="Enums.InputType.Password" placeholder="Potwierdź hasło" />
-                </div>
-
-                <!-- Przycisk rejestracji -->
-                <Button OnClick="OnMenuClick">Zarejestruj się</Button>
-            </form>
+        <!-- Pole wprowadzania hasła z możliwością pokazania/ukrycia -->
+        <div class="password-container">
+            <Input InputType="Enums.InputType.Password" placeholder="Wprowadź hasło" />
+        </div>
+        <!-- Pole potwierdzania hasła z możliwością pokazania/ukrycia -->
+        <div class="password-container">
+            <Input InputType="Enums.InputType.Password" placeholder="Potwierdź hasło" />
         </div>
 
+        <!-- Przycisk rejestracji -->
+        <Button OnClick="OnMenuClick">Zarejestruj się</Button>
+    </form>
+</div>
+
 @code {
+    /// <summary>
+    /// Nawiguje do strony menu po rejestracji.
+    /// </summary>
+    /// <param name="sender">Obiekt wywołujący zdarzenie.</param>
+    /// <param name="args">Argumenty zdarzenia.</param>
     private void OnMenuClick(object? sender, EventArgs args)
     {
         NavigationManager.NavigateTo("/menu");
     }
+
+    /// <summary>
+    /// Nawiguje do poprzedniej strony (startowej).
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/start");

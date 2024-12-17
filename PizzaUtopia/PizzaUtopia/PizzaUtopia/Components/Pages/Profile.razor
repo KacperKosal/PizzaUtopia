@@ -39,20 +39,69 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Nazwa użytkownika.
+    /// </summary>
     private string UserName { get; set; } = "Andrzej Kucyk";
+
+    /// <summary>
+    /// Numer telefonu użytkownika.
+    /// </summary>
     private string PhoneNumber { get; set; } = "+48 123456789";
 
+    /// <summary>
+    /// Nawiguje do strony edycji profilu.
+    /// </summary>
     private void RedirectToEditProfile() => Navigation.NavigateTo("/editprofile");
+
+    /// <summary>
+    /// Nawiguje do strony zmiany hasła.
+    /// </summary>
     private void RedirectToChangePassword() => Navigation.NavigateTo("/change-password");
+
+    /// <summary>
+    /// Nawiguje do strony biometrii.
+    /// </summary>
     private void RedirectToBiometry() => Navigation.NavigateTo("/biometry");
+
+    /// <summary>
+    /// Nawiguje do strony wyglądu.
+    /// </summary>
     private void RedirectToAppearance() => Navigation.NavigateTo("/look");
+
+    /// <summary>
+    /// Nawiguje do strony FAQ.
+    /// </summary>
     private void RedirectToFAQ() => Navigation.NavigateTo("/faq");
+
+    /// <summary>
+    /// Nawiguje do strony polityki prywatności.
+    /// </summary>
     private void RedirectToPrivacyPolicy() => Navigation.NavigateTo("/privacy-policy");
+
+    /// <summary>
+    /// Nawiguje do strony kontaktu.
+    /// </summary>
     private void RedirectToContact() => Navigation.NavigateTo("/contact");
+
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
+
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
+    /// <summary>
+    /// Udostępnia aplikację PizzaUtopia.
+    /// </summary>
     private async Task ShareApp()
     {
         try

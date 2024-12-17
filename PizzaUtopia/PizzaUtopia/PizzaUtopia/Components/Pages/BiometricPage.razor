@@ -45,30 +45,57 @@
 </div>
 
 @code {
-    // Zmienna do zarządzania stanem przełącznika biometrii
+    /// <summary>
+    /// Zmienna do zarządzania stanem przełącznika biometrii.
+    /// </summary>
     private bool isBiometryEnabled = false;
 
+    /// <summary>
+    /// Nawiguje do poprzedniej strony (profilu).
+    /// </summary>
     private void NavigateBack()
     {
         Navigation.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
+
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
-    // Funkcje obsługujące akcje
+    /// <summary>
+    /// Obsługuje akcję edycji odcisku palca.
+    /// </summary>
     private void EditFingerprint()
     {
         Console.WriteLine("Edytuj odcisk palca");
         // Tu można dodać logikę edycji odcisku palca
     }
 
+    /// <summary>
+    /// Obsługuje akcję dodania nowego odcisku palca.
+    /// </summary>
     private void AddFingerprint()
     {
         Console.WriteLine("Dodaj kolejny odcisk palca");
         // Tu można dodać logikę dodania odcisku palca
     }
+
+    /// <summary>
+    /// Obsługuje przełączanie stanu biometrii.
+    /// </summary>
+    /// <param name="sender">Obiekt wywołujący zdarzenie.</param>
+    /// <param name="e">Argumenty zdarzenia.</param>
     private void HandleToggle(object sender, EventArgs e)
     {
         isBiometryEnabled = !isBiometryEnabled;
