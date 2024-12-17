@@ -69,21 +69,33 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Nawiguje do poprzedniej strony (profilu).
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");

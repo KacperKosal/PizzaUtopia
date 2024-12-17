@@ -50,37 +50,61 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Lista przedmiotów w koszyku.
+    /// </summary>
     private List<CartItem> CartItems = new()
     {
         new CartItem { Name = "Pepperoni pizza", ImageUrl = "Images/pepperoni.png", Quantity = 2 },
         new CartItem { Name = "Margarita", ImageUrl = "Images/margherita.png", Quantity = 1 }
     };
 
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Nawiguje do strony finalizacji zamówienia.
+    /// </summary>
     private void OnCheckoutClick()
     {
         NavigationManager.NavigateTo("/checkout");
     }
 
+    /// <summary>
+    /// Zwiększa ilość danego przedmiotu w koszyku.
+    /// </summary>
+    /// <param name="item">Przedmiot, którego ilość ma zostać zwiększona.</param>
     private void IncreaseQuantity(CartItem item)
     {
         item.Quantity++;
     }
 
+    /// <summary>
+    /// Zmniejsza ilość danego przedmiotu w koszyku.
+    /// Jeśli ilość wynosi 1, przedmiot zostaje usunięty z koszyka.
+    /// </summary>
+    /// <param name="item">Przedmiot, którego ilość ma zostać zmniejszona.</param>
     private void DecreaseQuantity(CartItem item)
     {
         if (item.Quantity > 1)
@@ -93,15 +117,33 @@
         }
     }
 
+    /// <summary>
+    /// Usuwa dany przedmiot z koszyka.
+    /// </summary>
+    /// <param name="item">Przedmiot do usunięcia.</param>
     private void RemoveItem(CartItem item)
     {
         CartItems.Remove(item);
     }
 
+    /// <summary>
+    /// Klasa reprezentująca przedmiot w koszyku.
+    /// </summary>
     private class CartItem
     {
+        /// <summary>
+        /// Nazwa przedmiotu.
+        /// </summary>
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// URL obrazka przedmiotu.
+        /// </summary>
         public string ImageUrl { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Ilość przedmiotu.
+        /// </summary>
         public int Quantity { get; set; }
     }
 }

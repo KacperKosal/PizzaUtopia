@@ -28,7 +28,7 @@
             <div class="pizza-details">
                 <h3>Pepperoni pizza</h3>
                 <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p>
-                <Button>Wybierz</Button>
+                <Button @onclick="() => ChoosePizza("Pepperoni pizza")">Wybierz</Button>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
             <div class="pizza-details">
                 <h3>Margherita</h3>
                 <p>Sos pomidorowy, ser, pieczarki, bazylia</p>
-                <Button>Wybierz</Button>
+                <Button @onclick="() => ChoosePizza("Margherita")">Wybierz</Button>
             </div>
         </div>
 
@@ -48,7 +48,7 @@
             <div class="pizza-details">
                 <h3>Jalapeno</h3>
                 <p>Sos pomidorowy, ser, salami, jalapeno</p>
-                <Button>Wybierz</Button>
+                <Button @onclick="() => ChoosePizza("Jalapeno")">Wybierz</Button>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
             <div class="pizza-details">
                 <h3>Capriciosa</h3>
                 <p>Sos pomidorowy, ser, szynka, papryka oliwki</p>
-                <Button>Wybierz</Button>
+                <Button @onclick="() => ChoosePizza("Capriciosa")">Wybierz</Button>
             </div>
         </div>
 
@@ -66,7 +66,7 @@
             <div class="pizza-details">
                 <h3>Prosciutto</h3>
                 <p>Sos pomidorowy, ser, rukola, szynka parmeńska</p>
-                <Button>Wybierz</Button>
+                <Button @onclick="() => ChoosePizza("Prosciutto")">Wybierz</Button>
             </div>
         </div>
     </div>
@@ -86,18 +86,34 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Wybiera pizzę i wyświetla jej nazwę w konsoli.
+    /// </summary>
+    /// <param name="pizzaName">Nazwa wybranej pizzy.</param>
     void ChoosePizza(string pizzaName)
     {
         Console.WriteLine($"Wybrano pizzę: {pizzaName}");
     }
+
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
+
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
+
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");

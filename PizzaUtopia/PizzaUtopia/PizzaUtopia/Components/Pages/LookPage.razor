@@ -41,22 +41,46 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Zmienna określająca, czy automatyczny motyw jest włączony.
+    /// </summary>
     private bool isAutoThemeEnabled = false;
+
+    /// <summary>
+    /// Zmienna określająca, czy ciemny motyw jest włączony.
+    /// </summary>
     private bool isDarkThemeEnabled = false;
 
-    // Funkcje nawigacyjne
+    /// <summary>
+    /// Nawiguje do poprzedniej strony (profilu).
+    /// </summary>
     private void NavigateBack() => Navigation.NavigateTo("/profile");
+
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
+
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
-    // Obsługa przełącznika automatycznego motywu
+    /// <summary>
+    /// Obsługuje przełączanie automatycznego motywu.
+    /// </summary>
+    /// <param name="e">Argumenty zdarzenia zmiany.</param>
     private void OnAutoThemeChange(ChangeEventArgs e)
     {
         if (isAutoThemeEnabled)
         {
             // Ustaw motyw na podstawie czujnika światła lub innego źródła
-            Application.Current.UserAppTheme = AppTheme.Light; // Przyklad dla domyślnego motywu
+            Application.Current.UserAppTheme = AppTheme.Light; // Przykład dla domyślnego motywu
         }
         else
         {
@@ -65,7 +89,10 @@
         }
     }
 
-    // Obsługa przełącznika trybu ciemnego
+    /// <summary>
+    /// Obsługuje przełączanie trybu ciemnego.
+    /// </summary>
+    /// <param name="e">Argumenty zdarzenia zmiany.</param>
     private void OnDarkThemeChange(ChangeEventArgs e)
     {
         if (isDarkThemeEnabled)
@@ -78,7 +105,9 @@
         }
     }
 
-    // Pomocnicza metoda do ustawiania trybu ciemnego
+    /// <summary>
+    /// Pomocnicza metoda do ustawiania trybu ciemnego.
+    /// </summary>
     private void ApplyDarkTheme()
     {
         if (isDarkThemeEnabled)

@@ -53,28 +53,46 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Ścieżka do zdjęcia profilowego.
+    /// </summary>
     private string profilePicture = "Images/profile-icon.png";
 
+    /// <summary>
+    /// Nawiguje do poprzedniej strony (profilu).
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Obsługuje akcję robienia zdjęcia profilowego.
+    /// </summary>
     private async Task TakePhoto()
     {
         try
@@ -93,6 +111,11 @@
         }
     }
 
+    /// <summary>
+    /// Zapisuje zdjęcie profilowe do pliku.
+    /// </summary>
+    /// <param name="stream">Strumień zdjęcia.</param>
+    /// <returns>Ścieżka do zapisanego zdjęcia.</returns>
     private async Task<string> SavePhotoAsync(Stream stream)
     {
         var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");
