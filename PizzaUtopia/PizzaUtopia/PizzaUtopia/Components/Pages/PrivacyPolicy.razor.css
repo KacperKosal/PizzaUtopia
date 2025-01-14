@@ -1,0 +1,111 @@
+﻿/* Kontener główny dla Polityki Prywatności */
+.privacy-policy-container {
+    font-family: 'Jua', sans-serif;
+    background-color: #ffa500;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Nagłówek z przyciskiem powrotu i tytułem */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ffa500;
+    padding: 10px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .back-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Zawartość polityki prywatności */
+.privacy-content {
+    background-color: #ffffff;
+    flex: 1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Przewijanie w przypadku długiej zawartości */
+    margin-bottom: 60px;
+}
+
+    /* Nagłówki w treści */
+    .privacy-content h1,
+    .privacy-content h2 {
+        color: #000000;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .privacy-content h1 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .privacy-content h2 {
+        font-size: 18px;
+    }
+
+    /* Teksty paragrafów */
+    .privacy-content p {
+        font-size: 14px;
+        color: #333333;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+    /* Listy */
+    .privacy-content ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        color: #333333;
+    }
+
+        .privacy-content ul li {
+            margin-bottom: 10px;
+        }
+
+/* Dolny pasek nawigacyjny */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffa500;
+    padding: 8px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+    .nav-button img {
+        width: 24px;
+        height: 24px;
+    }

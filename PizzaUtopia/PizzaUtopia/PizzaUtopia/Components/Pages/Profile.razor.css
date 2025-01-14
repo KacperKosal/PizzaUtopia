@@ -63,6 +63,7 @@ header {
     max-height: calc(100vh - 200px); /* Wysokość dostosowana do nagłówka i stopki */
     scrollbar-width: none; /* Ukrycie scrolla w Firefox */
     -ms-overflow-style: none; /* Ukrycie scrolla w IE */
+    margin-bottom: 20px;
 }
 
     .container::-webkit-scrollbar {
