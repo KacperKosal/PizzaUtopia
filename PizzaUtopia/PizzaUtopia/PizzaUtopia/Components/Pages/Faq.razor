@@ -1,4 +1,13 @@
-﻿@page "/faq"
+﻿/**
+ * @page FAQ
+ * @brief Strona FAQ (Frequently Asked Questions) w aplikacji PizzaUtopia.
+ *
+ * @details
+ * Strona zawiera listę najczęściej zadawanych pytań i odpowiedzi, które mogą pomóc użytkownikowi w rozwiazywaniu podstawowych problemów
+ * lub udzielić odpowiedzi na pytania związane z działaniem aplikacji. Dostępna jest nawigacja do innych stron, takich jak menu, koszyk i profil.
+ */
+
+@page "/faq"
 
 @using PizzaUtopia.Components.Elements.Buttons
 @inject NavigationManager NavigationManager
@@ -49,22 +58,35 @@
         </button>
     </div>
 </div>
+
 @code {
+    /**
+     * @brief Nawigacja do poprzedniej strony (profil użytkownika).
+     */
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /**
+     * @brief Nawigacja do strony menu.
+     */
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /**
+     * @brief Nawigacja do strony koszyka.
+     */
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /**
+     * @brief Nawigacja do strony profilu.
+     */
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");

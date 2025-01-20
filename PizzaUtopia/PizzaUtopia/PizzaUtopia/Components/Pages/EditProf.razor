@@ -55,26 +55,42 @@
 @code {
     private string profilePicture = "Images/profile-icon.png";
 
+    /// <summary>
+    /// Nawiguje z powrotem do strony profilu.
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Nawiguje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Nawiguje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Nawiguje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Wykonuje zdjęcie profilowe za pomocą aparatu urządzenia.
+    /// </summary>
+    /// <returns>Zadanie reprezentujące operację asynchroniczną.</returns>
     private async Task TakePhoto()
     {
         try
@@ -84,7 +100,7 @@
             {
                 var stream = await photo.OpenReadAsync();
                 profilePicture = await SavePhotoAsync(stream);
-                StateHasChanged(); // Odśwież komponent po zapisaniu zdjęcia
+                StateHasChanged(); // Odświeża komponent po zapisaniu zdjęcia.
             }
         }
         catch (Exception ex)
@@ -93,6 +109,11 @@
         }
     }
 
+    /// <summary>
+    /// Zapisuje wykonane zdjęcie w pamięci lokalnej.
+    /// </summary>
+    /// <param name="stream">Strumień zawierający dane zdjęcia.</param>
+    /// <returns>Ścieżka do pliku, w którym zapisano zdjęcie.</returns>
     private async Task<string> SavePhotoAsync(Stream stream)
     {
         var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");

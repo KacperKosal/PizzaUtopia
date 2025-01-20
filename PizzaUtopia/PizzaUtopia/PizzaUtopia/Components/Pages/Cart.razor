@@ -1,4 +1,4 @@
-﻿@page "/cart"
+@page "/cart"
 @using System.Text.Json
 @inject NavigationManager NavigationManager
 
@@ -50,42 +50,60 @@
 </div>
 
 @code {
+    /// <summary>
+    /// List of items currently in the shopping cart.
+    /// </summary>
     private List<CartItem> CartItems = new()
     {
         new CartItem { Name = "Pepperoni pizza", ImageUrl = "Images/pepperoni.png", Quantity = 2 },
         new CartItem { Name = "Margarita", ImageUrl = "Images/margherita.png", Quantity = 1 }
     };
 
-    private void OnOrderClick()
-    {
-        NavigationManager.NavigateTo("/order");
-    }
-
+    /// <summary>
+    /// Navigates to the menu page.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Navigates to the cart page.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Navigates to the profile page.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
-    private void OnCheckoutClick()
+    /// <summary>
+    /// Navigates to the order page.
+    /// </summary>
+    private void OnOrderClick()
     {
-        NavigationManager.NavigateTo("/checkout");
+        NavigationManager.NavigateTo("/order");
     }
 
+    /// <summary>
+    /// Increases the quantity of the specified cart item.
+    /// </summary>
+    /// <param name="item">The cart item to increase.</param>
     private void IncreaseQuantity(CartItem item)
     {
         item.Quantity++;
     }
 
+    /// <summary>
+    /// Decreases the quantity of the specified cart item. Removes the item if the quantity reaches zero.
+    /// </summary>
+    /// <param name="item">The cart item to decrease.</param>
     private void DecreaseQuantity(CartItem item)
     {
         if (item.Quantity > 1)
@@ -98,15 +116,33 @@
         }
     }
 
+    /// <summary>
+    /// Removes the specified item from the shopping cart.
+    /// </summary>
+    /// <param name="item">The cart item to remove.</param>
     private void RemoveItem(CartItem item)
     {
         CartItems.Remove(item);
     }
 
+    /// <summary>
+    /// Represents an item in the shopping cart.
+    /// </summary>
     private class CartItem
     {
+        /// <summary>
+        /// The name of the item.
+        /// </summary>
         public string Name { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The URL of the item's image.
+        /// </summary>
         public string ImageUrl { get; set; } = string.Empty;
+
+        /// <summary>
+        /// The quantity of the item in the cart.
+        /// </summary>
         public int Quantity { get; set; }
     }
 }

@@ -43,21 +43,33 @@
     </div>
 </div>
 @code {
+    /// <summary>
+    /// Przenosi użytkownika na poprzednią stronę (profil).
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Przenosi użytkownika do menu głównego.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Przenosi użytkownika do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Przenosi użytkownika do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");

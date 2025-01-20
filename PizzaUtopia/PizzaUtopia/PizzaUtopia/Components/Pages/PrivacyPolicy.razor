@@ -11,7 +11,7 @@
         <button class="back-button" @onclick="NavigateBack">
             <img src="Images/back-arrow.png" alt="Powrót" />
         </button>
-        <h2 class="page-title">Polityka Prywatności</h2>
+        <h2 class="page-title">Polityka Prywatności</h2> <!-- Tytuł strony -->
     </div>
     <div class="privacy-content">
         <p>Data wejścia w życie: 1 stycznia 2025</p>
@@ -69,21 +69,33 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony profilu.
+    /// </summary>
     private void NavigateBack()
     {
         NavigationManager.NavigateTo("/profile");
     }
 
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony menu.
+    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
 
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony koszyka.
+    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
 
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony profilu.
+    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
