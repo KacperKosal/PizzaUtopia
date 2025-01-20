@@ -39,21 +39,69 @@
 </div>
 
 @code {
+    /// <summary>
+    /// Nazwa użytkownika wyświetlana w nagłówku.
+    /// </summary>
     private string UserName { get; set; } = "Andrzej Kucyk";
 
+    /// <summary>
+    /// Numer telefonu użytkownika wyświetlany w nagłówku.
+    /// </summary>
     private string PhoneNumber { get; set; } = "+48 123456789";
 
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony edytowania profilu.
+    /// </summary>
     private void RedirectToEditProfile() => Navigation.NavigateTo("/editprofile");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony zmiany hasła.
+    /// </summary>
     private void RedirectToChangePassword() => Navigation.NavigateTo("/change-password");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony biometrii.
+    /// </summary>
     private void RedirectToBiometry() => Navigation.NavigateTo("/biometry");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony ustawień wyglądu.
+    /// </summary>
     private void RedirectToAppearance() => Navigation.NavigateTo("/look");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony FAQ.
+    /// </summary>
     private void RedirectToFAQ() => Navigation.NavigateTo("/faq");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony polityki prywatności.
+    /// </summary>
     private void RedirectToPrivacyPolicy() => Navigation.NavigateTo("/privacy-policy");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony kontaktu.
+    /// </summary>
     private void RedirectToContact() => Navigation.NavigateTo("/contact");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony menu.
+    /// </summary>
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony koszyka.
+    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
+
+    /// <summary>
+    /// Funkcja nawigacyjna - przekierowuje do strony profilu.
+    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
+    /// <summary>
+    /// Funkcja do udostępniania aplikacji.
+    /// </summary>
     private async Task ShareApp()
     {
         try

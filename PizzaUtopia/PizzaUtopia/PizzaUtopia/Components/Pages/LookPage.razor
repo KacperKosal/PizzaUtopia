@@ -44,13 +44,31 @@
     private bool isAutoThemeEnabled = false;
     private bool isDarkThemeEnabled = false;
 
-    // Funkcje nawigacyjne
+    /// <summary>
+    /// Przekierowuje użytkownika do strony profilu.
+    /// </summary>
     private void NavigateBack() => Navigation.NavigateTo("/profile");
+
+    /// <summary>
+    /// Przekierowuje użytkownika do strony menu.
+    /// </summary>
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+
+    /// <summary>
+    /// Przekierowuje użytkownika do strony koszyka.
+    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
+
+    /// <summary>
+    /// Przekierowuje użytkownika do strony profilu.
+    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
-    // Obsługa przełącznika automatycznego motywu
+    /// <summary>
+    /// Obsługuje zmianę stanu przełącznika automatycznego motywu.
+    /// Jeśli automatyczny motyw jest włączony, ustawia motyw na podstawie czujnika światła lub innego źródła.
+    /// </summary>
+    /// <param name="e">Argumenty zdarzenia zmiany.</param>
     private void OnAutoThemeChange(ChangeEventArgs e)
     {
         if (isAutoThemeEnabled)
@@ -65,7 +83,10 @@
         }
     }
 
-    // Obsługa przełącznika trybu ciemnego
+    /// <summary>
+    /// Obsługuje zmianę stanu przełącznika trybu ciemnego.
+    /// </summary>
+    /// <param name="e">Argumenty zdarzenia zmiany.</param>
     private void OnDarkThemeChange(ChangeEventArgs e)
     {
         if (isDarkThemeEnabled)
@@ -78,7 +99,9 @@
         }
     }
 
-    // Pomocnicza metoda do ustawiania trybu ciemnego
+    /// <summary>
+    /// Pomocnicza metoda do ustawiania trybu ciemnego lub jasnego w aplikacji.
+    /// </summary>
     private void ApplyDarkTheme()
     {
         if (isDarkThemeEnabled)
