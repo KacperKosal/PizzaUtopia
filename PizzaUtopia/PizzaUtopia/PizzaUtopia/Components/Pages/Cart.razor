@@ -1,4 +1,4 @@
-﻿@page "/cart"
+@page "/cart"
 @using System.Text.Json
 @inject NavigationManager NavigationManager
 
@@ -35,7 +35,7 @@
     }
 </div>
 
-<button class="checkout-button" @onclick="OnCheckoutClick">Dokończ zamówienie</button>
+<button class="checkout-button" @onclick="OnOrderClick">Dokończ zamówienie</button>
 
 <div class="bottom-nav">
     <button class="nav-button" @onclick="OnMenuClick">
@@ -68,7 +68,7 @@
     }
 
     /// <summary>
-    /// Refreshes the cart page.
+    /// Navigates to the cart page.
     /// </summary>
     private void OnCartClick()
     {
@@ -84,11 +84,11 @@
     }
 
     /// <summary>
-    /// Navigates to the checkout page.
+    /// Navigates to the order page.
     /// </summary>
-    private void OnCheckoutClick()
+    private void OnOrderClick()
     {
-        NavigationManager.NavigateTo("/checkout");
+        NavigationManager.NavigateTo("/order");
     }
 
     /// <summary>
