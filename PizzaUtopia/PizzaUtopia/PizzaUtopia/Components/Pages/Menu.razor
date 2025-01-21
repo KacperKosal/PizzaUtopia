@@ -23,53 +23,17 @@
 
     <!-- Lista pizz -->
     <div class="pizza-list">
-        <!-- Pizza 1 -->
-        <div class="pizza-card">
-            <img src="Images/pepperoni.png" alt="Pepperoni Pizza" />
-            <div class="pizza-details">
-                <h3>Pepperoni pizza</h3>
-                <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p>
-                <Button>Wybierz</Button>
+        @foreach (var pizza in PizzaMenu)
+        {
+            <div class="pizza-card">
+                <img src="@pizza.ImageUrl" alt="@pizza.Name" />
+                <div class="pizza-details">
+                    <h3>@pizza.Name</h3>
+                    <p>@pizza.Description</p>
+                    <button @onclick="() => AddToCart(pizza)">Wybierz</button>
+                </div>
             </div>
-        </div>
-
-        <!-- Pizza 2 -->
-        <div class="pizza-card">
-            <img src="Images/margherita.png" alt="Margherita Pizza" />
-            <div class="pizza-details">
-                <h3>Margherita</h3>
-                <p>Sos pomidorowy, ser, pieczarki, bazylia</p>
-                <Button>Wybierz</Button>
-            </div>
-        </div>
-
-        <!-- Pizza 3 -->
-        <div class="pizza-card">
-            <img src="Images/jalapeno.png" alt="Jalapeno Pizza" />
-            <div class="pizza-details">
-                <h3>Jalapeno</h3>
-                <p>Sos pomidorowy, ser, salami, jalapeno</p>
-                <Button>Wybierz</Button>
-            </div>
-        </div>
-
-        <div class="pizza-card">
-            <img src="Images/capriciosa.png" alt="Capriciosa Pizza" />
-            <div class="pizza-details">
-                <h3>Capriciosa</h3>
-                <p>Sos pomidorowy, ser, szynka, papryka oliwki</p>
-                <Button>Wybierz</Button>
-            </div>
-        </div>
-
-        <div class="pizza-card">
-            <img src="Images/Prosciutto.png" alt="Prosciutto Pizza" />
-            <div class="pizza-details">
-                <h3>Prosciutto</h3>
-                <p>Sos pomidorowy, ser, rukola, szynka parmeńska</p>
-                <Button>Wybierz</Button>
-            </div>
-        </div>
+        }
     </div>
 
     <!-- Dolny pasek nawigacyjny -->
@@ -89,6 +53,18 @@
 @code {
     private string UserName { get; set; } = "Andrzej";
 
+    // Lista pizz dostępnych w menu
+    private List<Pizza> PizzaMenu = new()
+    {
+        new Pizza { Name = "Pepperoni pizza", Description = "Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano", ImageUrl = "Images/pepperoni.png" },
+        new Pizza { Name = "Margherita", Description = "Sos pomidorowy, ser, pieczarki, bazylia", ImageUrl = "Images/margherita.png" },
+        new Pizza { Name = "Jalapeno", Description = "Sos pomidorowy, ser, salami, jalapeno", ImageUrl = "Images/jalapeno.png" },
+        new Pizza { Name = "Capriciosa", Description = "Sos pomidorowy, ser, szynka, papryka, oliwki", ImageUrl = "Images/capriciosa.png" },
+        new Pizza { Name = "Prosciutto", Description = "Sos pomidorowy, ser, rukola, szynka parmeńska", ImageUrl = "Images/Prosciutto.png" }
+    };
+
+    private List<CartItem> CartItems = new(); // Lista elementów w koszyku
+
     protected override async Task OnInitializedAsync()
     {
         // Pobierz nazwę użytkownika z LocalStorage, jeśli istnieje
@@ -97,18 +73,39 @@
         {
             UserName = savedUserName;
         }
+
+        // Odczytaj stan koszyka z LocalStorage
+        var savedCart = await LocalStorage.GetItemAsync<List<CartItem>>("CartItems");
+        if (savedCart != null)
+        {
+            CartItems = savedCart;
+        }
     }
 
-    private async Task SaveUserName(string newUserName)
+    private async Task AddToCart(Pizza pizza)
     {
-        // Zapisz nową nazwę użytkownika do LocalStorage
-        await LocalStorage.SetItemAsync("UserName", newUserName);
-        UserName = newUserName;
-    }
+        // Sprawdź, czy pizza już istnieje w koszyku
+        var existingItem = CartItems.FirstOrDefault(item => item.Name == pizza.Name);
+        if (existingItem != null)
+        {
+            // Jeśli istnieje, zwiększ ilość
+            existingItem.Quantity++;
+        }
+        else
+        {
+            // Jeśli nie istnieje, dodaj nową z ilością 1
+            CartItems.Add(new CartItem
+                {
+                    Name = pizza.Name,
+                    ImageUrl = pizza.ImageUrl,
+                    Quantity = 1
+                });
+        }
 
-    void ChoosePizza(string pizzaName)
-    {
-        Console.WriteLine($"Wybrano pizzę: {pizzaName}");
+        // Zapisz stan koszyka w LocalStorage
+        await LocalStorage.SetItemAsync("CartItems", CartItems);
+
+        Console.WriteLine($"Dodano do koszyka: {pizza.Name}");
     }
 
     private void OnMenuClick()
@@ -124,5 +121,20 @@
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
+    }
+
+    // Klasy pomocnicze
+    private class Pizza
+    {
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+    }
+
+    private class CartItem
+    {
+        public string Name { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
+        public int Quantity { get; set; }
     }
 }
