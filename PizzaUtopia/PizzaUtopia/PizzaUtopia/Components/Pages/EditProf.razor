@@ -144,7 +144,7 @@
     {
         try
         {
-            var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");
+            var filePath = Path.Combine(FileSystem.AppDataDirectory, "Images/profile-icon.png");
             using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 await stream.CopyToAsync(fileStream);
