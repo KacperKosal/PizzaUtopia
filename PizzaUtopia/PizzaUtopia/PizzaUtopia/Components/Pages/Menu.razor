@@ -7,14 +7,13 @@
 <link rel="stylesheet" href="Profile.css">
 
 <div class="menu-container">
-
     <!-- Górna sekcja powitania -->
     <div class="header">
         <div class="logo">
             <img src="Images/logopizzy.png" alt="Logo Pizzy" />
         </div>
         <div class="welcome">
-            <h1>Witaj, Andrzej</h1> <!-- Powitanie użytkownika -->
+            <h1>Witaj, Andrzej</h1>
         </div>
     </div>
 
@@ -29,7 +28,7 @@
             <div class="pizza-details">
                 <h3>Pepperoni pizza</h3>
                 <p>Sos pomidorowy, ser, salami, papryka, peperoni, tabasco, oregano</p>
-                <Button @onclick="() => ChoosePizza(" Pepperoni pizza")">Wybierz</Button> <!-- Przycisk wyboru pizzy -->
+                <Button>Wybierz</Button>
             </div>
         </div>
 
@@ -39,7 +38,7 @@
             <div class="pizza-details">
                 <h3>Margherita</h3>
                 <p>Sos pomidorowy, ser, pieczarki, bazylia</p>
-                <Button @onclick="() => ChoosePizza(" Margherita")">Wybierz</Button> <!-- Przycisk wyboru pizzy -->
+                <Button>Wybierz</Button>
             </div>
         </div>
 
@@ -49,7 +48,7 @@
             <div class="pizza-details">
                 <h3>Jalapeno</h3>
                 <p>Sos pomidorowy, ser, salami, jalapeno</p>
-                <Button @onclick="() => ChoosePizza(" Jalapeno")">Wybierz</Button> <!-- Przycisk wyboru pizzy -->
+                <Button>Wybierz</Button>
             </div>
         </div>
 
@@ -57,8 +56,8 @@
             <img src="Images/capriciosa.png" alt="Capriciosa Pizza" />
             <div class="pizza-details">
                 <h3>Capriciosa</h3>
-                <p>Sos pomidorowy, ser, szynka, papryka, oliwki</p>
-                <Button @onclick="() => ChoosePizza(" Capriciosa")">Wybierz</Button> <!-- Przycisk wyboru pizzy -->
+                <p>Sos pomidorowy, ser, szynka, papryka oliwki</p>
+                <Button>Wybierz</Button>
             </div>
         </div>
 
@@ -67,7 +66,7 @@
             <div class="pizza-details">
                 <h3>Prosciutto</h3>
                 <p>Sos pomidorowy, ser, rukola, szynka parmeńska</p>
-                <Button @onclick="() => ChoosePizza(" Prosciutto")">Wybierz</Button> <!-- Przycisk wyboru pizzy -->
+                <Button>Wybierz</Button>
             </div>
         </div>
     </div>
@@ -87,35 +86,18 @@
 </div>
 
 @code {
-    /// <summary>
-    /// Funkcja obsługująca wybór pizzy.
-    /// Wypisuje nazwę wybranej pizzy w konsoli.
-    /// </summary>
-    /// <param name="pizzaName">Nazwa wybranej pizzy.</param>
     void ChoosePizza(string pizzaName)
     {
         Console.WriteLine($"Wybrano pizzę: {pizzaName}");
     }
-
-    /// <summary>
-    /// Funkcja nawigacyjna - przekierowuje do strony menu.
-    /// </summary>
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
-
-    /// <summary>
-    /// Funkcja nawigacyjna - przekierowuje do strony koszyka.
-    /// </summary>
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
-
-    /// <summary>
-    /// Funkcja nawigacyjna - przekierowuje do strony profilu.
-    /// </summary>
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
