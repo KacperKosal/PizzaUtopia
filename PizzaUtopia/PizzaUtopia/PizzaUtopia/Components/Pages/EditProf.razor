@@ -54,8 +54,8 @@
 </div>
 
 @code {
-    private string UserName { get; set; } = "Andrzej Kucyk";
-    private string PhoneNumber { get; set; } = "+48 123456789";
+    private string UserName { get; set; } = "";
+    private string PhoneNumber { get; set; } = "";
     private string ProfilePicture { get; set; } = "Images/profile-icon.png";
 
     /// <summary>
@@ -63,8 +63,8 @@
     /// </summary>
     protected override async Task OnInitializedAsync()
     {
-        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "Andrzej Kucyk";
-        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "+48 123456789";
+        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "";
+        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "";
         ProfilePicture = await LocalStorage.GetItemAsync<string>("ProfilePicture") ?? "Images/profile-icon.png";
     }
 
@@ -126,7 +126,7 @@
                 if (!string.IsNullOrEmpty(savedPath))
                 {
                     ProfilePicture = savedPath;
-                    await SaveChanges(); // Zapisz nową ścieżkę zdjęcia do LocalStorage
+                    await LocalStorage.SetItemAsync("ProfilePicture", ProfilePicture); // Zapisz nową ścieżkę zdjęcia
                     StateHasChanged(); // Odśwież widok
                 }
             }
