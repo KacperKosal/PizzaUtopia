@@ -58,9 +58,6 @@
     private async void OnMenuClick(object? sender, EventArgs args)
     {
         var httpclient = new HttpClient();
-        
-
-		
 
         var response = await httpclient.PostAsJsonAsync(@"http://localhost:5000/api/login", LoginData);
 

@@ -1,0 +1,11 @@
+﻿<button onclick="@OnClickHandler">@ChildContent</button>
+
+@code {
+	[Parameter] public RenderFragment ChildContent { get; set; }
+	[Parameter] public EventHandler? OnClick { get; set; }
+
+	private	void OnClickHandler()
+	{
+		OnClick?.Invoke(this, EventArgs.Empty);
+	}
+}

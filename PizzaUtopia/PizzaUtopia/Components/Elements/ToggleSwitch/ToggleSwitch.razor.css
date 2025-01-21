@@ -1,0 +1,39 @@
+﻿/* Kontener przełącznika */
+.toggle-switch-container {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Stylizacja przełącznika wyłączonego */
+.toggle-switch {
+    width: 45px;
+    height: 20px;
+    background-color: #ccc; /* Szary kolor dla wyłączonego przełącznika */
+    border-radius: 25px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+/* Stylizacja przełącznika włączonego */
+.toggle-on {
+    background-color: #4CAF50; /* Zielony kolor dla włączonego przełącznika */
+}
+
+/* Stylizacja kółka wewnątrz przełącznika */
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 1%;
+    transform: translateY(-50%);
+    transition: left 0.3s ease;
+}
+
+/* Pozycjonowanie kółka w stanie włączonym */
+.toggle-on .toggle-circle {
+    left: 60%; /* Przesunięcie w prawo w stanie włączonym */
+}

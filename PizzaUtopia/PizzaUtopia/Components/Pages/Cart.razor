@@ -1,4 +1,4 @@
-@page "/cart"
+﻿@page "/cart"
 @using System.Text.Json
 @inject NavigationManager NavigationManager
 @inject Blazored.LocalStorage.ILocalStorageService LocalStorage
@@ -26,8 +26,8 @@
                     <div class="cart-item-title">@item.Name</div>
                     <div class="cart-item-quantity">
                         Ilość: @item.Quantity
-                        <button @onclick="() => IncreaseQuantity(item)">+</button>
-                        <button @onclick="() => DecreaseQuantity(item)">-</button>
+                        <button @onclick="() => ChangeQuantity(item, 1)">+</button>
+                        <button @onclick="() => ChangeQuantity(item, -1)">-</button>
                     </div>
                     <button @onclick="() => RemoveItem(item)">Usuń</button>
                 </div>
@@ -36,7 +36,7 @@
     }
 </div>
 
-<button class="checkout-button" @onclick="OnOrderClick">Dokończ zamówienie</button>
+<button class="checkout-button" @onclick="OnCheckoutClick">Dokończ zamówienie</button>
 
 <div class="bottom-nav">
     <button class="nav-button" @onclick="OnMenuClick">
@@ -51,8 +51,12 @@
 </div>
 
 @code {
-    private List<CartItem> CartItems = new();
-   
+    private List<CartItem> CartItems = new()
+    {
+        new CartItem { Name = "Pepperoni pizza", ImageUrl = "Images/pepperoni.png", Quantity = 2 },
+        new CartItem { Name = "Margarita", ImageUrl = "Images/margherita.png", Quantity = 1 }
+    };
+
     protected override async Task OnInitializedAsync()
     {
         // Odczytaj stan koszyka z Local Storage
@@ -60,17 +64,6 @@
         if (savedCart != null)
         {
             CartItems = savedCart;
-        }
-        else
-        {
-            // Dodaj jedną pizzę do koszyka, jeśli koszyk jest pusty
-            CartItems.Add(new CartItem
-            {
-                Name = "Margherita",
-                ImageUrl = "Images/margherita.png",
-                Quantity = 1
-            });
-            await SaveCartState();
         }
     }
 
@@ -80,52 +73,33 @@
         await LocalStorage.SetItemAsync("CartItems", CartItems);
     }
 
-    private async Task IncreaseQuantity(CartItem item)
-    {
-        item.Quantity++;
-        await SaveCartState(); // Zapisz stan po zwiększeniu ilości
-    }
+    private void OnMenuClick() => NavigationManager.NavigateTo("/menu");
 
-    private async Task DecreaseQuantity(CartItem item)
+    private void OnCartClick() => NavigationManager.NavigateTo("/cart");
+
+    private void OnProfileClick() => NavigationManager.NavigateTo("/profile");
+
+    private void OnCheckoutClick() => NavigationManager.NavigateTo("/checkout");
+
+    private async Task ChangeQuantity(CartItem item, int change)
     {
-        if (item.Quantity > 1)
-        {
-            item.Quantity--;
-        }
-        else
+        item.Quantity += change;
+
+        if (item.Quantity <= 0)
         {
             CartItems.Remove(item);
         }
-        await SaveCartState(); // Zapisz stan po zmniejszeniu ilości
+
+        // Zapisz zmiany do Local Storage
+        await SaveCartState();
     }
 
     private async Task RemoveItem(CartItem item)
     {
         CartItems.Remove(item);
-        await SaveCartState(); // Zapisz stan po usunięciu elementu
-    }
 
-    private async Task OnOrderClick()
-    {
-        // Wyczyść koszyk po złożeniu zamówienia
-        CartItems.Clear();
-        await SaveCartState(); // Zapisz pusty koszyk
-        NavigationManager.NavigateTo("/order");
-    }
-
-    private void OnMenuClick()
-    {
-        NavigationManager.NavigateTo("/menu");
-    }
-
-    private void OnCartClick()
-    {
-        NavigationManager.NavigateTo("/cart");
-    }
-
-    private void OnProfileClick()
-    {
-        NavigationManager.NavigateTo("/profile");
+        // Zapisz zmiany do Local Storage
+        await SaveCartState();
     }
 
     private class CartItem
