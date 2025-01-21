@@ -1,8 +1,9 @@
 ﻿@page "/editprofile"
 
-@using PizzaUtopia.Components.Elements.Buttons
+@using Blazored.LocalStorage
 @using Microsoft.Maui.ApplicationModel
 @inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <link rel="stylesheet" href="Profile.css">
@@ -18,7 +19,7 @@
 
     <!-- Zdjęcie profilowe -->
     <div class="profile-picture-container">
-        <img src="@profilePicture" alt="Zdjęcie profilowe" class="profile-picture" />
+        <img src="@ProfilePicture" alt="Zdjęcie profilowe" class="profile-picture" />
         <button class="edit-picture-button" @onclick="TakePhoto">
             <img src="Images/edit-icon.png" alt="Edytuj zdjęcie" />
         </button>
@@ -27,15 +28,15 @@
     <!-- Formularz edycji profilu -->
     <div class="form-container">
         <label for="name" class="input-label">Imię i nazwisko</label>
-        <input type="text" id="name" class="input-field" value="Andrzej Kucyk" />
+        <input type="text" id="name" class="input-field" @bind="UserName" />
 
         <label for="phone" class="input-label">Numer telefonu</label>
-        <input type="text" id="phone" class="input-field" value="+48 123456789" />
+        <input type="text" id="phone" class="input-field" @bind="PhoneNumber" />
     </div>
 
     <!-- Przycisk zapisu -->
     <div class="save-button-container">
-        <button class="save-button">Zapisz zmiany</button>
+        <button class="save-button" @onclick="SaveChanges">Zapisz zmiany</button>
     </div>
 
     <!-- Dolny pasek nawigacyjny -->
@@ -53,7 +54,30 @@
 </div>
 
 @code {
-    private string profilePicture = "Images/profile-icon.png";
+    private string UserName { get; set; } = "Andrzej Kucyk";
+    private string PhoneNumber { get; set; } = "+48 123456789";
+    private string ProfilePicture { get; set; } = "Images/profile-icon.png";
+
+    /// <summary>
+    /// Metoda inicjalizująca dane użytkownika z pamięci lokalnej.
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "Andrzej Kucyk";
+        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "+48 123456789";
+        ProfilePicture = await LocalStorage.GetItemAsync<string>("ProfilePicture") ?? "Images/profile-icon.png";
+    }
+
+    /// <summary>
+    /// Zapisuje zmienione dane użytkownika do pamięci lokalnej.
+    /// </summary>
+    private async Task SaveChanges()
+    {
+        await LocalStorage.SetItemAsync("UserName", UserName);
+        await LocalStorage.SetItemAsync("PhoneNumber", PhoneNumber);
+        await LocalStorage.SetItemAsync("ProfilePicture", ProfilePicture);
+        Console.WriteLine("Zmiany zostały zapisane.");
+    }
 
     /// <summary>
     /// Nawiguje z powrotem do strony profilu.
@@ -90,7 +114,6 @@
     /// <summary>
     /// Wykonuje zdjęcie profilowe za pomocą aparatu urządzenia.
     /// </summary>
-    /// <returns>Zadanie reprezentujące operację asynchroniczną.</returns>
     private async Task TakePhoto()
     {
         try
@@ -99,21 +122,20 @@
             if (photo != null)
             {
                 var stream = await photo.OpenReadAsync();
-                profilePicture = await SavePhotoAsync(stream);
-                StateHasChanged(); // Odświeża komponent po zapisaniu zdjęcia.
+                ProfilePicture = await SavePhotoAsync(stream);
+                await SaveChanges(); // Zapisz zmiany po wykonaniu zdjęcia.
+                StateHasChanged();
             }
         }
         catch (Exception ex)
         {
-            // Obsługa błędów
+            Console.WriteLine($"Błąd: {ex.Message}");
         }
     }
 
     /// <summary>
     /// Zapisuje wykonane zdjęcie w pamięci lokalnej.
     /// </summary>
-    /// <param name="stream">Strumień zawierający dane zdjęcia.</param>
-    /// <returns>Ścieżka do pliku, w którym zapisano zdjęcie.</returns>
     private async Task<string> SavePhotoAsync(Stream stream)
     {
         var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");

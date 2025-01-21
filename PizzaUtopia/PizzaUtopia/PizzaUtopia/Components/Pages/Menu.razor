@@ -1,7 +1,8 @@
 ﻿@page "/menu"
 
-@using PizzaUtopia.Components.Elements.Buttons
+@using Blazored.LocalStorage
 @inject NavigationManager NavigationManager
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <link rel="stylesheet" href="Profile.css">
@@ -13,7 +14,7 @@
             <img src="Images/logopizzy.png" alt="Logo Pizzy" />
         </div>
         <div class="welcome">
-            <h1>Witaj, Andrzej</h1>
+            <h1>Witaj, @UserName</h1>
         </div>
     </div>
 
@@ -86,18 +87,40 @@
 </div>
 
 @code {
+    private string UserName { get; set; } = "Andrzej";
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Pobierz nazwę użytkownika z LocalStorage, jeśli istnieje
+        var savedUserName = await LocalStorage.GetItemAsync<string>("UserName");
+        if (!string.IsNullOrEmpty(savedUserName))
+        {
+            UserName = savedUserName;
+        }
+    }
+
+    private async Task SaveUserName(string newUserName)
+    {
+        // Zapisz nową nazwę użytkownika do LocalStorage
+        await LocalStorage.SetItemAsync("UserName", newUserName);
+        UserName = newUserName;
+    }
+
     void ChoosePizza(string pizzaName)
     {
         Console.WriteLine($"Wybrano pizzę: {pizzaName}");
     }
+
     private void OnMenuClick()
     {
         NavigationManager.NavigateTo("/menu");
     }
+
     private void OnCartClick()
     {
         NavigationManager.NavigateTo("/cart");
     }
+
     private void OnProfileClick()
     {
         NavigationManager.NavigateTo("/profile");
