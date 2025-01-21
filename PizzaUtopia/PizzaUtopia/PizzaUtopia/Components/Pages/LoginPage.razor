@@ -1,6 +1,7 @@
 ﻿@page "/login"
 @using PizzaUtopia.Components.Elements.Input
 @using PizzaUtopia.Components.Elements.Buttons
+@using PizzaUtopia.Models
 
 @inject NavigationManager NavigationManager
 
@@ -23,28 +24,58 @@
     <form id="loginForm">
         <!-- Formularz logowania -->
         <!-- Pole do wpisania emaila -->
-        <Input InputType="Enums.InputType.Email" placeholder="Wprowadź e-mail" />
+        <Input ValueChanged="(o, e) =>{OnLoginDataChanged(e, null);}" InputType="Enums.InputType.Email" placeholder="Wprowadź e-mail" />
 
         <!-- Pole do wpisania hasła z możliwością pokazania/ukrycia -->
         <div class="password-container">
-            <Input InputType="Enums.InputType.Password" placeholder="Wprowadź hasło" />
+            <Input ValueChanged="(o, e) =>{OnLoginDataChanged(null, e);}" InputType="Enums.InputType.Password" placeholder="Wprowadź hasło" />
         </div>
 
         <!-- Przycisk logowania -->
         <Button OnClick="OnMenuClick">Zaloguj się</Button>
+
     </form>
 </div>
 
 @code {
+    public LoginData LoginData { get; set; } = new();
+
+    private void OnLoginDataChanged(string? email = null, string? password = null)
+    {
+		LoginData = new LoginData
+			{
+			    Email = email ?? LoginData.Email,
+			    Password = password ?? LoginData.Password
+	        };
+    }
+
+
     /// <summary>
     /// Obsługuje kliknięcie przycisku logowania, przekierowując użytkownika do menu.
     /// </summary>
     /// <param name="sender">Obiekt, który wywołał zdarzenie.</param>
     /// <param name="args">Argumenty zdarzenia.</param>
-    private void OnMenuClick(object? sender, EventArgs args)
+    private async void OnMenuClick(object? sender, EventArgs args)
     {
-        // Przekierowanie użytkownika do strony menu
-        NavigationManager.NavigateTo("/menu");
+        var httpclient = new HttpClient();
+        
+
+		
+
+        var response = await httpclient.PostAsJsonAsync(@"http://localhost:5000/api/login", LoginData);
+
+		if (response.IsSuccessStatusCode)
+		{
+			// Przekierowanie użytkownika do strony menu
+			NavigationManager.NavigateTo("/menu");
+		}
+		else
+		{
+			// Wyświetlenie komunikatu o błędzie logowania
+			Console.WriteLine("Błąd logowania");
+		}
+
+
     }
 
     /// <summary>
