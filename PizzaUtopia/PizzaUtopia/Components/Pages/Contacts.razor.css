@@ -1,0 +1,105 @@
+﻿/* Główny kontener zakładki kontaktu */
+.contact-container {
+    font-family: 'Jua', sans-serif;
+    background-color: #ffa500;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+/* Nagłówek z przyciskiem powrotu i tytułem */
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #ffa500;
+    padding: 10px;
+}
+
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+    .back-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
+}
+/* Wrapper dla metod kontaktu */
+.contact-wrapper {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 400px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.contact-method {
+    margin-bottom: 20px;
+}
+
+    .contact-method h3 {
+        font-size: 20px;
+        color: #333333;
+        margin-bottom: 10px;
+    }
+
+    .contact-method p {
+        font-size: 16px;
+        color: #666666;
+    }
+
+    .contact-method a {
+        text-decoration: none;
+        color: #ffa500;
+        font-weight: bold;
+    }
+
+        .contact-method a:hover {
+            text-decoration: underline;
+        }
+/* Dolny pasek nawigacyjny */
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffa500;
+    padding: 8px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+    .nav-button img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.2s ease;
+    }
+
+    .nav-button:hover img {
+        transform: scale(1.1);
+    }

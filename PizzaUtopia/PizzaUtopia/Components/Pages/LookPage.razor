@@ -1,0 +1,93 @@
+﻿@page "/look"
+@inject NavigationManager Navigation
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="appearance-container">
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">Wygląd</h2>
+    </div>
+
+    <!-- Przełączniki motywów -->
+    <div class="settings-wrapper">
+        <div class="setting-item">
+            <label for="autoThemeToggle" class="setting-label">Automatyczny motyw</label>
+            <input type="checkbox" id="autoThemeToggle" class="toggle-switch" @onchange="OnAutoThemeChange" />
+        </div>
+
+        <div class="setting-item">
+            <label for="darkThemeToggle" class="setting-label">Ciemny motyw</label>
+            <input type="checkbox" id="darkThemeToggle" class="toggle-switch" @onchange="OnDarkThemeChange" disabled="@isAutoThemeEnabled" />
+        </div>
+    </div>
+</div>
+
+<!-- Dolny pasek nawigacyjny -->
+<div class="bottom-nav">
+    <button class="nav-button" @onclick="RedirectToMenu">
+        <img src="Images/home-icon.png" alt="Home" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToCart">
+        <img src="Images/cart-icon.png" alt="Cart" />
+    </button>
+    <button class="nav-button" @onclick="RedirectToProfile">
+        <img src="Images/profile-icon.png" alt="Profile" />
+    </button>
+</div>
+
+@code {
+    private bool isAutoThemeEnabled = false;
+    private bool isDarkThemeEnabled = false;
+
+    // Funkcje nawigacyjne
+    private void NavigateBack() => Navigation.NavigateTo("/profile");
+    private void RedirectToMenu() => Navigation.NavigateTo("/menu");
+    private void RedirectToCart() => Navigation.NavigateTo("/cart");
+    private void RedirectToProfile() => Navigation.NavigateTo("/profile");
+
+    // Obsługa przełącznika automatycznego motywu
+    private void OnAutoThemeChange(ChangeEventArgs e)
+    {
+        if (isAutoThemeEnabled)
+        {
+            // Ustaw motyw na podstawie czujnika światła lub innego źródła
+            Application.Current.UserAppTheme = AppTheme.Light; // Przyklad dla domyślnego motywu
+        }
+        else
+        {
+            // Zostaw użytkownikowi możliwość ręcznej zmiany motywu
+            ApplyDarkTheme();
+        }
+    }
+
+    // Obsługa przełącznika trybu ciemnego
+    private void OnDarkThemeChange(ChangeEventArgs e)
+    {
+        if (isDarkThemeEnabled)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+        }
+    }
+
+    // Pomocnicza metoda do ustawiania trybu ciemnego
+    private void ApplyDarkTheme()
+    {
+        if (isDarkThemeEnabled)
+        {
+            Application.Current.UserAppTheme = AppTheme.Dark;
+        }
+        else
+        {
+            Application.Current.UserAppTheme = AppTheme.Light;
+        }
+    }
+}

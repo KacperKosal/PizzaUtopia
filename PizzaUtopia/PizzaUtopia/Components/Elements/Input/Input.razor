@@ -1,0 +1,9 @@
+﻿@using PizzaUtopia.Enums
+
+<input type="@InputType.ToString().ToLower()" placeholder="@Placeholder" required="@(IsRequired is null ? false : IsRequired)">
+
+@code {
+	[Parameter] public InputType InputType { get; set; } = InputType.Text;
+	[Parameter] public string? Placeholder { get; set; } 
+	[Parameter] public bool? IsRequired { get; set; } 
+}

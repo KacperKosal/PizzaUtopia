@@ -1,0 +1,26 @@
+﻿<div class="toggle-switch-container" @onclick="OnClickHandler">
+    <div class="toggle-switch @ToggleClass">
+        <div class="toggle-circle"></div>
+    </div>
+</div>
+
+@code {
+    // Definiowanie parametrów dla komponentu ToggleSwitch
+    [Parameter] public EventHandler? OnToggle { get; set; } // Funkcja obsługi zdarzenia wciśnięcia przełącznika
+    [Parameter] public bool IsChecked { get; set; } // Początkowy stan przełącznika
+
+    private bool isToggled;
+
+    protected override void OnInitialized()
+    {
+        isToggled = IsChecked;
+    }
+
+    private string ToggleClass => isToggled ? "toggle-on" : "toggle-off"; // Zmienna do zmiany klasy CSS na podstawie stanu
+
+    private void OnClickHandler()
+    {
+        isToggled = !isToggled; // Zmiana stanu przełącznika po kliknięciu
+        OnToggle?.Invoke(this, EventArgs.Empty); // Wywołanie zdarzenia, jeśli zostało przypisane
+    }
+}

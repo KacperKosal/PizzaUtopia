@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="Profile.css">
 
 <div class="biometry-container">
-    <!-- Header with a back button and title -->
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
     <div class="header">
         <button class="back-button" @onclick="NavigateBack">
             <img src="Images/back-arrow.png" alt="Powrót" />
@@ -16,16 +16,22 @@
         <h2 class="page-title">Biometria</h2>
     </div>
 
-    <!-- Biometry toggle switch -->
+    <!-- Przełącznik biometrii -->
     <div class="toggle-wrapper">
         <div class="toggle-container">
             <label for="biometryToggle" class="toggle-label">Biometria</label>
             <ToggleSwitch OnToggle="HandleToggle" IsChecked="@isBiometryEnabled"></ToggleSwitch>
         </div>
     </div>
+
+    <!-- Przyciski do edycji i dodania odcisku palca -->
+    <div class="button-container">
+        <button class="action-button" @onclick="EditFingerprint">Edytuj odcisk palca</button>
+        <button class="action-button" @onclick="AddFingerprint">Dodaj kolejny odcisk palca</button>
+    </div>
 </div>
 
-<!-- Bottom navigation bar -->
+<!-- Dolny pasek nawigacyjny -->
 <div class="bottom-nav">
     <button class="nav-button" @onclick="RedirectToMenu">
         <img src="Images/home-icon.png" alt="Home" />
@@ -39,56 +45,30 @@
 </div>
 
 @code {
-    /// <summary>
-    /// Variable to manage the state of the biometry toggle switch.
-    /// </summary>
+    // Zmienna do zarządzania stanem przełącznika biometrii
     private bool isBiometryEnabled = false;
 
-    /// <summary>
-    /// Navigates back to the profile page.
-    /// </summary>
     private void NavigateBack()
     {
         Navigation.NavigateTo("/profile");
     }
-    /// <summary>
-    /// Redirects to the menu page.
-    /// </summary>
+
     private void RedirectToMenu() => Navigation.NavigateTo("/menu");
-
-    /// <summary>
-    /// Redirects to the cart page.
-    /// </summary>
     private void RedirectToCart() => Navigation.NavigateTo("/cart");
-
-    /// <summary>
-    /// Redirects to the profile page.
-    /// </summary>
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
-    /// <summary>
-    /// Handles the logic for editing a fingerprint.
-    /// </summary>
+    // Funkcje obsługujące akcje
     private void EditFingerprint()
     {
         Console.WriteLine("Edytuj odcisk palca");
-        // Add fingerprint editing logic here.
+        // Tu można dodać logikę edycji odcisku palca
     }
 
-    /// <summary>
-    /// Handles the logic for adding a new fingerprint.
-    /// </summary>
     private void AddFingerprint()
     {
         Console.WriteLine("Dodaj kolejny odcisk palca");
-        // Add logic for adding a new fingerprint here.
+        // Tu można dodać logikę dodania odcisku palca
     }
-
-    /// <summary>
-    /// Toggles the state of biometry and logs the current state.
-    /// </summary>
-    /// <param name="sender">The source of the event.</param>
-    /// <param name="e">Event arguments.</param>
     private void HandleToggle(object sender, EventArgs e)
     {
         isBiometryEnabled = !isBiometryEnabled;

@@ -15,9 +15,12 @@ builder.WebHost.ConfigureKestrel(options =>
     });
 });
 
+
 // Dodaj us³ugi do kontenera
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<PizzaUtopiaDbContext>();
+
+
 
 var app = builder.Build();
 

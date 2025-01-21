@@ -1,0 +1,69 @@
+﻿@page "/faq"
+
+@using PizzaUtopia.Components.Elements.Buttons
+@inject NavigationManager NavigationManager
+
+<link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
+<link rel="stylesheet" href="Profile.css">
+
+<div class="faq-container">
+    <!-- Nagłówek z przyciskiem powrotu i tytułem -->
+    <div class="header">
+        <button class="back-button" @onclick="NavigateBack">
+            <img src="Images/back-arrow.png" alt="Powrót" />
+        </button>
+        <h2 class="page-title">FAQ</h2>
+    </div>
+    <!-- Lista pytań i odpowiedzi -->
+    <div class="faq-wrapper">
+        <div class="faq-item">
+            <h3 class="faq-question">Jak mogę zmienić moje dane kontaktowe?</h3>
+            <p class="faq-answer">Aby zaktualizować swoje dane, przejdź do sekcji "Edycja profilu" i wprowadź nowe informacje w odpowiednich polach.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Czy mogę usunąć swoje konto?</h3>
+            <p class="faq-answer">Tak, aby usunąć konto, skontaktuj się z naszym zespołem wsparcia poprzez formularz kontaktowy w aplikacji.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Jak mogę śledzić status mojego zamówienia?</h3>
+            <p class="faq-answer">Po złożeniu zamówienia otrzymasz powiadomienie o statusie na ekranie głównym oraz e-mail z potwierdzeniem.</p>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Jak mogę skontaktować się z obsługą klienta?</h3>
+            <p class="faq-answer">Aby skontaktować się z obsługą klienta, przejdź do sekcji "Pomoc" w menu aplikacji, gdzie znajdziesz formularz kontaktowy.</p>
+        </div>
+    </div>
+    <!-- Dolny pasek nawigacyjny -->
+    <div class="bottom-nav">
+        <button class="nav-button" @onclick="OnMenuClick">
+            <img src="Images/home-icon.png" alt="Home" />
+        </button>
+        <button class="nav-button" @onclick="OnCartClick">
+            <img src="Images/cart-icon.png" alt="Cart" />
+        </button>
+        <button class="nav-button" @onclick="OnProfileClick">
+            <img src="Images/profile-icon.png" alt="Profile" />
+        </button>
+    </div>
+</div>
+@code {
+    private void NavigateBack()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+
+    private void OnMenuClick()
+    {
+        NavigationManager.NavigateTo("/menu");
+    }
+
+    private void OnCartClick()
+    {
+        NavigationManager.NavigateTo("/cart");
+    }
+
+    private void OnProfileClick()
+    {
+        NavigationManager.NavigateTo("/profile");
+    }
+}
