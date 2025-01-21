@@ -1,8 +1,8 @@
 ﻿/* Kontener główny */
 .thank-you-container {
     font-family: 'Jua', sans-serif;
-    background-color: #ffffff;
-    color: #333333;
+    background-color: #FFA500; /* Zmiana na bardziej wyrazisty kolor */
+    color: #FFFFFF; /* Tekst w kontraście do tła */
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -10,62 +10,43 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
 }
 
     /* Nagłówek wiadomości */
     .thank-you-container h1 {
-        font-size: 32px;
+        font-size: 36px;
         font-weight: bold;
-        color: #ffa500;
-        margin-bottom: 10px;
+        color: #FFFFFF;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     }
 
     /* Opis wiadomości */
     .thank-you-container p {
-        font-size: 18px;
-        color: #555555;
+        font-size: 20px;
+        color: #FFFFFF;
         margin-bottom: 30px;
+        line-height: 1.5;
+        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     }
 
 /* Przycisk powrotu do menu */
 .menu-button {
-    background-color: #ffa500;
-    color: #ffffff;
+    background-color: #FFFFFF;
+    color: #FFA500;
     border: none;
-    padding: 15px 25px;
-    border-radius: 20px;
+    padding: 15px 30px;
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
     .menu-button:hover {
-        background-color: #e69500;
-    }
-
-/* Tryb Ciemny - Kontener główny */
-body.dark-mode .thank-you-container {
-    background-color: #333333;
-    color: #ffffff;
-}
-
-    /* Tryb Ciemny - Nagłówek wiadomości */
-    body.dark-mode .thank-you-container h1 {
-        color: #ffa500;
-    }
-
-    /* Tryb Ciemny - Opis wiadomości */
-    body.dark-mode .thank-you-container p {
-        color: #cccccc;
-    }
-
-/* Tryb Ciemny - Przycisk powrotu do menu */
-body.dark-mode .menu-button {
-    background-color: #555555;
-    color: #ffa500;
-}
-
-    body.dark-mode .menu-button:hover {
-        background-color: #444444;
+        background-color: #FFD27F;
+        transform: scale(1.05);
     }

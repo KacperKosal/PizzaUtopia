@@ -122,9 +122,13 @@
             if (photo != null)
             {
                 var stream = await photo.OpenReadAsync();
-                ProfilePicture = await SavePhotoAsync(stream);
-                await SaveChanges(); // Zapisz zmiany po wykonaniu zdjęcia.
-                StateHasChanged();
+                var savedPath = await SavePhotoAsync(stream);
+                if (!string.IsNullOrEmpty(savedPath))
+                {
+                    ProfilePicture = savedPath;
+                    await SaveChanges(); // Zapisz nową ścieżkę zdjęcia do LocalStorage
+                    StateHasChanged(); // Odśwież widok
+                }
             }
         }
         catch (Exception ex)
@@ -138,11 +142,19 @@
     /// </summary>
     private async Task<string> SavePhotoAsync(Stream stream)
     {
-        var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");
-        using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+        try
         {
-            await stream.CopyToAsync(fileStream);
+            var filePath = Path.Combine(FileSystem.AppDataDirectory, "profile.jpg");
+            using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            {
+                await stream.CopyToAsync(fileStream);
+            }
+            return filePath; // Zwróć ścieżkę zapisanego pliku
         }
-        return filePath;
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Błąd podczas zapisywania zdjęcia: {ex.Message}");
+            return string.Empty;
+        }
     }
 }

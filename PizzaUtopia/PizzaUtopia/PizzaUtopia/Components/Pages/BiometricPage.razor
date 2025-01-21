@@ -1,8 +1,10 @@
 ﻿@page "/biometry"
+
 @using PizzaUtopia.Components.Elements.ToggleSwitch
 @using PizzaUtopia.Components.Elements.Buttons
-
+@using Blazored.LocalStorage
 @inject NavigationManager Navigation
+@inject ILocalStorageService LocalStorage
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <link rel="stylesheet" href="Profile.css">
@@ -42,7 +44,15 @@
     /// <summary>
     /// Variable to manage the state of the biometry toggle switch.
     /// </summary>
-    private bool isBiometryEnabled = false;
+    private bool isBiometryEnabled;
+
+    /// <summary>
+    /// Initializes the component and loads the saved state of the toggle.
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        isBiometryEnabled = await LocalStorage.GetItemAsync<bool>("BiometryEnabled");
+    }
 
     /// <summary>
     /// Navigates back to the profile page.
@@ -51,6 +61,7 @@
     {
         Navigation.NavigateTo("/profile");
     }
+
     /// <summary>
     /// Redirects to the menu page.
     /// </summary>
@@ -67,31 +78,14 @@
     private void RedirectToProfile() => Navigation.NavigateTo("/profile");
 
     /// <summary>
-    /// Handles the logic for editing a fingerprint.
-    /// </summary>
-    private void EditFingerprint()
-    {
-        Console.WriteLine("Edytuj odcisk palca");
-        // Add fingerprint editing logic here.
-    }
-
-    /// <summary>
-    /// Handles the logic for adding a new fingerprint.
-    /// </summary>
-    private void AddFingerprint()
-    {
-        Console.WriteLine("Dodaj kolejny odcisk palca");
-        // Add logic for adding a new fingerprint here.
-    }
-
-    /// <summary>
-    /// Toggles the state of biometry and logs the current state.
+    /// Toggles the state of biometry, saves it to LocalStorage, and logs the current state.
     /// </summary>
     /// <param name="sender">The source of the event.</param>
     /// <param name="e">Event arguments.</param>
-    private void HandleToggle(object sender, EventArgs e)
+    private async void HandleToggle(object sender, EventArgs e)
     {
         isBiometryEnabled = !isBiometryEnabled;
+        await LocalStorage.SetItemAsync("BiometryEnabled", isBiometryEnabled);
         Console.WriteLine("Biometria: " + (isBiometryEnabled ? "włączona" : "wyłączona"));
     }
 }

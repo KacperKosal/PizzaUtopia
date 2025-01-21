@@ -83,19 +83,31 @@
 }
 
 .choose-button {
-    background-color: #ffffff;
-    color: #ffa500;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: bold;
+    background-color: #ffffff; /* Kolor tła */
+    color: #ffa500; /* Kolor tekstu */
+    border: none; /* Usuń obramowanie */
+    padding: 12px 25px; /* Większe odstępy wewnętrzne */
+    border-radius: 25px; /* Zaokrąglone rogi */
+    cursor: pointer; /* Rączka przy najechaniu */
+    font-size: 16px; /* Większy rozmiar tekstu */
+    font-weight: bold; /* Pogrubienie tekstu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Efekt cienia */
+    transition: all 0.3s ease; /* Płynne przejścia */
+    text-transform: uppercase; /* Wielkie litery */
 }
 
     .choose-button:hover {
-        background-color: #e6e6e6;
+        background-color: #ffd27f; /* Kolor tła przy najechaniu */
+        color: #ffffff; /* Kolor tekstu przy najechaniu */
+        transform: scale(1.05); /* Powiększenie przy najechaniu */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Mocniejszy cień przy najechaniu */
     }
+
+    .choose-button:active {
+        transform: scale(0.95); /* Minimalne zmniejszenie przy kliknięciu */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lżejszy cień przy kliknięciu */
+    }
+
 
 
 /* Dolny pasek nawigacyjny */
@@ -107,65 +119,29 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #ffa500;
-    padding: 8px 0;
+    background-color: #FFA500;
+    padding: 12px 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .nav-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
-}
-.nav-button img {
-    width: 24px; /* Zmniejszenie rozmiaru ikon */
-    height: 24px;
-}
-/* Tryb Ciemny - Kontener główny */
-body.dark-mode .menu-container {
-    background-color: #333333;
-    color: #ffffff;
+    padding: 8px;
+    transition: transform 0.2s ease;
 }
 
-/* Tryb Ciemny - Górna sekcja powitania */
-body.dark-mode .header {
-    background-color: #555555;
-}
-
-    body.dark-mode .header .welcome h1 {
-        color: #ffffff;
+    .nav-button img {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        transition: transform 0.2s ease, background-color 0.2s ease;
     }
 
-/* Tryb Ciemny - Tytuł menu */
-body.dark-mode .menu-title {
-    color: #ffffff;
-}
-
-/* Tryb Ciemny - Lista pizz */
-body.dark-mode .pizza-card {
-    background-color: #555555;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .pizza-details h3,
-body.dark-mode .pizza-details p {
-    color: #ffffff;
-}
-
-/* Tryb Ciemny - Przycisk wyboru pizzy */
-body.dark-mode .choose-button {
-    background-color: #333333;
-    color: #ffa500;
-}
-
-/* Tryb Ciemny - Dolny pasek nawigacyjny */
-body.dark-mode .bottom-nav {
-    background-color: #555555;
-}
-
-body.dark-mode .nav-button img {
-    filter: invert(1);
-}
+    .nav-button:hover img {
+        transform: scale(1.1);
+        background-color: #ffd27f;
+    }
