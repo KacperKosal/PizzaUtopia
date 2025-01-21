@@ -57,8 +57,8 @@
     protected override async Task OnInitializedAsync()
     {
         // Odczytaj dane użytkownika z pamięci lokalnej
-        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "Andrzej Kucyk";
-        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "+48 123456789";
+        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "";
+        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "";
     }
 
     /// <summary>
