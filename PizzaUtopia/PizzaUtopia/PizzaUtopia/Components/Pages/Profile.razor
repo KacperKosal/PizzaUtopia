@@ -1,5 +1,8 @@
 ﻿@page "/profile"
+
+@using Blazored.LocalStorage
 @inject NavigationManager Navigation
+@inject Blazored.LocalStorage.ILocalStorageService LocalStorage
 
 <link href="https://fonts.googleapis.com/css?family=Jua" rel="stylesheet">
 <link rel="stylesheet" href="Profile.css">
@@ -41,12 +44,22 @@
     /// <summary>
     /// Nazwa użytkownika wyświetlana w nagłówku.
     /// </summary>
-    private string UserName { get; set; } = "Andrzej Kucyk";
+    private string UserName { get; set; } = string.Empty;
 
     /// <summary>
     /// Numer telefonu użytkownika wyświetlany w nagłówku.
     /// </summary>
-    private string PhoneNumber { get; set; } = "+48 123456789";
+    private string PhoneNumber { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Inicjalizacja danych profilu użytkownika z pamięci lokalnej.
+    /// </summary>
+    protected override async Task OnInitializedAsync()
+    {
+        // Odczytaj dane użytkownika z pamięci lokalnej
+        UserName = await LocalStorage.GetItemAsync<string>("UserName") ?? "Andrzej Kucyk";
+        PhoneNumber = await LocalStorage.GetItemAsync<string>("PhoneNumber") ?? "+48 123456789";
+    }
 
     /// <summary>
     /// Funkcja nawigacyjna - przekierowuje do strony edytowania profilu.
@@ -62,11 +75,6 @@
     /// Funkcja nawigacyjna - przekierowuje do strony biometrii.
     /// </summary>
     private void RedirectToBiometry() => Navigation.NavigateTo("/biometry");
-
-    /// <summary>
-    /// Funkcja nawigacyjna - przekierowuje do strony ustawień wyglądu.
-    /// </summary>
-    private void RedirectToAppearance() => Navigation.NavigateTo("/look");
 
     /// <summary>
     /// Funkcja nawigacyjna - przekierowuje do strony FAQ.
