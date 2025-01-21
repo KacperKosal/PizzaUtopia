@@ -65,25 +65,80 @@
     color: #000;
 }
 
-.cart-item-quantity {
-    font-size: 16px;
-    color: #555;
-    margin-top: 5px;
+/* Styl przycisków +/- w koszyku */
+.cart-item-quantity button {
+    background-color: #ffa500; /* Kolor tła */
+    color: #ffffff; /* Kolor tekstu */
+    border: none; /* Usuń obramowanie */
+    border-radius: 50%; /* Przyciski okrągłe */
+    width: 32px; /* Szerokość */
+    height: 32px; /* Wysokość */
+    font-size: 18px; /* Wielkość tekstu */
+    font-weight: bold; /* Pogrubienie */
+    cursor: pointer; /* Rączka przy najechaniu */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Płynne przejścia */
 }
 
+    .cart-item-quantity button:hover {
+        background-color: #ffd27f; /* Jaśniejszy kolor przy najechaniu */
+        transform: scale(1.1); /* Powiększenie */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodanie cienia */
+    }
+
+    .cart-item-quantity button:active {
+        transform: scale(0.9); /* Zmniejszenie przy kliknięciu */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Słabszy cień */
+    }
+
+/* Styl przycisku Usuń */
+.cart-item-content button {
+    background-color: #ffa500; /* Czerwony kolor przycisku */
+    color: #ffffff; /* Kolor tekstu */
+    border: none; /* Usuń obramowanie */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    padding: 8px 15px; /* Odstępy wewnętrzne */
+    font-size: 14px; /* Wielkość tekstu */
+    font-weight: bold; /* Pogrubienie */
+    cursor: pointer; /* Rączka przy najechaniu */
+    transition: transform 0.2s ease, background-color 0.2s ease; /* Płynne przejścia */
+}
+
+    .cart-item-content button:hover {
+        background-color: #ffd27f; /* Jaśniejszy odcień czerwonego przy najechaniu */
+        transform: scale(1.05); /* Powiększenie */
+    }
+
+    .cart-item-content button:active {
+        transform: scale(0.95); /* Zmniejszenie przy kliknięciu */
+    }
+
+/* Styl przycisku "Dokończ zamówienie" */
 .checkout-button {
-    background-color: #FFA500;
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 15px;
-    border: none;
-    border-radius: 10px;
-    width: 100%;
-    cursor: pointer;
-    margin-top: 20px;
+    background-color: #ffa500; /* Pomarańczowy kolor */
+    color: #ffffff; /* Kolor tekstu */
+    border: none; /* Usuń obramowanie */
+    border-radius: 15px; /* Zaokrąglone rogi */
+    padding: 15px; /* Duże odstępy wewnętrzne */
+    font-size: 18px; /* Wielkość tekstu */
+    font-weight: bold; /* Pogrubienie */
+    cursor: pointer; /* Rączka przy najechaniu */
+    width: 100%; /* Dopasowanie szerokości */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Efekt podniesienia */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Płynne przejścia */
 }
 
+    .checkout-button:hover {
+        background-color: #ffd27f; /* Jaśniejszy odcień pomarańczowego */
+        transform: scale(1.03); /* Powiększenie przy najechaniu */
+    }
+
+    .checkout-button:active {
+        transform: scale(0.97); /* Zmniejszenie przy kliknięciu */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Lżejszy cień */
+    }
+
+
+/* Dolny pasek nawigacyjny */
 .bottom-nav {
     display: flex;
     justify-content: space-around;
@@ -92,21 +147,29 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #ffa500;
-    padding: 8px 0;
+    background-color: #FFA500;
+    padding: 12px 0;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.25);
 }
 
 .nav-button {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
+    transition: transform 0.2s ease;
 }
 
     .nav-button img {
-        width: 24px; /* Zmniejszenie rozmiaru ikon */
-        height: 24px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .nav-button:hover img {
+        transform: scale(1.1);
+        background-color: #ffd27f;
     }
