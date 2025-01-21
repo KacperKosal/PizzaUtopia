@@ -1,162 +1,71 @@
 ﻿/* Kontener główny */
-.order-container {
+.thank-you-container {
     font-family: 'Jua', sans-serif;
     background-color: #ffffff;
+    color: #333333;
     padding: 20px;
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-/* Górna sekcja nagłówka */
-.header {
-    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: #ffa500;
-    padding: 10px;
-    border-top-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
-    .header img {
-        width: 50px;
-        height: 50px;
-        margin-right: 10px;
-    }
-
-    .header h1 {
-        margin: 0;
-        font-size: 24px;
-        color: #ffffff;
+    /* Nagłówek wiadomości */
+    .thank-you-container h1 {
+        font-size: 32px;
         font-weight: bold;
+        color: #ffa500;
+        margin-bottom: 10px;
     }
 
-/* Podsumowanie zamówienia */
-.summary-container {
-    flex: 1;
-    overflow-y: auto;
-    padding: 10px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.summary-item {
-    display: flex;
-    align-items: center;
-    background-color: #ffa500;
-    border-radius: 20px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-    .summary-item img {
-        width: 100px;
-        height: 100px;
-        border-radius: 10px;
-        margin-right: 15px;
+    /* Opis wiadomości */
+    .thank-you-container p {
+        font-size: 18px;
+        color: #555555;
+        margin-bottom: 30px;
     }
 
-.summary-item-content {
-    flex: 1;
-}
-
-.summary-item-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.summary-item-quantity {
-    font-size: 16px;
-    color: #ffffff;
-    margin-top: 5px;
-}
-
-/* Przycisk potwierdzenia zamówienia */
-.confirm-button {
+/* Przycisk powrotu do menu */
+.menu-button {
     background-color: #ffa500;
     color: #ffffff;
     border: none;
-    padding: 15px 20px;
-    border-radius: 15px;
+    padding: 15px 25px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 18px;
     font-weight: bold;
-    margin-top: 20px;
-    align-self: center;
+    transition: background-color 0.3s ease;
 }
 
-    .confirm-button:hover {
+    .menu-button:hover {
         background-color: #e69500;
     }
 
-/* Dolny pasek nawigacyjny */
-.bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #ffa500;
-    padding: 8px 0;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.nav-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 5px;
-}
-
-    .nav-button img {
-        width: 24px;
-        height: 24px;
-    }
-
 /* Tryb Ciemny - Kontener główny */
-body.dark-mode .order-container {
+body.dark-mode .thank-you-container {
     background-color: #333333;
     color: #ffffff;
 }
 
-/* Tryb Ciemny - Górna sekcja nagłówka */
-body.dark-mode .header {
-    background-color: #555555;
-}
-
-    body.dark-mode .header h1 {
-        color: #ffffff;
+    /* Tryb Ciemny - Nagłówek wiadomości */
+    body.dark-mode .thank-you-container h1 {
+        color: #ffa500;
     }
 
-/* Tryb Ciemny - Podsumowanie zamówienia */
-body.dark-mode .summary-item {
+    /* Tryb Ciemny - Opis wiadomości */
+    body.dark-mode .thank-you-container p {
+        color: #cccccc;
+    }
+
+/* Tryb Ciemny - Przycisk powrotu do menu */
+body.dark-mode .menu-button {
     background-color: #555555;
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .summary-item-title,
-body.dark-mode .summary-item-quantity {
-    color: #ffffff;
-}
-
-/* Tryb Ciemny - Przycisk potwierdzenia zamówienia */
-body.dark-mode .confirm-button {
-    background-color: #333333;
     color: #ffa500;
 }
 
-/* Tryb Ciemny - Dolny pasek nawigacyjny */
-body.dark-mode .bottom-nav {
-    background-color: #555555;
-}
-
-body.dark-mode .nav-button img {
-    filter: invert(1);
-}
+    body.dark-mode .menu-button:hover {
+        background-color: #444444;
+    }
