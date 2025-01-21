@@ -1,15 +1,4 @@
-﻿.back-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-    .back-button img {
-        width: 24px;
-        height: 24px;
-    }
-/* Kontener główny dla całej strony logowania */
+﻿/* Kontener główny dla całej strony logowania */
 .login-container {
     display: flex;
     flex-direction: column;
@@ -17,50 +6,57 @@
     align-items: center; /* Wyśrodkowanie poziome */
     height: 100vh; /* Pełna wysokość widoku */
     background-color: #ffa500;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Jua', sans-serif; /* Użycie bardziej nowoczesnego fontu */
+    padding: 20px; /* Margines wewnętrzny */
 }
 
 /* Kontener dla logo i tytułu aplikacji */
 .logo-container {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Większy odstęp od formularza */
 }
 
 .logo {
-    width: 250px; /* Możesz dostosować rozmiar logo */
-    height: 250px; /* Możesz dostosować rozmiar logo */
+    width: 150px; /* Rozmiar logo */
+    height: 150px; /* Rozmiar logo */
+    margin-bottom: 10px; /* Odstęp między logo a tytułem */
 }
 
 .app-title {
     font-size: 36px;
     color: #ffffff;
     font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Lekki cień tekstu */
 }
 
 /* Kontener dla formularza logowania */
 .form-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Lekko przezroczysty biały kontener */
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff; /* Jasne tło */
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Wyraźniejszy cień */
     text-align: center;
+    width: 100%;
+    max-width: 400px; /* Maksymalna szerokość formularza */
 }
 
 .form-title {
     font-size: 24px;
     color: #333333;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Większy odstęp od pól formularza */
+    font-weight: bold;
 }
 
 /* Stylizacja dla pól formularza */
 .input-field {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 10px;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 15px;
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
+    font-family: 'Arial', sans-serif;
 }
 
 /* Stylizacja przycisku logowania */
@@ -70,12 +66,48 @@
     color: #ffffff;
     border: none;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Animacja */
 }
 
     .login-button:hover {
         background-color: #d48600;
+        transform: scale(1.02); /* Lekka animacja powiększenia */
     }
+
+/* Stylizacja przycisku powrotu */
+.back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+    .back-button img {
+        width: 30px;
+        height: 30px;
+    }
+
+/* Dodanie stylizacji dla małych ekranów */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    .app-title {
+        font-size: 28px; /* Mniejszy rozmiar dla małych ekranów */
+    }
+
+    .input-field {
+        font-size: 14px; /* Mniejszy rozmiar tekstu */
+    }
+
+    .login-button {
+        font-size: 16px; /* Dopasowanie wielkości przycisku */
+    }
+}
